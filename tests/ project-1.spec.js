@@ -65,8 +65,8 @@ test('verify that an article can be recommended',async({page})=>{
        // await page.locator('#popup').getByRole('button', { name: 'Recommend' }).click()
 
     //
-   // await page.getByPlaceholder('Min').fill('12');
-   // await page.locator('#popup').getByRole('button', { name: 'Recommend' }).click();
+    await page.getByPlaceholder('Min').fill('12');
+   await page.locator('#popup').getByRole('button', { name: 'Recommend' }).click();
   //  await page.goto('https://my.staging.adaptiveu.app/react/v2/anywhereworks/home?category=all&contentType=all&sortby=recent');
   //});
     //await expect(page.locator('section .container')).toContainText('Recommend');
