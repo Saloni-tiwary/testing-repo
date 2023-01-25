@@ -101,6 +101,6 @@ test("verify that content filter dropdown is clickable",async({page})=>{
     //const content=await page.locator("challenge-image").nth(0);
     await expect(page.getByAltText('link').nth(0)).to
   //}*/
-  
+ await page.pause()
 
 
