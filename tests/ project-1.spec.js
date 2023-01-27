@@ -73,7 +73,7 @@ test('verify that link outer card more options are selectable', async({page})=>{
   await page.locator(".link-dropdown").nth(0).click()
   await expect(page.locator(".edit-content").nth(0)).toContainText("Edit")
 })
-test("verify that link oter card add to learn options are clickable",async({page})=>{
+test("verify that link outer card add to learn options are clickable",async({page})=>{
   await page.locator('[data-tippy-content="Add to Learn" ]').nth(0).click();
   await expect(page.locator("[data-tippy-content='Added to Learn' ]").nth(0)).toBeEnabled();
 
@@ -92,15 +92,106 @@ test("verify that content filter dropdown is clickable",async({page})=>{
   await expect(page.locator(".content-type").nth(0)).toContainText("All Type");
 })
 
-/*test.only("verify on selecting video type content filter only recommended video is displayed on home page",async({page})=>{
+test("verify on selecting video type content filter only recommended video is displayed on home page",async({page})=>{
   await page.locator('.filter-dropdown').click();
   await page.locator("[data-type='video']").click();
-   page.waitForNavigation();
- 
-  //for(let i=0;i<20;i++){
-    //const content=await page.locator("challenge-image").nth(0);
-    await expect(page.getByAltText('link').nth(0)).to
-  //}*/
- await page.pause()
+  for(let i=0;i<20;i++){ 
+    await expect(page.locator("span[class='challenge-type video']").nth(i)).toBeVisible();
+}
+})
+test("verify on selecting audio content filter only recommended audio files are displayed",async({page})=>{
+  await page.locator('.filter-dropdown').click();
+  await page.locator("[data-type='audio']").click();
+  for(let i=0;i<15;i++){ 
+    await expect(page.locator("span[class='challenge-type audio']").nth(i)).toBeVisible();
+}
+  
+})
+test("verify on selecting book content filter only recommended books are displayed",async({page})=>{
+  await page.locator('.filter-dropdown').click();
+  await page.locator("[data-type='book']").click();
+  for(let i=0;i<3;i++){ 
+    await expect(page.locator("span[class='challenge-type book']").nth(i)).toBeVisible();
+  }
+})
+test("verify on selecting article filter only recommend articles are displayed",async({page})=>{
+  await page.locator('.filter-dropdown').click();
+  await page.locator("[data-type='article']").click();
+  for(let i=0;i<15;i++){ 
+    await expect(page.locator("span[class='challenge-type article']").nth(i)).toBeVisible();
+  }
+})
+test("verify on clicking edit from more options of link outercard edit popup should populate", async({page})=>{
+  await page.locator(".challenge-image").nth(0).hover();
+  await page.locator(".link-dropdown").nth(0).click();
+  await page.locator("[data-status='edit']").nth(0).click();
+  await expect(page.locator(".container")).toBeVisible();
+})
+test("verify that link edited to no title cannot be saved", async({page})=>{
+  await page.locator(".challenge-image").nth(0).hover();
+  await page.locator(".link-dropdown").nth(0).click();
+  await page.locator("[data-status='edit']").nth(0).click();
+  await page.getByPlaceholder("Enter Title").fill("");
+  await page.getByRole('button', { name: 'save' }).click();
+  await expect(page.getByPlaceholder("Enter Title")).toHaveClass("link-name error")
+})
+test("verify that the link edited to only special characters in title cannot be saved",async({page})=>{
+  await page.locator(".challenge-image").nth(0).hover();
+  await page.locator(".link-dropdown").nth(0).click();
+  await page.locator("[data-status='edit']").nth(0).click();
+  await page.getByPlaceholder("Enter Title").fill("!@#$%^");
+  await page.getByRole('button', { name: 'save' }).click();
+  await expect(page.getByPlaceholder("Enter Title")).toHaveClass("link-name error")
+  //await expect(page.locator("voice-box warning")).tobevisible()
+})
 
+/*test.only("verify that the title can have max 200 characters",async({page})=>{
+  await page.locator(".challenge-image").nth(0).hover();
+  await page.locator(".link-dropdown").nth(0).click();
+  await page.locator("[data-status='edit']").nth(0).click();
+  await page.getByPlaceholder("Enter Title").fill("")
+  for(let i=0;i<=201;i++){
+  var NewData=[i]
+  const data= NewData[i]
+  await page.getByPlaceholder("Enter Title").fill(data)
+  }
+  await page.getByRole('button', { name: 'save' }).click();
+  await expect(page.getByPlaceholder("Enter Title")).toHaveClass("link-name error")
+})*/
+test("verify that link cannot be edited 0/null minutes minutes",async({page})=>{
+  await page.locator(".challenge-image").nth(0).hover();
+  await page.locator(".link-dropdown").nth(0).click();
+  await page.locator("[data-status='edit']").nth(0).click();
+  await page.getByPlaceholder("Min").fill("");
+  await page.getByRole('button', { name: 'save' }).click();
+  await expect(page.getByPlaceholder("Min")).toHaveClass("points error");
 
+})
+test("verify that link cannot be edited to minutes in special characters", async({page})=>{
+  await page.locator(".challenge-image").nth(0).hover();
+  await page.locator(".link-dropdown").nth(0).click();
+  await page.locator("[data-status='edit']").nth(0).click();
+  await page.getByPlaceholder("Min").fill("")
+  await page.getByPlaceholder("Min").fill("!@#$%")
+  await page.getByRole('button', { name: 'save' }).click();
+  await expect(page.getByPlaceholder("Min")).toHaveClass("points error");
+})
+
+test("verify that link cannot be edited to minutes in alphabets",async({page})=>{
+  await page.locator(".challenge-image").nth(0).hover();
+  await page.locator(".link-dropdown").nth(0).click();
+  await page.locator("[data-status='edit']").nth(0).click();
+  await page.getByPlaceholder("Min").fill("")
+  await page.getByPlaceholder("Min").fill("asdf")
+  await page.getByRole('button', { name: 'save' }).click();
+  await expect(page.getByPlaceholder("Min")).toHaveClass("points error");
+})
+
+test("verify that the max minutes a link can have is 10000",async({page})=>{
+  await page.locator(".challenge-image").nth(0).hover();
+  await page.locator(".link-dropdown").nth(0).click();
+  await page.locator("[data-status='edit']").nth(0).click();
+  await page.getByPlaceholder("Min").fill("")
+  await page.getByPlaceholder("Min").type("100001")
+  await expect(page.getByPlaceholder("Min")).toHaveValue("10000")
+})
