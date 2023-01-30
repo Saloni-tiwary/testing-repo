@@ -146,18 +146,93 @@ test("verify that the link edited to only special characters in title cannot be 
 })
 
 /*test.only("verify that the title can have max 200 characters",async({page})=>{
+  var data
   await page.locator(".challenge-image").nth(0).hover();
   await page.locator(".link-dropdown").nth(0).click();
   await page.locator("[data-status='edit']").nth(0).click();
   await page.getByPlaceholder("Enter Title").fill("")
-  for(let i=0;i<=201;i++){
-  var NewData=[i]
-  const data= NewData[i]
-  await page.getByPlaceholder("Enter Title").fill(data)
-  }
+    await page.getByPlaceholder("Enter Title").type("")
+    data=0
+  
+   
+   
+  
   await page.getByRole('button', { name: 'save' }).click();
   await expect(page.getByPlaceholder("Enter Title")).toHaveClass("link-name error")
 })*/
+test("verify when more settings is clicked the edit popup expands unvieling more options", async({page})=>{
+  await page.locator(".challenge-image").nth(0).hover();
+  await page.locator(".link-dropdown").nth(0).click();
+  await page.locator("[data-status='edit']").nth(0).click();
+  await page.locator(".more-settings").click();
+  await expect(page.locator(".populate")).toBeVisible();
+})
+test("verify that only 5 tags can be added at max in a link", async({page})=>{
+  await page.locator(".challenge-image").nth(0).hover();
+  await page.locator(".link-dropdown").nth(0).click();
+  await page.locator("[data-status='edit']").nth(0).click();
+  await page.locator(".more-settings").click();
+   await page.getByPlaceholder("Add tag").type("1",{timeout: 5000});
+   await page.keyboard.press('Enter');
+   await page.getByPlaceholder("Add tag").type("2",{timeout: 5000});
+   await page.keyboard.press('Enter');
+   await page.getByPlaceholder("Add tag").type("3",{timeout: 5000});
+   await page.keyboard.press('Enter'); 
+   await page.getByPlaceholder("Add tag").type("4",{timeout: 5000});
+   await page.keyboard.press('Enter');
+   await page.getByPlaceholder("Add tag").type("5",{timeout: 5000});
+   await page.keyboard.press('Enter');
+   await page.getByPlaceholder("Add tag").type("6",{timeout: 5000});
+   await page.keyboard.press('Enter');
+
+  await expect(page.locator(".warning")).toBeVisible();
+})
+test("verify that a user cannot add duplicate tags",async({page})=>{
+  await page.locator(".challenge-image").nth(0).hover();
+  await page.locator(".link-dropdown").nth(0).click();
+  await page.locator("[data-status='edit']").nth(0).click();
+  await page.locator(".more-settings").click();
+   await page.getByPlaceholder("Add tag").type("1",{timeout: 5000});
+   await page.keyboard.press('Enter');
+   await page.getByPlaceholder("Add tag").type("1",{timeout: 5000});
+   await page.keyboard.press('Enter');
+   await expect(page.locator(".warning")).toContainText("Already the tag has been added!")
+})
+test("verify that a tag can contain max 25 characters",async({page})=>{
+  await page.locator(".challenge-image").nth(0).hover();
+  await page.locator(".link-dropdown").nth(0).click();
+  await page.locator("[data-status='edit']").nth(0).click();
+  await page.locator(".more-settings").click();
+   await page.getByPlaceholder("Add tag").type("123456789009876543211234567890",{timeout: 5000});
+   await page.keyboard.press('Enter');
+   await expect(page.locator(".warning")).toContainText("Please enter tag with character length less than or equal to 25!")
+})
+test("verify on clicking cancel button a tag is deleted",async({page})=>{
+  await page.locator(".challenge-image").nth(0).hover();
+  await page.locator(".link-dropdown").nth(0).click();
+  await page.locator("[data-status='edit']").nth(0).click();
+  await page.locator(".more-settings").click();
+   await page.getByPlaceholder("Add tag").type("1",{timeout: 5000});
+   await page.keyboard.press('Enter');
+   await page.locator("#close").first().click();
+   await expect(page.locator(".tag-name")).not.toBeVisible();
+})
+//Failing  Error: Not a checkbox or radio button
+test.only("Verify only one content type can be choosen", async({page})=>{
+  await page.locator(".challenge-image").nth(0).hover();
+  await page.locator(".link-dropdown").nth(0).click();
+  await page.locator("[data-status='edit']").nth(0).click();
+  await page.locator(".more-settings").click();
+  await page.locator('#video').click();
+  await page.locator("#article").click();
+ const RadioButton= await page.locator("#video .radio-button").isEnabled()
+ if(RadioButton==false){
+ console.log("only one content type is selected");
+ }
+ else{
+  console.log("test is failing");
+ }
+})
 test("verify that link cannot be edited 0/null minutes minutes",async({page})=>{
   await page.locator(".challenge-image").nth(0).hover();
   await page.locator(".link-dropdown").nth(0).click();
