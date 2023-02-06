@@ -1,4 +1,4 @@
-const { test, expect, } = require('@playwright/test');
+const { test, expect, request} = require('@playwright/test');
 
 
     
@@ -22,10 +22,12 @@ test('recommend tab UI', async({page})=>{
     await page.locator('.recommend-link').click("[data-option*=recommend]");
     await expect(page.locator('section .container')).toContainText('Recommend');
 })
-    // video link
+    // video link not completed in headed mode
 test('Verify that a Video can be recommended', async({page})=>{
     await expect(page.locator('.recommend-link')).toBeVisible();
-    await page.getByRole('button', { name: '+ Recommend' }).click();// used timeout here 
+    await page.getByRole('button', { name: '+ Recommend' }).click({delay:100});
+    // used timeout here 
+    await page.locator('.track-dropdown').waitFor();
     //tried these for dropdown component 
   /* await page.locator('span').filter({ hasText: 'AnywhereWorks' }).click();
    await page.locator('#popup').getByRole('listitem').getByText('AnywhereWorks').click();
@@ -37,7 +39,7 @@ test('Verify that a Video can be recommended', async({page})=>{
   // if(dropdown==true){*/
 
    
-    await page.getByPlaceholder('Share any video/article, which benefits your organization!').fill('https://www.youtube.com/watch?v=Pm2BvdiZUXA');
+    await page.getByPlaceholder('Share any video/article, which benefits your organization!').fill('https://www.youtube.com/watch?v=Pm2BvdiZUXA',{delay:100});
    await page.keyboard.press('Enter');
    await page.getByPlaceholder('Min').fill('14')
    await page.locator('#popup').getByRole('button', { name: 'Recommend' }).click();
@@ -47,7 +49,7 @@ test('Verify that a Video can be recommended', async({page})=>{
    
 })
 
-//article link
+//article link not completed in headed mode
 test('verify that an article can be recommended',async({page})=>{
     await expect(page.locator('.recommend-link')).toBeVisible()
     await page.locator('.recommend-link').click("[data-option*=recommend]");
@@ -144,7 +146,7 @@ test("verify that the link edited to only special characters in title cannot be 
   await expect(page.getByPlaceholder("Enter Title")).toHaveClass("link-name error")
   //await expect(page.locator("voice-box warning")).tobevisible()
 })
-
+// not completed
 /*test.only("verify that the title can have max 200 characters",async({page})=>{
   var data
   await page.locator(".challenge-image").nth(0).hover();
@@ -217,8 +219,8 @@ test("verify on clicking cancel button a tag is deleted",async({page})=>{
    await page.locator("#close").first().click();
    await expect(page.locator(".tag-name")).not.toBeVisible();
 })
-//Failing  Error: Not a checkbox or radio button
-test.only("Verify only one content type can be choosen", async({page})=>{
+
+test("Verify only one content type can be choosen", async({page})=>{
   await page.locator(".challenge-image").nth(0).hover();
   await page.locator(".link-dropdown").nth(0).click();
   await page.locator("[data-status='edit']").nth(0).click();
@@ -226,6 +228,7 @@ test.only("Verify only one content type can be choosen", async({page})=>{
   await page.locator('#video').click();
   await page.locator("#article").click();
  const RadioButton= await page.locator("#video .radio-button").isEnabled()
+
  if(RadioButton==false){
  console.log("only one content type is selected");
  }
@@ -233,6 +236,7 @@ test.only("Verify only one content type can be choosen", async({page})=>{
   console.log("test is failing");
  }
 })
+
 test("verify that link cannot be edited 0/null minutes minutes",async({page})=>{
   await page.locator(".challenge-image").nth(0).hover();
   await page.locator(".link-dropdown").nth(0).click();
@@ -269,4 +273,122 @@ test("verify that the max minutes a link can have is 10000",async({page})=>{
   await page.getByPlaceholder("Min").fill("")
   await page.getByPlaceholder("Min").type("100001")
   await expect(page.getByPlaceholder("Min")).toHaveValue("10000")
+})
+
+test("verify that on clicking pay it forward the popup box opens",async({page})=>{
+  await page.locator(".challenge-image").nth(0).hover();
+  await page.locator(".link-dropdown").nth(0).click();
+  await page.locator("[data-status='pay-forward']").nth(0).click();
+  await expect(page.locator(".container")).toContainText("Pay it Forward");
+})
+
+test("verify that pay it forward popup contaians embed link image",async({page})=>{
+  await page.locator(".challenge-image").nth(0).hover();
+  await page.locator(".link-dropdown").nth(0).click();
+  await page.locator("[data-status='pay-forward']").nth(0).click();
+  await expect(page.locator('a').filter({ hasText: '10m' }).first()).toBeVisible();
+})
+
+test("verify that a person can be selected only once in payit forward",async({page})=>{
+  await page.locator(".challenge-image").nth(0).hover();
+  await page.locator(".link-dropdown").nth(0).click();
+  await page.locator("[data-status='pay-forward']").nth(0).click();
+  await page.locator(".input-value").type("shak",{delay:100})
+  await page.locator('a').filter({ hasText: 'Shakkthi Rajkumar' }).click();
+  await page.locator(".input-value").type("shak",{delay:100})
+  await page.locator('a').filter({ hasText: 'Shakkthi Rajkumar' }).click();
+  await expect(page.locator(".warning")).toContainText("The user is already added!")
+
+})
+test("verify link cannot be forwarded to self", async({page})=>{
+  await page.locator(".challenge-image").nth(0).hover();
+  await page.locator(".link-dropdown").nth(0).click();
+  await page.locator("[data-status='pay-forward']").nth(0).click();
+  await page.locator(".input-value").type("shakti aryan",{delay:100})
+  await page.getByRole('navigation').filter({ hasText: 'Shakti Aryan' }).click();
+  await expect(page.locator("button.btn-cta").nth(1)).toBeDisabled();
+})
+test("verify that a link can be shared without notes",async({page})=>{
+   
+  await page.locator(".challenge-image").nth(0).hover();
+  await page.locator(".link-dropdown").nth(0).click();
+  await page.locator("[data-status='pay-forward']").nth(0).click();
+  await page.locator(".input-value").type("saloni tiwary",{delay:100})
+  await page.getByRole('navigation').filter({ hasText: 'Saloni Tiwary' }).click();
+  await page.getByRole("button",{name:'Share'}).click();
+  await page.locator("div .success").waitFor()
+  await expect(page.locator("div .success")).toContainText("Shared")
+})
+test("verify that notes can be added while paying forward a link",async({page})=>{
+  await page.locator(".challenge-image").nth(0).hover();
+  await page.locator(".link-dropdown").nth(0).click();
+  await page.locator("[data-status='pay-forward']").nth(0).click();
+  await page.locator(".input-value").type("saloni tiwary",{delay:100})
+  await page.getByRole('navigation').filter({ hasText: 'Saloni Tiwary' }).click();
+  await page.getByPlaceholder("Type your note here....").fill("test note",{delay:100})
+  await page.getByRole("button",{name:'Share'}).click();
+  await page.locator("div .success").waitFor()
+  await expect(page.locator("div .success")).toContainText("Shared")
+})
+test("verify that on clicking the delete from more options delete popup is opened", async({page})=>{
+  await page.locator(".challenge-image").nth(0).hover();
+  await page.locator(".link-dropdown").nth(0).click();
+  await page.locator("[data-status='delete']").nth(0).click();
+  await expect(page.locator(".container")).toContainText("Delete Link")
+})
+test("verify on clicking cancel button of the delete popup the popup goes away", async({page})=>{
+  await page.locator(".challenge-image").nth(0).hover();
+  await page.locator(".link-dropdown").nth(0).click();
+  await page.locator("[data-status='delete']").nth(0).click();
+  await page.locator(".popup-close").click();
+  await expect(page.locator(".popup-close")).not.toBeVisible();
+})
+test("verify on clicking no on the delete popup, popup closes",async({page})=>{
+  await page.locator(".challenge-image").nth(0).hover();
+  await page.locator(".link-dropdown").nth(0).click();
+  await page.locator("[data-status='delete']").nth(0).click();
+  await page.getByRole('button',{name:'No'}).click()
+  await expect(page.locator(".container")).not.toBeVisible();
+})
+//Yet to ask the way out
+//test("verify on clicking delete from more options the course is deleted",async({page})=>{
+
+
+
+  //******************LINK INNERVIEW***************************
+  test("verify on clicking the link outercard the link innerview of the same link is opened",async({page})=>{
+   const Title= await page.locator("a span.name").nth(0).textContent()
+   console.log(Title);
+    await page.locator(".challenge-image").nth(0).click();
+    await expect(page.locator("div h2.link-name")).toContainText(Title);
+})
+test("verify that the recommendor's name is  visible in the link innerview",async({page})=>{
+  await page.locator(".challenge-image").nth(0).click();
+  const RecommenderName= page.locator(".creator-name")
+  console.log(await RecommenderName.textContent());
+  await expect(RecommenderName).toBeVisible();
+})
+test("verify that name of the university is visible in the link innerview",async({page})=>{
+  await page.locator(".challenge-image").nth(0).click();
+  await expect(page.locator("div a#anywhereworks")).toContainText("AnywhereWorks");
+})
+test("Verify that recommendation date is present on link innerview",async({page})=>{
+await page.locator(".challenge-image").nth(0).click();
+const RecommendationDate= page.locator(".creation-date")
+console.log(await RecommendationDate.textContent());
+await expect(RecommendationDate).toBeVisible()
+})
+test("verify that learning minutes of the link is visible in the link innerview",async({page})=>{
+  await page.locator(".challenge-image").nth(0).click();
+  await expect(page.locator(".link-min")).toBeVisible();
+})
+test("verify that more options in link innerview is clickable",async({page})=>{
+  await page.locator(".challenge-image").nth(0).click();
+  await page.locator(".dropdown-select").click();
+  await expect(page.locator("div .dropdown-menu").first()).toBeVisible();
+})
+test.only("verify on clicking the edit option edit popup is visible",async({page})=>{
+  await page.locator(".challenge-image").nth(0).click();
+  await page.locator(".dropdown-select").click();
+  await expect(page.locator("#popup")).toBeVisible();
 })
