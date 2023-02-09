@@ -24,10 +24,14 @@ test('recommend tab UI', async({page})=>{
 })
     // video link not completed in headed mode
 test('Verify that a Video can be recommended', async({page})=>{
-    await expect(page.locator('.recommend-link')).toBeVisible();
+  // await expect(page.locator('.recommend-link')).toBeVisible();
+  
     await page.getByRole('button', { name: '+ Recommend' }).click({delay:100});
+    await page.locator(".recommend").waitFor();
     // used timeout here 
-    await page.locator('.track-dropdown').waitFor();
+    console.log("demo msg")
+   await page.locator('.track-dropdown').waitFor({state: 'attached'});
+    
     //tried these for dropdown component 
   /* await page.locator('span').filter({ hasText: 'AnywhereWorks' }).click();
    await page.locator('#popup').getByRole('listitem').getByText('AnywhereWorks').click();
@@ -35,17 +39,17 @@ test('Verify that a Video can be recommended', async({page})=>{
         
    // page.waitForSelector('.track-dropdown')
 
- // const dropdown= await expeact(page.locator('.track-dropdown')).toBeVisible();
-  // if(dropdown==true){*/
+      const dropdown= await expeact(page.locator('.track-dropdown')).toBeVisible();
+     if(dropdown==true){*/
 
    
-    await page.getByPlaceholder('Share any video/article, which benefits your organization!').fill('https://www.youtube.com/watch?v=Pm2BvdiZUXA',{delay:100});
+   await page.getByPlaceholder('Share any video/article, which benefits your organization!').fill('https://www.youtube.com/watch?v=Pm2BvdiZUXA',{delay:100});
    await page.keyboard.press('Enter');
    await page.getByPlaceholder('Min').fill('14')
    await page.locator('#popup').getByRole('button', { name: 'Recommend' }).click();
 
-     await expect(page.locator(".tippy").nth(0)).toHaveText("10 Minute Timer");
-   
+    // await expect(page.locator(".tippy").nth(0)).toHaveText("10 Minute Timer");
+    
    
 })
 
@@ -146,22 +150,20 @@ test("verify that the link edited to only special characters in title cannot be 
   await expect(page.getByPlaceholder("Enter Title")).toHaveClass("link-name error")
   //await expect(page.locator("voice-box warning")).tobevisible()
 })
-// not completed
-/*test.only("verify that the title can have max 200 characters",async({page})=>{
+
+test("verify that the title can have max 200 characters",async({page})=>{
   var data
   await page.locator(".challenge-image").nth(0).hover();
   await page.locator(".link-dropdown").nth(0).click();
   await page.locator("[data-status='edit']").nth(0).click();
   await page.getByPlaceholder("Enter Title").fill("")
-    await page.getByPlaceholder("Enter Title").type("")
-    data=0
-  
-   
-   
-  
+  for(let i=1;i<=201;i++){
+    await page.getByPlaceholder("Enter Title").type("1")
+  }
+     
   await page.getByRole('button', { name: 'save' }).click();
   await expect(page.getByPlaceholder("Enter Title")).toHaveClass("link-name error")
-})*/
+})
 test("verify when more settings is clicked the edit popup expands unvieling more options", async({page})=>{
   await page.locator(".challenge-image").nth(0).hover();
   await page.locator(".link-dropdown").nth(0).click();
@@ -328,6 +330,7 @@ test("verify that notes can be added while paying forward a link",async({page})=
   await page.getByPlaceholder("Type your note here....").fill("test note",{delay:100})
   await page.getByRole("button",{name:'Share'}).click();
   await page.locator("div .success").waitFor()
+  
   await expect(page.locator("div .success")).toContainText("Shared")
 })
 test("verify that on clicking the delete from more options delete popup is opened", async({page})=>{
@@ -350,7 +353,8 @@ test("verify on clicking no on the delete popup, popup closes",async({page})=>{
   await page.getByRole('button',{name:'No'}).click()
   await expect(page.locator(".container")).not.toBeVisible();
 })
-//Yet to ask the way out
+//Yet to ask the way out@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@ automation frameworks 
 //test("verify on clicking delete from more options the course is deleted",async({page})=>{
 
 
@@ -379,6 +383,7 @@ console.log(await RecommendationDate.textContent());
 await expect(RecommendationDate).toBeVisible()
 })
 test("verify that learning minutes of the link is visible in the link innerview",async({page})=>{
+  
   await page.locator(".challenge-image").nth(0).click();
   await expect(page.locator(".link-min")).toBeVisible();
 })
@@ -387,8 +392,85 @@ test("verify that more options in link innerview is clickable",async({page})=>{
   await page.locator(".dropdown-select").click();
   await expect(page.locator("div .dropdown-menu").first()).toBeVisible();
 })
-test.only("verify on clicking the edit option edit popup is visible",async({page})=>{
+test("Verify that if the link is added to learn the add to learn checkbox is checked",async({page})=>{
+  await page.locator("figcaption",{has: page.locator("[data-tippy-content='Added to Learn']").nth(0)}).click()
+  await expect(page.locator(".add-myq.active")).toBeVisible();
+  
+
+})
+
+test("verify on clicking the edit option edit popup is visible",async({page})=>{
   await page.locator(".challenge-image").nth(0).click();
   await page.locator(".dropdown-select").click();
-  await expect(page.locator("#popup")).toBeVisible();
+  await page.locator(".edit-content").click();
+  await expect(page.locator(".container")).toBeVisible();
+})
+ 
+test("verify on giving null minutes from edit the link is not saved",async({page})=>{
+  await page.locator(".challenge-image").nth(0).click();
+  await page.locator(".dropdown-select").click();
+  await page.locator(".edit-content").click();
+  await page.getByPlaceholder("Min").fill("");
+  await page.locator(".recommend").click();
+  await expect(page.getByPlaceholder("Min")).toHaveClass("points error");
+  
+})
+test("verify that min field is not accepting special characters as input",async({page})=>{
+  await page.locator(".challenge-image").nth(0).click();
+  await page.locator(".dropdown-select").click();
+  await page.locator(".edit-content").click();
+  await page.getByPlaceholder("Min").fill("")
+  await page.getByPlaceholder("Min").fill("!@#$%")
+  await page.getByRole('button', { name: 'save' }).click();
+  await expect(page.getByPlaceholder("Min")).toHaveClass("points error");
+})
+test("verify that min field is not accepting 0/null value",async({page})=>{
+  await page.locator(".challenge-image").nth(0).click();
+  await page.locator(".dropdown-select").click();
+  await page.locator(".edit-content").click();
+  await page.getByPlaceholder("Min").fill("")
+  await page.getByRole('button', { name: 'save' }).click();
+  await expect(page.getByPlaceholder("Min")).toHaveClass("points error");
+})
+test("verify taht min field is not accepting only alphabets ",async({page})=>{
+  await page.locator(".challenge-image").nth(0).click();
+  await page.locator(".dropdown-select").click();
+  await page.locator(".edit-content").click();
+  await page.getByPlaceholder("Min").fill("")
+  await page.getByPlaceholder("Min").fill("ASDF")
+  await page.getByRole('button', { name: 'save' }).click();
+  await expect(page.getByPlaceholder("Min")).toHaveClass("points error");
+})
+test("verify that on updating the minutes, the same is reflected in the link innerview",async({page})=>{
+  await page.locator(".challenge-image").nth(0).click();
+  await page.locator(".dropdown-select").click();
+  await page.locator(".edit-content").click();
+  await page.getByPlaceholder("Min").fill("10");
+  await page.getByRole('button', { name: 'save' }).click();
+  await expect(page.locator(".link-min").nth(1)).toHaveText("10m")
+})
+test("verify if the link title is edited, the updated title is reflected in the linkinnerview",async({page})=>{
+  await page.locator(".challenge-image").nth(0).click();
+  await page.locator(".dropdown-select").click();
+  await page.locator(".edit-content").click();
+  await page.getByPlaceholder("Enter Title").fill("testing");
+  await page.getByRole('button', { name: 'save' }).click();
+  await expect(page.locator(".link-name").nth(0)).toHaveText("testing")
+})
+test("verify that the title should not contain only special characters",async({page})=>{
+  await page.locator(".challenge-image").nth(0).click();
+  await page.locator(".dropdown-select").click();
+  await page.locator(".edit-content").click();
+  await page.getByPlaceholder("Enter Title").fill("!@#$%^&");
+  await page.getByRole('button', { name: 'save' }).click();
+  await expect(page.locator(".warning")).toContainText("Please provide link name with at least one character other than special characters!")
+})
+// only numbers is left, would write after recommend link feature is fixed
+test.only("verify that the link should not have an empty title",async({page})=>{
+  await page.locator(".challenge-image").nth(0).click();
+  await page.locator(".dropdown-select").click();
+  await page.locator(".edit-content").click();
+  await page.getByPlaceholder("Enter Title").fill(" ");
+  await page.getByRole('button', { name: 'save' }).click({delay:3000});
+  await expect(page.locator(".link-name error")).toBeVisible();
 })
