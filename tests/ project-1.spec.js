@@ -466,11 +466,119 @@ test("verify that the title should not contain only special characters",async({p
   await expect(page.locator(".warning")).toContainText("Please provide link name with at least one character other than special characters!")
 })
 // only numbers is left, would write after recommend link feature is fixed
-test.only("verify that the link should not have an empty title",async({page})=>{
+
+test("verify that the link should not have an empty title",async({page})=>{
   await page.locator(".challenge-image").nth(0).click();
   await page.locator(".dropdown-select").click();
   await page.locator(".edit-content").click();
-  await page.getByPlaceholder("Enter Title").fill(" ");
-  await page.getByRole('button', { name: 'save' }).click({delay:3000});
-  await expect(page.locator(".link-name error")).toBeVisible();
+  await page.getByPlaceholder("Enter Title").fill("");
+  await page.getByRole('button', { name: 'save' }).click();
+  await expect(page.locator(".link-name.error")).toBeVisible();
 })
+
+//leading and trailing spaces 
+
+test("verify that a link title should not accept more than 200 characters",async({page})=>{
+  await page.locator(".challenge-image").nth(0).click();
+  await page.locator(".dropdown-select").click();
+  await page.locator(".edit-content").click();
+  await page.getByPlaceholder("Enter Title").fill("")
+  for(let i=1;i<=201;i++){
+    await page.getByPlaceholder("Enter Title").type("1")
+  }
+  await page.getByRole('button', { name: 'save' }).click();
+  await expect(page.locator(".link-name.error")).toBeVisible();
+
+})
+test("verify if the link field is empty  it should not be saved",async({page})=>{
+  await page.locator(".challenge-image").nth(0).click();
+  await page.locator(".dropdown-select").click();
+  await page.locator(".edit-content").click();
+  await page.getByPlaceholder('Share any video/article, which benefits your organization!').fill("");
+  await page.getByRole('button', { name: 'save' }).click();
+  await expect(page.locator(".recommend-link.error")).toBeVisible();
+})
+test("verify if the link field contains only alphabets it should not be saved",async({page})=>{
+  await page.locator(".challenge-image").nth(0).click();
+  await page.locator(".dropdown-select").click();
+  await page.locator(".edit-content").click();
+  await page.getByPlaceholder('Share any video/article, which benefits your organization!').fill("ASDF");
+  await page.getByRole('button', { name: 'save' }).click();
+  await expect(page.locator(".recommend-link.error")).toBeVisible();
+})
+test("verify if the link field contains only numbers it should not be saved",async({page})=>{
+  await page.locator(".challenge-image").nth(0).click();
+  await page.locator(".dropdown-select").click();
+  await page.locator(".edit-content").click();
+  await page.getByPlaceholder('Share any video/article, which benefits your organization!').fill("12345");
+  await page.getByRole('button', { name: 'save' }).click();
+  await expect(page.locator(".recommend-link.error")).toBeVisible();
+})
+test("verify if the link field contains only special charcters should not be saved",async({page})=>{
+  await page.locator(".challenge-image").nth(0).click();
+  await page.locator(".dropdown-select").click();
+  await page.locator(".edit-content").click();
+  await page.getByPlaceholder('Share any video/article, which benefits your organization!').fill("!@#$%");
+  await page.getByRole('button', { name: 'save' }).click();
+  await expect(page.locator(".recommend-link.error")).toBeVisible();
+})
+test("verify if invalid link is added an error message is thrown",async({page})=>{
+  await page.locator(".challenge-image").nth(0).click();
+  await page.locator(".dropdown-select").click();
+  await page.locator(".edit-content").click();
+  await page.getByPlaceholder('Share any video/article, which benefits your organization!').fill("https://www.youtube.cooom/watch?v=RHbBEFk7kHQ");
+  await page.getByRole('button', { name: 'save' }).click();
+  await expect(page.locator(".warning")).toContainText("Please provide valid link!")
+})
+test("verify that link can be paid forwrded from more options",async({page})=>{
+  await page.locator(".challenge-image").nth(0).click();
+  await page.locator(".dropdown-select").click();
+  await page.locator(".pay-forward").click();
+  await expect(page.locator(".container")).toBeVisible();
+})
+test("verify that a link cannot be paid forwarded without recepients",async({page})=>{
+  await page.locator(".challenge-image").nth(0).click();
+  await page.locator(".dropdown-select").click();
+  await page.locator(".pay-forward").click();
+  await expect(page.locator(".share-button",{has:page.locator(".btn-cta")})).toBeDisabled();
+})
+test("verify that a user cannot choose oneself while paying forward a link",async({page})=>{
+  await page.locator(".challenge-image").nth(0).click();
+  await page.locator(".dropdown-select").click();
+  await page.locator(".pay-forward").click();
+  await page.getByPlaceholder("Type to add people").type("shakti aryan",{delay:100});
+  await expect(page.locator("button.btn-cta").nth(1)).toBeDisabled();
+})
+test("verify that on giving just two characters search dropdown should not open",async({page})=>{
+  await page.locator(".challenge-image").nth(0).click();
+  await page.locator(".dropdown-select").click();
+  await page.locator(".pay-forward").click();
+  await page.getByPlaceholder("Type to add people").type("sa",{delay:100});
+  await expect(page.locator("people-search.dropdown.open")).not.toBeVisible();
+})
+test("verify that a link is forwarded to multiple people",async({page})=>{
+  await page.locator(".challenge-image").nth(0).click();
+  await page.locator(".dropdown-select").click();
+  await page.locator(".pay-forward").click();
+  await page.getByPlaceholder('Type to add people').type('sha',{delay:3000})
+  await page.locator('a').filter({ hasText: 'Shakkthi Rajkumar' }).click();
+  await page.getByPlaceholder('Type to add people').click();
+  await page.getByPlaceholder('Type to add people').type('sal',{delay:3000});
+  await page.locator('a').filter({ hasText: 'Saloni Tiwary' }).click();
+  await page.locator(".share-button").click();
+  await page.locator("div .success").waitFor()
+  await expect(page.locator("div .success")).toContainText("Shared")
+})
+test.only("verify that link is forwarded with notes",async({page})=>{
+  await page.locator(".challenge-image").nth(0).click();
+  await page.locator(".dropdown-select").click();
+  await page.locator(".pay-forward").click();
+  await page.getByPlaceholder('Type to add people').click();
+  await page.getByPlaceholder('Type to add people').type('sal',{delay:1000});
+  await page.locator('a').filter({ hasText: 'Saloni Tiwary' }).click();
+  await page.getByPlaceholder("Type your note here....").type("test note",{delay:1000})
+  await page.locator(".share-button").click();
+  await page.locator("div .success").waitFor()
+  await expect(page.locator("div .success")).toContainText("Shared")
+})
+   
