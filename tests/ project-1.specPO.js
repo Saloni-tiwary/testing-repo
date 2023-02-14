@@ -1,17 +1,17 @@
 const { test, expect, request} = require('@playwright/test');
-
+const {LoginPage}=require('../pageobject/LoginPage')
 
     
 
 test.beforeEach(async ({page})=> {
     
     
-   // var context= await browser.newContext();
-   // var page= await context.newPage();
-    await page.goto('https://my.staging.adaptiveu.app/')
-    await page.locator("#email").type("shakti.choudhary@anywhere.co");
-    await page.locator("[type='password']").type("password");
-    await page.locator("#login_submit").click();
+    const Username="shakti.choudhary@anywhere.co";
+    const password="password";
+     const loginPage=new LoginPage(page)
+    loginPage.goTo()
+    loginPage.valdlogin(Username,password)
+     
   await expect(page.locator("[data-awd-tooltip='Learning']")).toHaveClass('awd-tooltip awd-tooltip--right awd-tooltip-sm')
   await page.locator('#close-icon svg').click();
 })
