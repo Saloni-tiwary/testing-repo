@@ -1,5 +1,8 @@
 // @ts-check
-const { devices } = require('@playwright/test');
+const { devices} = require('@playwright/test');
+
+ 
+
 
 /**
  * Read environment variables from file.
@@ -13,6 +16,10 @@ const { devices } = require('@playwright/test');
  * @type {import('@playwright/test').PlaywrightTestConfig}
  */
  const config = {
+  //globalSetup: require.resolve('./global-setup'),
+
+   
+   
   testDir: './tests',
   /* Maximum time one test can run for. */
   timeout: 200*1000,
@@ -33,8 +40,11 @@ const { devices } = require('@playwright/test');
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
+   
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
+    
+   // storageState: 'storage-state.json',
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
     actionTimeout: 0,
     /* Base URL to use in actions like `await page.goto('/')`. */
@@ -43,7 +53,7 @@ const { devices } = require('@playwright/test');
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
   },
-
+  
   /* Configure projects for major browsers */
  projects: [
     {

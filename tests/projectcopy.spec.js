@@ -1,17 +1,17 @@
 const { test, expect, request} = require('@playwright/test');
-const {LoginPage}=require('../pageobject/LoginPage')
+
 
     
 
 test.beforeEach(async ({page})=> {
     
     
-    const Username="shakti.choudhary@anywhere.co";
-    const password="password";
-     const loginPage=new LoginPage(page)
-    loginPage.goTo()
-    loginPage.valdlogin(Username,password)
-     
+   // var context= await browser.newContext();
+   // var page= await context.newPage();
+    await page.goto('https://my.staging.adaptiveu.app/')
+    await page.locator("#email").type("shakti.choudhary@anywhere.co");
+    await page.locator("[type='password']").type("password");
+    await page.locator("#login_submit").click();
   await expect(page.locator("[data-awd-tooltip='Learning']")).toHaveClass('awd-tooltip awd-tooltip--right awd-tooltip-sm')
   await page.locator('#close-icon svg').click();
 })
@@ -23,7 +23,7 @@ test('recommend tab UI', async({page})=>{
     await expect(page.locator('section .container')).toContainText('Recommend');
 })
     // video link not completed in headed mode
-test('Verify that a Video can be recommended', async({page})=>{
+test.only('Verify that a Video can be recommended', async({page})=>{
   // await expect(page.locator('.recommend-link')).toBeVisible();
   
     await page.getByRole('button', { name: '+ Recommend' }).click({delay:100});
@@ -700,7 +700,7 @@ test("verify on clicking cancel after giving edited takeaway, the previous takea
 
 
 })
-test.only("verify as we select the text in the takeaway the formatting options are available",async({page})=>{
+test("verify as we select the text in the takeaway the formatting options are available",async({page})=>{
   await page.locator(".challenge-image").nth(0).click();
   await page.locator(".review-edit").click();
   await page.getByText("sample2").click({button:"right"});
