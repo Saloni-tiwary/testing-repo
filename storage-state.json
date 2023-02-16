@@ -1,0 +1,443 @@
+{
+  "cookies": [
+    {
+      "name": "_fa_stid_d",
+      "value": "a30de75d-56e3-4e04-9834-31ac1501a8b3",
+      "domain": "my.staging.adaptiveu.app",
+      "path": "/",
+      "expires": 1676551285.161787,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "f185790b1f_fasid",
+      "value": "\"lpdPkMqr065f945a58a06667be2c31636fd0b667:671dc6080fa7f85e8e5a558774e7750b58f75842\"",
+      "domain": ".staging.adaptiveu.app",
+      "path": "/",
+      "expires": 1684326989.551986,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "f185790b1f_fasid",
+      "value": "\"lpdPkMqr065f945a58a06667be2c31636fd0b667:671dc6080fa7f85e8e5a558774e7750b58f75842\"",
+      "domain": ".staging.anywhere.co",
+      "path": "/",
+      "expires": 1684326990.775721,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "f185790b1f_fasid",
+      "value": "\"lpdPkMqr065f945a58a06667be2c31636fd0b667:671dc6080fa7f85e8e5a558774e7750b58f75842\"",
+      "domain": ".staging.inthechair.com",
+      "path": "/",
+      "expires": 1684326990.816177,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "f185790b1f_fasid",
+      "value": "\"lpdPkMqr065f945a58a06667be2c31636fd0b667:671dc6080fa7f85e8e5a558774e7750b58f75842\"",
+      "domain": ".answerforce.com",
+      "path": "/",
+      "expires": 1684326990.8917,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "f185790b1f_fasid",
+      "value": "\"lpdPkMqr065f945a58a06667be2c31636fd0b667:671dc6080fa7f85e8e5a558774e7750b58f75842\"",
+      "domain": ".profile.answerforce.com",
+      "path": "/",
+      "expires": 1684326990.964732,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "f185790b1f_fasid",
+      "value": "\"lpdPkMqr065f945a58a06667be2c31636fd0b667:671dc6080fa7f85e8e5a558774e7750b58f75842\"",
+      "domain": ".conversionsupport.com",
+      "path": "/",
+      "expires": 1684326991.039092,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "f185790b1f_fasid",
+      "value": "\"lpdPkMqr065f945a58a06667be2c31636fd0b667:671dc6080fa7f85e8e5a558774e7750b58f75842\"",
+      "domain": ".staging.answerconnect.app",
+      "path": "/",
+      "expires": 1684326991.062192,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "f185790b1f_fasid",
+      "value": "\"lpdPkMqr065f945a58a06667be2c31636fd0b667:671dc6080fa7f85e8e5a558774e7750b58f75842\"",
+      "domain": ".wellreceived.com",
+      "path": "/",
+      "expires": 1684326991.156546,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "f185790b1f_fasid",
+      "value": "\"lpdPkMqr065f945a58a06667be2c31636fd0b667:671dc6080fa7f85e8e5a558774e7750b58f75842\"",
+      "domain": ".staging.anywhere.app",
+      "path": "/",
+      "expires": 1684326991.164222,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "f185790b1f_fasid",
+      "value": "\"lpdPkMqr065f945a58a06667be2c31636fd0b667:671dc6080fa7f85e8e5a558774e7750b58f75842\"",
+      "domain": ".staging.anywhereworks.com",
+      "path": "/",
+      "expires": 1684326991.248454,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "f185790b1f_fasid",
+      "value": "\"lpdPkMqr065f945a58a06667be2c31636fd0b667:671dc6080fa7f85e8e5a558774e7750b58f75842\"",
+      "domain": ".anywhere.staging.anywhereauth.com",
+      "path": "/",
+      "expires": 1684326991.251262,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "f185790b1f_fasid",
+      "value": "\"lpdPkMqr065f945a58a06667be2c31636fd0b667:671dc6080fa7f85e8e5a558774e7750b58f75842\"",
+      "domain": ".staging.teleport.video",
+      "path": "/",
+      "expires": 1684326991.351039,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "f185790b1f_fasid",
+      "value": "\"lpdPkMqr065f945a58a06667be2c31636fd0b667:671dc6080fa7f85e8e5a558774e7750b58f75842\"",
+      "domain": ".staging.serviceforge.app",
+      "path": "/",
+      "expires": 1684326991.439329,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "f185790b1f_fasid",
+      "value": "\"lpdPkMqr065f945a58a06667be2c31636fd0b667:671dc6080fa7f85e8e5a558774e7750b58f75842\"",
+      "domain": ".staging.chatsupport.app",
+      "path": "/",
+      "expires": 1684326991.447038,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "f185790b1f_fasid",
+      "value": "\"lpdPkMqr065f945a58a06667be2c31636fd0b667:671dc6080fa7f85e8e5a558774e7750b58f75842\"",
+      "domain": ".staging.lexreception.app",
+      "path": "/",
+      "expires": 1684326991.447713,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "f185790b1f_fasid",
+      "value": "\"lpdPkMqr065f945a58a06667be2c31636fd0b667:671dc6080fa7f85e8e5a558774e7750b58f75842\"",
+      "domain": ".franforce.app",
+      "path": "/",
+      "expires": 1684326991.542312,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "f185790b1f_fasid",
+      "value": "\"lpdPkMqr065f945a58a06667be2c31636fd0b667:671dc6080fa7f85e8e5a558774e7750b58f75842\"",
+      "domain": ".adaptiveu.info",
+      "path": "/",
+      "expires": 1684326991.550962,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "f185790b1f_fasid",
+      "value": "\"lpdPkMqr065f945a58a06667be2c31636fd0b667:671dc6080fa7f85e8e5a558774e7750b58f75842\"",
+      "domain": ".hellosells.com",
+      "path": "/",
+      "expires": 1684326991.649404,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "f185790b1f_fasid",
+      "value": "\"lpdPkMqr065f945a58a06667be2c31636fd0b667:671dc6080fa7f85e8e5a558774e7750b58f75842\"",
+      "domain": ".staging.setmore.com",
+      "path": "/",
+      "expires": 1684326991.66225,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "f185790b1f_fasid",
+      "value": "\"lpdPkMqr065f945a58a06667be2c31636fd0b667:671dc6080fa7f85e8e5a558774e7750b58f75842\"",
+      "domain": ".chatsupport.co",
+      "path": "/",
+      "expires": 1684326991.742694,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "f185790b1f_fasid",
+      "value": "\"lpdPkMqr065f945a58a06667be2c31636fd0b667:671dc6080fa7f85e8e5a558774e7750b58f75842\"",
+      "domain": ".staging.inthechair.app",
+      "path": "/",
+      "expires": 1684326991.754408,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "f185790b1f_fasid",
+      "value": "\"lpdPkMqr065f945a58a06667be2c31636fd0b667:671dc6080fa7f85e8e5a558774e7750b58f75842\"",
+      "domain": ".staging.answerforce.app",
+      "path": "/",
+      "expires": 1684326991.801466,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "f185790b1f_fasid",
+      "value": "\"lpdPkMqr065f945a58a06667be2c31636fd0b667:671dc6080fa7f85e8e5a558774e7750b58f75842\"",
+      "domain": ".answerconnect.com",
+      "path": "/",
+      "expires": 1684326991.870251,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "f185790b1f_fasid",
+      "value": "\"lpdPkMqr065f945a58a06667be2c31636fd0b667:671dc6080fa7f85e8e5a558774e7750b58f75842\"",
+      "domain": ".syncleo.com",
+      "path": "/",
+      "expires": 1684326992.903473,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "f185790b1f_fasid",
+      "value": "\"lpdPkMqr065f945a58a06667be2c31636fd0b667:671dc6080fa7f85e8e5a558774e7750b58f75842\"",
+      "domain": ".staging.anysnap.app",
+      "path": "/",
+      "expires": 1684326993.003617,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "f185790b1f_fasid",
+      "value": "\"lpdPkMqr065f945a58a06667be2c31636fd0b667:671dc6080fa7f85e8e5a558774e7750b58f75842\"",
+      "domain": ".lexreception.com",
+      "path": "/",
+      "expires": 1684326993.174255,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "f185790b1f_fasid",
+      "value": "\"lpdPkMqr065f945a58a06667be2c31636fd0b667:671dc6080fa7f85e8e5a558774e7750b58f75842\"",
+      "domain": ".staging.teamreports.switchport.app",
+      "path": "/",
+      "expires": 1684326993.23696,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "f185790b1f_fasid",
+      "value": "\"lpdPkMqr065f945a58a06667be2c31636fd0b667:671dc6080fa7f85e8e5a558774e7750b58f75842\"",
+      "domain": ".answerforce.co.uk",
+      "path": "/",
+      "expires": 1684326993.279544,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "f185790b1f_fasid",
+      "value": "\"lpdPkMqr065f945a58a06667be2c31636fd0b667:671dc6080fa7f85e8e5a558774e7750b58f75842\"",
+      "domain": ".answerconnect.co.uk",
+      "path": "/",
+      "expires": 1684326993.323958,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "f185790b1f_fasid",
+      "value": "\"lpdPkMqr065f945a58a06667be2c31636fd0b667:671dc6080fa7f85e8e5a558774e7750b58f75842\"",
+      "domain": ".full.io",
+      "path": "/",
+      "expires": 1684326993.40245,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "f185790b1f_fasid",
+      "value": "\"lpdPkMqr065f945a58a06667be2c31636fd0b667:671dc6080fa7f85e8e5a558774e7750b58f75842\"",
+      "domain": ".staging.hellosells.app",
+      "path": "/",
+      "expires": 1684326993.443467,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "f185790b1f_fasid",
+      "value": "\"lpdPkMqr065f945a58a06667be2c31636fd0b667:671dc6080fa7f85e8e5a558774e7750b58f75842\"",
+      "domain": ".staging.signmore.app",
+      "path": "/",
+      "expires": 1684326993.461274,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "f185790b1f_fasid",
+      "value": "\"lpdPkMqr065f945a58a06667be2c31636fd0b667:671dc6080fa7f85e8e5a558774e7750b58f75842\"",
+      "domain": ".staging.yocoboard.com",
+      "path": "/",
+      "expires": 1684326993.485174,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "f185790b1f_fasid",
+      "value": "\"lpdPkMqr065f945a58a06667be2c31636fd0b667:671dc6080fa7f85e8e5a558774e7750b58f75842\"",
+      "domain": ".staging.setmore.app",
+      "path": "/",
+      "expires": 1684326993.593999,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "f185790b1f_fasid",
+      "value": "\"lpdPkMqr065f945a58a06667be2c31636fd0b667:671dc6080fa7f85e8e5a558774e7750b58f75842\"",
+      "domain": ".staging.anytimecalendar.app",
+      "path": "/",
+      "expires": 1684326993.863534,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "f185790b1f_fasid",
+      "value": "\"lpdPkMqr065f945a58a06667be2c31636fd0b667:671dc6080fa7f85e8e5a558774e7750b58f75842\"",
+      "domain": ".staging.wellreceived.app",
+      "path": "/",
+      "expires": 1684326993.948783,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "f185790b1f_fasid",
+      "value": "\"lpdPkMqr065f945a58a06667be2c31636fd0b667:671dc6080fa7f85e8e5a558774e7750b58f75842\"",
+      "domain": ".mystaging.distributedsource.com",
+      "path": "/",
+      "expires": 1684326994.158238,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "JSESSIONID",
+      "value": "AYB4P6BXSYg9THoclalIvw",
+      "domain": ".my.staging.adaptiveu.app",
+      "path": "/",
+      "expires": 1708086995.991386,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_fssid",
+      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhbnl3aGVyZXdvcmtzIiwiYXVkIjoiYXdzdG9yYWdlIiwic3ViIjoiMGNlZjkwMTEtMzhhMi00NWM4LWE2N2YtNGY2NDY5YzQwOWZjIiwiZXhwIjoxNzA4MDg2OTk4LCJpYXQiOjE2NzY1NTA5OTgsImFjY3RfaWRzIjpbIlNFTjQyIl19.O0Mdv_xV954A4dlgGWOAX3pOaweZ1oCY1pUZ-UXJNn8",
+      "domain": ".staging.adaptiveu.app",
+      "path": "/",
+      "expires": 1708086998.14538,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_ga",
+      "value": "GA1.1.847538740.1676551001",
+      "domain": ".adaptiveu.app",
+      "path": "/",
+      "expires": 1711111000.982854,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_ga_PJT16KJXG6",
+      "value": "GS1.1.1676551000.1.1.1676551002.0.0.0",
+      "domain": ".adaptiveu.app",
+      "path": "/",
+      "expires": 1711111002.061815,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": [
+    {
+      "origin": "https://my.staging.adaptiveu.app",
+      "localStorage": [
+        {
+          "name": "AWSCH_CACHE_73ff763c-32cc-4e25-a4ad-5edbed750f55_SEN42_0cef9011-38a2-45c8-a67f-4f6469c409fc",
+          "value": "{\"accountInfo\":{\"viewSetting\":{\"weekStartDay\":\"MONDAY\",\"calendarView\":\"WEEKLY\",\"timeFormat\":24,\"startHour\":8,\"duration\":15,\"offHoursBooking\":true,\"doubleBooking\":true,\"staffOrder\":null},\"metaData\":{\"staffMenuView\":\"list\",\"lastSelectedStaff\":null,\"defaultDuration\":60,\"timeSlotSize\":15,\"activeView\":\"Event\",\"sidebarState\":\"open\",\"dailyViewConfig\":null,\"externalCalendarPreference\":null}},\"providerTimezones\":{\"SEN42\":\"Europe/Jersey\",\"0cef9011-38a2-45c8-a67f-4f6469c409fc\":\"America/Chicago\"},\"minClassDuration\":50,\"scheduleTypesOrder\":[],\"videoIntegration\":false}"
+        },
+        {
+          "name": "hideBanner",
+          "value": "true"
+        },
+        {
+          "name": "geoData",
+          "value": "{\"timeZone\":{\"timeZoneName\":\"India Standard Time\",\"rawOffset\":19800,\"timeZoneId\":\"Asia/Calcutta\",\"dstOffset\":0,\"status\":\"OK\"},\"location\":{\"country\":\"IN\",\"city\":\"gorakhpur\",\"latitude\":26.760554,\"region\":\"up\",\"longitude\":83.373167}}"
+        }
+      ]
+    }
+  ]
+}

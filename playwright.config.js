@@ -1,5 +1,6 @@
 // @ts-check
-const { devices} = require('@playwright/test');
+const { devices,expect} = require('@playwright/test');
+//const globalSetup = require('./Config/global-setup');
 
  
 
@@ -16,7 +17,7 @@ const { devices} = require('@playwright/test');
  * @type {import('@playwright/test').PlaywrightTestConfig}
  */
  const config = {
-  //globalSetup: require.resolve('./global-setup'),
+  globalSetup: require.resolve('./Config/global-setup'),
 
    
    
@@ -44,7 +45,7 @@ const { devices} = require('@playwright/test');
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     
-   // storageState: 'storage-state.json',
+   storageState: 'storage-state.json',
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
     actionTimeout: 0,
     /* Base URL to use in actions like `await page.goto('/')`. */

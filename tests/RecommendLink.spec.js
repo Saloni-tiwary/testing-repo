@@ -2,12 +2,13 @@ const { test, expect, request} = require('@playwright/test');
 //const {LoginPage}=require('../pageobject_pagefile/LoginPage')
 const {RecommendTab} = require('../pageobject_pagefile/RecommendTab.js')
 const{SimilarRecommendation}=require('../pageobject_pagefile/SimilarRecommendation')
-const globalSetup = require('./global-setup.js');
+const {NavigationURL}= require('../pageobject_pagefile/navigatingbaseURL')
+ //const globalSetup = require('../Config/global-setup');
 
-test.describe('My test suite', () => {
-  test.beforeAll(async () => {
-    await globalSetup();
-  });
+// test.describe('My test suite', () => {
+// test.beforeEach(async({page}) => {
+//     await page.goto('https://my.staging.adaptiveu.app/');
+//  });
 
     
 
@@ -29,6 +30,8 @@ test('Verify that a Video can be recommended', async({page})=>{
    await recommendVideoLink.saveLink();
 })
 test.only("verify same link cannot be recommended again",async({page})=>{
+    const navigationurl= new NavigationURL(page)
+    await navigationurl.navigationURL()
     const Url="https://stackoverflow.com/questions/74980624/can-i-use-textsplit-with-find-formula"
     const Min="10"
     const similarRecommendation=new SimilarRecommendation(page)
@@ -42,7 +45,7 @@ test.only("verify same link cannot be recommended again",async({page})=>{
 
 
       
-       
-})
+
+
      
   

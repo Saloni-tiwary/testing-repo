@@ -5,7 +5,7 @@ class RecommendTab{
  
 constructor(page){
 this.page=page;
-this.RecommendTab=page.locator('.recommend-link');
+this.RecommendTab=page.locator('.recommend-btn');
 this.Recommendpopup=page.locator('section .container');
 this.Recommendbutton=page.getByRole('button', { name: '+ Recommend' })
 this.UnivDropdown=page.locator('.track-dropdown');

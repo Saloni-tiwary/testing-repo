@@ -3,7 +3,7 @@ const { expect } = require("@playwright/test");
 class SimilarRecommendation{
     constructor(page){
         this.page=page
-        this.RecommendTab= page.locator('.recommend-link');
+        this.RecommendTab= page.locator('.recommend-btn');
         this.EnterURL=page.getByPlaceholder('Share any video/article, which benefits your organization!');
         this.LearningMin=page.getByPlaceholder('Min');
         this.RecommendingSaveButton=page.locator('#popup').getByRole('button', { name: 'Recommend' });
@@ -18,7 +18,7 @@ class SimilarRecommendation{
     async enterURL(Url){
 
     await this.EnterURL.fill(Url);
-    await page.keyboard.press('Enter');
+    await this.page.keyboard.press('Enter');
     }
 
     async enterMin(Min){
