@@ -3,7 +3,7 @@ const { test, expect, request} = require('@playwright/test');
 
     
 
-test.beforeEach(async ({page})=> {
+test(async ({page})=> {
     
     
    // var context= await browser.newContext();
@@ -23,7 +23,7 @@ test('recommend tab UI', async({page})=>{
     await expect(page.locator('section .container')).toContainText('Recommend');
 })
     // video link not completed in headed mode
-test.only('Verify that a Video can be recommended', async({page})=>{
+test('Verify that a Video can be recommended', async({page})=>{
   // await expect(page.locator('.recommend-link')).toBeVisible();
   
     await page.getByRole('button', { name: '+ Recommend' }).click({delay:100});
@@ -113,7 +113,7 @@ test("verify on selecting audio content filter only recommended audio files are 
 }
   
 })
-test("verify on selecting book content filter only recommended books are displayed",async({page})=>{
+test.only("verify on selecting book content filter only recommended books are displayed",async({page})=>{
   await page.locator('.filter-dropdown').click();
   await page.locator("[data-type='book']").click();
   for(let i=0;i<3;i++){ 

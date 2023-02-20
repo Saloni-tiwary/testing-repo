@@ -1,20 +1,14 @@
 const { test, expect, request} = require('@playwright/test');
-//const {LoginPage}=require('../pageobject_pagefile/LoginPage')
 const {RecommendTab} = require('../pageobject_pagefile/RecommendTab.js')
 const{SimilarRecommendation}=require('../pageobject_pagefile/SimilarRecommendation')
 const {NavigationURL}= require('../pageobject_pagefile/navigatingbaseURL')
- //const globalSetup = require('../Config/global-setup');
-
-// test.describe('My test suite', () => {
-// test.beforeEach(async({page}) => {
-//     await page.goto('https://my.staging.adaptiveu.app/');
-//  });
-
     
 
  
  
 test('recommend tab UI', async({page})=>{
+    const navigationurl= new NavigationURL(page)
+    await navigationurl.navigationURL()
     const recommendLink=new RecommendTab(page)
     recommendLink.recommendTabVisible()
     
@@ -22,6 +16,8 @@ test('recommend tab UI', async({page})=>{
 test('Verify that a Video can be recommended', async({page})=>{
     const Url='https://www.youtube.com/watch?v=Pm2BvdiZUXA';
     const Min="14"
+    const navigationurl= new NavigationURL(page)
+    await navigationurl.navigationURL()
     const recommendVideoLink=new RecommendTab(page)
    await recommendVideoLink.recommendTabVisible();
    await recommendVideoLink.recommendButtonClick();
@@ -29,7 +25,7 @@ test('Verify that a Video can be recommended', async({page})=>{
    await recommendVideoLink.minFill(Min);
    await recommendVideoLink.saveLink();
 })
-test.only("verify same link cannot be recommended again",async({page})=>{
+test("verify same link cannot be recommended again",async({page})=>{
     const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL()
     const Url="https://stackoverflow.com/questions/74980624/can-i-use-textsplit-with-find-formula"
