@@ -8,7 +8,7 @@ this.page=page;
 this.RecommendTab=page.locator('.recommend-btn');
 this.Recommendpopup=page.locator('section .container');
 this.Recommendbutton=page.getByRole('button', { name: '+ Recommend' })
-this.UnivDropdown=page.locator('.track-dropdown');
+this.UnivDropdown=page.locator('div .track-dropdown');
 this.EnterURL=page.getByPlaceholder('Share any video/article, which benefits your organization!')
 this.LearningMin= page.getByPlaceholder('Min')
 this.RecommendingSaveButton= page.locator('#popup').getByRole('button', { name: 'Recommend' })
@@ -22,9 +22,9 @@ async recommendButtonClick(){
     await this.Recommendbutton.click();
 }
 async linkFill(Url){
-    await this.UnivDropdown.waitFor({state: 'attached'});
+    await this.UnivDropdown.waitFor();
     await this.EnterURL.fill(Url);
-    await page.keyboard.press('Enter');
+    await this.page.keyboard.press('Enter');
 }
 async minFill(Min){
     await this.LearningMin.fill(Min);

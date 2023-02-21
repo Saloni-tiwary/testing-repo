@@ -1,4 +1,4 @@
-const { expect } = require("@playwright/test");
+const {test, expect } = require("@playwright/test");
 class EditPopupOuterCard
 {
     constructor(page){
@@ -13,8 +13,8 @@ class EditPopupOuterCard
     this.TagInputField=page.locator(".tag-name");
     this.RadioButtonVideo=page.locator('#video');
     this.RadioButtonArticle=page.locator("#article");
-    this.VideoRadioButtonEnable=page.locator("#video .radio-button")
-    this.LinkMin=page.getByPlaceholder("Min")
+    this.VideoRadioButtonEnable=page.locator("#video .radio-button");
+    this.LinkMin=page.getByPlaceholder("Min");
 
     }
     async enterEmptyTitle(){
@@ -72,8 +72,9 @@ class EditPopupOuterCard
     }
     async addMaxCharInTag(){
         await this.Tag.type("23456789009876543211234567890",{timeout: 5000});
+        await this.page.keyboard.press('Enter');
     }
-    async maxCharErrorMessage(){
+    async maxCharInTagErrorMessage(){
         await expect(this.ErrorMessage).toContainText("Please enter tag with character length less than or equal to 25!");
         await this.page.keyboard.press('Enter');
     }
@@ -90,8 +91,9 @@ class EditPopupOuterCard
         await this.RadioButtonArticle.click()
     }
     async oneRadioButtonEnabled(){
-        const RadioButton= await this.videoRadioButtonEnabled.isEnabled()
-        if(RadioButton==false){
+        const RadioButton= await this.VideoRadioButtonEnable.isEnabled({timeout:5000});
+        console.log(RadioButton)
+        if(RadioButton===false){
             console.log("only one content type is selected");
             }
             else{
@@ -102,7 +104,7 @@ class EditPopupOuterCard
     async emptyMinFill(){
         await this.LinkMin.fill("");
     }
-    async maxMinFill(){
+    async moreThanMaxMinFill(){
         await this.LinkMin.type("100001");
     }
     async symbolMinFill(){
@@ -111,7 +113,14 @@ class EditPopupOuterCard
     async charMinFill(){
         await this.LinkMin.fill("asdf");
     }
-    
+    async linkMinError(){
+        await expect(this.LinkMin).toHaveClass("points error");
+    }
+    async maxMinRedirection(){
+        await expect(this.LinkMin).toHaveValue("10000")
+    }
+
+
 }
 module.exports={EditPopupOuterCard}
 
@@ -124,58 +133,4 @@ module.exports={EditPopupOuterCard}
     
    
   
-  test("Verify only one content type can be choosen", async({page})=>{
-    await page.locator(".challenge-image").nth(0).hover();
-    await page.locator(".link-dropdown").nth(0).click();
-    await page.locator("[data-status='edit']").nth(0).click();
-    await page.locator(".more-settings").click();
-    await page.locator('#video').click();
-    await page.locator("#article").click();
-   const RadioButton= await page.locator("#video .radio-button").isEnabled()
-  
-   if(RadioButton==false){
-   console.log("only one content type is selected");
-   }
-   else{
-    console.log("test is failing");
-   }
-  })
-  
-  test("verify that link cannot be edited 0/null minutes minutes",async({page})=>{
-    await page.locator(".challenge-image").nth(0).hover();
-    await page.locator(".link-dropdown").nth(0).click();
-    await page.locator("[data-status='edit']").nth(0).click();
-    await page.getByPlaceholder("Min").fill("");
-    await page.getByRole('button', { name: 'save' }).click();
-    await expect(page.getByPlaceholder("Min")).toHaveClass("points error");
-  
-  })
-  test("verify that link cannot be edited to minutes in special characters", async({page})=>{
-    await page.locator(".challenge-image").nth(0).hover();
-    await page.locator(".link-dropdown").nth(0).click();
-    await page.locator("[data-status='edit']").nth(0).click();
-    await page.getByPlaceholder("Min").fill("")
-    await page.getByPlaceholder("Min").fill("!@#$%")
-    await page.getByRole('button', { name: 'save' }).click();
-    await expect(page.getByPlaceholder("Min")).toHaveClass("points error");
-  })
-  
-  test("verify that link cannot be edited to minutes in alphabets",async({page})=>{
-    await page.locator(".challenge-image").nth(0).hover();
-    await page.locator(".link-dropdown").nth(0).click();
-    await page.locator("[data-status='edit']").nth(0).click();
-    await page.getByPlaceholder("Min").fill("")
-    await page.getByPlaceholder("Min").fill("asdf")
-    await page.getByRole('button', { name: 'save' }).click();
-    await expect(page.getByPlaceholder("Min")).toHaveClass("points error");
-  })
-  
-  test("verify that the max minutes a link can have is 10000",async({page})=>{
-    await page.locator(".challenge-image").nth(0).hover();
-    await page.locator(".link-dropdown").nth(0).click();
-    await page.locator("[data-status='edit']").nth(0).click();
-    await page.getByPlaceholder("Min").fill("")
-    await page.getByPlaceholder("Min").type("100001")
-    await expect(page.getByPlaceholder("Min")).toHaveValue("10000")
-  })
-  
+   

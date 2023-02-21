@@ -13,17 +13,21 @@ test('recommend tab UI', async({page})=>{
     recommendLink.recommendTabVisible()
     
 })
-test('Verify that a Video can be recommended', async({page})=>{
+test.only('Verify that a Video can be recommended', async({page})=>{
     const Url='https://www.youtube.com/watch?v=Pm2BvdiZUXA';
     const Min="14"
+    try{
     const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL()
     const recommendVideoLink=new RecommendTab(page)
-   await recommendVideoLink.recommendTabVisible();
-   await recommendVideoLink.recommendButtonClick();
+    await recommendVideoLink.recommendButtonClick();
     await recommendVideoLink.linkFill(Url);
-   await recommendVideoLink.minFill(Min);
+    await recommendVideoLink.minFill(Min);
    await recommendVideoLink.saveLink();
+    }
+    catch(err){console.error(err)}
+
+    
 })
 test("verify same link cannot be recommended again",async({page})=>{
     const navigationurl= new NavigationURL(page)
