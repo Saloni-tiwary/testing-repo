@@ -1,6 +1,6 @@
 const { test, expect, request} = require('@playwright/test');
 const { HomePage } = require('../pageobject_pagefile/ HomePage');
-const {NavigationURL}= require('../pageobject_pagefile/navigatingbaseURL')
+const {NavigationURL}= require('../pageobject_pagefile/NavigatingbaseURL')
 
     
 // test('recommend tab UI', async({page})=>{

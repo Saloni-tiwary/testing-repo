@@ -1,6 +1,6 @@
 const{test,expect}=require('@playwright/test');
 const{LinkOuterCard}=require('../pageobject_pagefile/LinkOuterCard');
-const{NavigationURL}=require('../pageobject_pagefile/navigatingbaseURL');
+const{NavigationURL}=require('../pageobject_pagefile/NavigatingbaseURL');
 const{EditPopupOuterCard}=require('../pageobject_pagefile/EditpopupOuterCard');
 
 
@@ -121,7 +121,7 @@ test("verify on clicking cancel button a tag is deleted",async({page})=>{
 
 })
 
-test.only("Verify only one content type can be choosen", async({page})=>{
+test("Verify only one content type can be choosen", async({page})=>{
   const navigationurl= new NavigationURL(page)
   await navigationurl.navigationURL();
   const linkoutercard= new LinkOuterCard(page);

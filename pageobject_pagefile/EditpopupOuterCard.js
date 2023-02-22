@@ -13,7 +13,7 @@ class EditPopupOuterCard
     this.TagInputField=page.locator(".tag-name");
     this.RadioButtonVideo=page.locator('#video');
     this.RadioButtonArticle=page.locator("#article");
-    this.VideoRadioButtonEnable=page.locator("#video .radio-button");
+    this.VideoRadioButtonEnable=page.locator(".radio-button");
     this.LinkMin=page.getByPlaceholder("Min");
 
     }
@@ -91,14 +91,15 @@ class EditPopupOuterCard
         await this.RadioButtonArticle.click()
     }
     async oneRadioButtonEnabled(){
-        const RadioButton= await this.VideoRadioButtonEnable.isEnabled({timeout:5000});
-        console.log(RadioButton)
-        if(RadioButton===false){
-            console.log("only one content type is selected");
-            }
-            else{
-             console.log("test is failing");
-            }
+       await expect(this.VideoRadioButtonEnable.nth(1)).not.toHaveClass(".radio-button.active")
+        // const RadioButton= await this.VideoRadioButtonEnable.isEnabled({timeout:5000});
+        // console.log(RadioButton)
+        // if(RadioButton===false){
+        //     console.log("only one content type is selected");
+        //     }
+        //     else{
+        //      console.log("test is failing");
+        //     }
            
     }
     async emptyMinFill(){

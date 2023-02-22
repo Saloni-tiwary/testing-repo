@@ -1,10 +1,10 @@
 const { test, expect, request} = require('@playwright/test');
-const {NavigationURL}= require('../pageobject_pagefile/navigatingbaseURL');
+const {NavigationURL}= require('../pageobject_pagefile/NavigatingbaseURL');
 const{LinkOuterCard}=require('../pageobject_pagefile/LinkOuterCard')
 
 
 
-test("verify that link outer card add to learn options are clickable",async({page})=>{
+test.only("verify that link outer card add to learn options are clickable",async({page})=>{
     const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL();
     const linkoutercard= new LinkOuterCard(page);
