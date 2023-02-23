@@ -7,14 +7,16 @@ class PayItForwardOuterCard{
     this.page=page;
     this.EmbedImage=page.locator(".challenge-img");
     this.PayItForwardOption=page.locator("[data-status='pay-forward']");
-    this.PayItForwardInputField=page.locator(".input-value");
+    this.PayItForwardInputField=page.getByPlaceholder('Type to add people');
     this.warning=page.locator(".warning");
     this.SelectingSelf=page.getByRole('navigation').filter({ hasText: 'Shakti Aryan' });
     this.PayItForwardButton=page.getByRole("button",{name:'Share'});
     this.SelectingOther=page.getByRole('navigation').filter({ hasText: 'Saloni Tiwary' });
+    this.SelectingSecondOtherUser=page.locator('a').filter({ hasText: 'Shakkthi Rajkumar' });
     this.SuccessMessage=page.locator("div .success");
     this.NotesInputField=page.getByPlaceholder("Type your note here....");
     this.PayItForwardPopupBox=page.locator(".container");
+    this.DyanamicSearchDropdown=page.locator("people-search.dropdown.open");
  }
  async payItForwardPopupBoxOpen(){
    await expect(this.PayItForwardPopupBox).toContainText("Pay it Forward");
@@ -56,9 +58,26 @@ class PayItForwardOuterCard{
    await (this.PayItForwardButton).click()
 
  }
-
+ async selectInputFieldAgain(){
+   await this.PayItForwardInputField.click();
+ }
+ async typeSecondOtherUser(){
+ await this.PayItForwardInputField.type('sha',{delay:3000})
+ }
+ async selectSecondOtherUser(){
+   await this.SelectingSecondOtherUser.click()
+ }
+ async twoCharactersTyped(){
+   await this.PayItForwardInputField.type("sa",{delay:100});
+ }
+async dropDownNotVisible(){
+   await expect(this.DyanamicSearchDropdown).not.toBeVisible();
+}
 
 }
 module.exports={PayItForwardOuterCard};
 
 
+
+
+ 

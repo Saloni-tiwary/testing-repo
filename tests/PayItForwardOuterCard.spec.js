@@ -96,3 +96,40 @@ test("verify that a person can be selected only once in payit forward",async({pa
     await payitforwardoutercard.successConfirmation();
 
   })
+
+
+  test("verify that on giving just two characters search dropdown should not open",async({page})=>{
+    const navigationurl= new NavigationURL(page)
+    await navigationurl.navigationURL();
+    const linkoutercard= new LinkOuterCard(page);
+    const payitforwardoutercard=new PayItForwardOuterCard(page);
+    await linkoutercard.linkOuterCardHover();
+    await linkoutercard.linkMoreOptionsClick();
+    await payitforwardoutercard.payItForwardOptionClick();
+    await payitforwardoutercard.twoCharactersTyped();
+    await payitforwardoutercard.dropDownNotVisible();
+
+  })
+
+  test.only("verify that a link is forwarded to multiple people",async({page})=>{
+    const navigationurl= new NavigationURL(page)
+    await navigationurl.navigationURL();
+    const linkoutercard= new LinkOuterCard(page);
+    const payitforwardoutercard=new PayItForwardOuterCard(page);
+    await linkoutercard.linkOuterCardHover();
+    await linkoutercard.linkMoreOptionsClick();
+    await payitforwardoutercard.payItForwardOptionClick();
+    await payitforwardoutercard.typeOtherNameAsInput();
+    await payitforwardoutercard.selectingOtherUser();
+    await payitforwardoutercard.selectInputFieldAgain();
+    await payitforwardoutercard.typeSecondOtherUser();
+    await payitforwardoutercard.selectSecondOtherUser();
+    await payitforwardoutercard.shareButtonClick();
+    await payitforwardoutercard.successConfirmation();
+
+
+  })
+
+
+
+ 
