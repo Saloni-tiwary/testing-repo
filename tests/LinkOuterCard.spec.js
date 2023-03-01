@@ -4,7 +4,7 @@ const{LinkOuterCard}=require('../pageobject_pagefile/LinkOuterCard')
 
 
 
-test.only("verify that link outer card add to learn options are clickable",async({page})=>{
+test("verify that link outer card add to learn options are clickable",async({page})=>{
     const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL();
     const linkoutercard= new LinkOuterCard(page);

@@ -23,7 +23,7 @@ test('recommend tab UI', async({page})=>{
     await expect(page.locator('section .container')).toContainText('Recommend');
 })
     // video link not completed in headed mode
-test.only('Verify that a Video can be recommended', async({page})=>{
+test('Verify that a Video can be recommended', async({page})=>{
   // await expect(page.locator('.recommend-link')).toBeVisible();
   
     await page.getByRole('button', { name: '+ Recommend' }).click({delay:100});

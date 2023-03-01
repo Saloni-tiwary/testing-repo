@@ -17,7 +17,8 @@ class LinkInnerViewUI{
 
     }
     async sameLinkClickedVerify(){
-        var Title=await this.LinkTitle.nth(0).textContent()
+        let Title=await this.LinkTitle.nth(0).textContent()
+        console.log(Title)
         await this.LinkOuterCard.nth(0).click();
         await expect( this.LinkInnerviewTitle).toContainText(Title);
     }
