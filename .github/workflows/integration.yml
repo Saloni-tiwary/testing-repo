@@ -36,5 +36,6 @@ jobs:
     - run: |
         pwd
         ls -la
+        ls -la pageobject_pagefile
         
     - run: npm test
