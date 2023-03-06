@@ -2,7 +2,7 @@ const{test,expect}=require('@playwright/test');
 const{LinkOuterCard}=require('../pageobject_pagefile/link-outercard');
 const{NavigationURL}=require('../pageobject_pagefile/navigating-base-url');
 const{LinkInnerViewUI}=require('../pageobject_pagefile/linkinner-view-ui');
-const{PayItforwardLinkInnerview}=require('../pageobject_pagefile/PayItForwardLinkInnerview');
+const{PayItforwardLinkInnerview}=require('../pageobject_pagefile/pay-it-forward-link-innerview');
 
 
 
