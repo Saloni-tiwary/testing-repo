@@ -1,7 +1,7 @@
 const{test,expect}=require('@playwright/test');
-const{LinkOuterCard}=require('../pageobject_pagefile/LinkOuterCard');
-const{NavigationURL}=require('../pageobject_pagefile/NavigatingbaseURL');
-const{EditPopupOuterCard}=require('../pageobject_pagefile/EditpopupOuterCard');
+const{LinkOuterCard}=require('../pageobject_pagefile/link-outercard');
+const{NavigationURL}=require('../pageobject_pagefile/navigating-base-url');
+const{EditPopupOuterCard}=require('../pageobject_pagefile/editpopup-outerCard');
 
 
 

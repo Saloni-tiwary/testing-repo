@@ -1,6 +1,6 @@
 const{test,expect}=require('@playwright/test')
-const{LinkOuterCard}=require('../pageobject_pagefile/LinkOuterCard');
-const{NavigationURL}=require('../pageobject_pagefile/NavigatingbaseURL');
+const{LinkOuterCard}=require('../pageobject_pagefile/link-outercard');
+const{NavigationURL}=require('../pageobject_pagefile/navigating-base-url');
 const{PayItForwardOuterCard}=require('../pageobject_pagefile/PayItForwardOuterCard');
 
 
@@ -98,7 +98,7 @@ test("verify that a person can be selected only once in payit forward",async({pa
   })
 
 
-  test("verify that on giving just two characters search dropdown should not open",async({page})=>{
+  test.only("verify that on giving just two characters search dropdown should not open",async({page})=>{
     const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL();
     const linkoutercard= new LinkOuterCard(page);
@@ -111,7 +111,7 @@ test("verify that a person can be selected only once in payit forward",async({pa
 
   })
 
-  test.only("verify that a link is forwarded to multiple people",async({page})=>{
+  test("verify that a link is forwarded to multiple people",async({page})=>{
     const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL();
     const linkoutercard= new LinkOuterCard(page);

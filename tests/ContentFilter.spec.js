@@ -1,6 +1,6 @@
 const { test, expect, request} = require('@playwright/test');
-const {NavigationURL}= require('../pageobject_pagefile/NavigatingbaseURL');
-const{ContentFilter}=require('../pageobject_pagefile/ContentFilter')
+const {NavigationURL}= require('../pageobject_pagefile/navigating-base-url');
+const{ContentFilter}=require('../pageobject_pagefile/content-filter')
 
 
 test("verify that content filter dropdown is clickable",async({page})=>{

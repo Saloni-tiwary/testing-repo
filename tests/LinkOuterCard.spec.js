@@ -1,6 +1,6 @@
 const { test, expect, request} = require('@playwright/test');
-const {NavigationURL}= require('../pageobject_pagefile/NavigatingbaseURL');
-const{LinkOuterCard}=require('../pageobject_pagefile/LinkOuterCard')
+const {NavigationURL}= require('../pageobject_pagefile/navigating-base-url');
+const{LinkOuterCard}=require('../pageobject_pagefile/link-outercard')
 
 
 

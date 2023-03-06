@@ -1,7 +1,7 @@
 const{test,expect}=require('@playwright/test')
-const{LinkOuterCard}=require('../pageobject_pagefile/LinkOuterCard');
-const{NavigationURL}=require('../pageobject_pagefile/NavigatingbaseURL');
-const{DeleteLinkOutercard}=require('../pageobject_pagefile/DeleteLinkOuterCard');
+const{LinkOuterCard}=require('../pageobject_pagefile/link-outercard');
+const{NavigationURL}=require('../pageobject_pagefile/navigating-base-url');
+const{DeleteLinkOutercard}=require('../pageobject_pagefile/delete-link-outercard');
 
 test("verify that on clicking the delete from more options delete popup is opened", async({page})=>{
     const navigationurl= new NavigationURL(page)
