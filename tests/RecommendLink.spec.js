@@ -1,6 +1,6 @@
 const { test, expect, request} = require('@playwright/test');
-const {RecommendTab} = require('../pageobject_pagefile/RecommendTab.js')
-const{SimilarRecommendation}=require('../pageobject_pagefile/SimilarRecommendation')
+const {RecommendTab} = require('../pageobject_pagefile/recommend-tab.js')
+const{SimilarRecommendation}=require('../pageobject_pagefile/similar-recommendation')
 const {NavigationURL}= require('../pageobject_pagefile/navigating-base-url')
     
 
