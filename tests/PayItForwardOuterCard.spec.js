@@ -98,7 +98,7 @@ test("verify that a person can be selected only once in payit forward",async({pa
   })
 
 
-  test.only("verify that on giving just two characters search dropdown should not open",async({page})=>{
+  test("verify that on giving just two characters search dropdown should not open",async({page})=>{
     const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL();
     const linkoutercard= new LinkOuterCard(page);
