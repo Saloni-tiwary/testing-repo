@@ -6,6 +6,12 @@
   "scripts": {
     "test": "playwright test"
   },
+  "playwright": {
+    "testMatch": [
+    "tests/ContentFilter.spec.js"
+     
+    ]
+    },
   "keywords": [],
   "author": "",
   "license": "ISC",

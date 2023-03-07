@@ -20,7 +20,7 @@ jobs:
 #stragegy allows to to setup multiple different node versions
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [18.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 # these are the steps we need to take to run our job correctly 
     steps:
@@ -29,8 +29,10 @@ jobs:
         with:
           node-version: "16.x"
       - uses: microsoft/playwright-github-action@v1
+        with:
+          browsers: chromium
       - name: Install Playwright Browsers
-        run:  npm install && npx playwright test
+        run:  npx playwright install --with-deps chromium
       - name: Install dependencies and run relevent files
         run: npm install && npx playwright test tests/ContentFilter.spec.js
       - uses: actions/upload-artifact@v2
