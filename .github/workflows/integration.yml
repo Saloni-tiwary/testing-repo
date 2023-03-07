@@ -32,7 +32,7 @@ jobs:
         with:
           browsers: chromium
       - name: Install Playwright Browsers
-        run:  npx playwright install --with-deps chromium
+        run:  npx playwright install-deps chromium
       - name: Install dependencies and run relevent files
         run: npm install && npx playwright test tests/ContentFilter.spec.js
       - uses: actions/upload-artifact@v2
