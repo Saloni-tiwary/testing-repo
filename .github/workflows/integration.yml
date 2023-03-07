@@ -16,7 +16,7 @@ on:
 jobs:
   build:
   #job is going to run on a server which is hosted by github
-    runs-on: ubuntu-latest
+    runs-on:  windows-latest
 #stragegy allows to to setup multiple different node versions
     strategy:
       matrix:
