@@ -31,11 +31,13 @@ jobs:
           node-version: "16.x"
       - uses: microsoft/playwright-github-action@v1
          
-      - name: Install Playwright Browsers
-        run:  npx playwright install-deps chromium
+       
 
-      - name: Install dependencies and run relevent files
-        run: npm install && npx playwright install-deps chromium && npx playwright test tests/ContentFilter.spec.js
+      - name: Install dependencies and Install Playwright Browsers
+        run: npm install && npx playwright install-deps chromium
+
+      - name: run relevent tests
+        run:  npx playwright test tests/ContentFilter.spec.js
 
       - uses: actions/upload-artifact@v2
         if: always()
