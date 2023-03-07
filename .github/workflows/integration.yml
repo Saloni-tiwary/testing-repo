@@ -37,7 +37,7 @@ jobs:
         run: npm install && npx playwright install-deps chromium
 
       - name: run relevent tests
-        run:  npx playwright test tests/ContentFilter.spec.js
+        run:  npx playwright install && npx playwright test tests/ContentFilter.spec.js
 
       - uses: actions/upload-artifact@v2
         if: always()
