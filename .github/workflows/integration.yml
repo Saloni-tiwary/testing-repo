@@ -25,16 +25,18 @@ jobs:
 # these are the steps we need to take to run our job correctly 
     steps:
       - uses: actions/checkout@v2
+
       - uses: actions/setup-node@v2
         with:
           node-version: "16.x"
       - uses: microsoft/playwright-github-action@v1
-        with:
-          browsers: chromium
+         
       - name: Install Playwright Browsers
         run:  npx playwright install-deps chromium
+
       - name: Install dependencies and run relevent files
-        run: npm install && npx playwright install && npx playwright test tests/ContentFilter.spec.js
+        run: npm install && npx playwright install-deps chromium && npx playwright test tests/ContentFilter.spec.js
+
       - uses: actions/upload-artifact@v2
         if: always()
         with:
