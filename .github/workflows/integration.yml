@@ -34,7 +34,7 @@ jobs:
       - name: Install Playwright Browsers
         run:  npx playwright install-deps chromium
       - name: Install dependencies and run relevent files
-        run: npm install && px playwright install && npx playwright test tests/ContentFilter.spec.js
+        run: npm install && npx playwright install && npx playwright test tests/ContentFilter.spec.js
       - uses: actions/upload-artifact@v2
         if: always()
         with:
