@@ -1162,7 +1162,7 @@ test("verify if we click on the embed link the page is redirecting to the embedd
  
  
 })
-test.only("verify that hyperlink embedded in takeaway using formatting options is clickable",async({page})=>{
+test("verify that hyperlink embedded in takeaway using formatting options is clickable",async({page})=>{
     await page.goto("https://my.staging.adaptiveu.app/");
     await page.locator(".challenge-image").nth(0).click();
   
