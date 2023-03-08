@@ -3,15 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "login.spec.js",
-  "scripts": {
-    "test": "playwright test"
-  },
-  "playwright": {
-    "testMatch": [
-    "tests/ContentFilter.spec.js"
-     
-    ]
-    },
+  "scripts": {},
   "keywords": [],
   "author": "",
   "license": "ISC",

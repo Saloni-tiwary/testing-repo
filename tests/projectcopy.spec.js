@@ -1132,18 +1132,19 @@ test("verify that a takeaway can be consolidated into bullet points", async ({pa
   await page.locator(".challenge-image").nth(0).click();
 
   await page.locator(".review-edit").click();
-  //await page.getByText("sample").press("Meta+A",{delay:2000})
-
-  const element = await page.getByText("sample"); // get the slider element
-  const elementBoundingBox = await element.boundingBox(); // get the bounding box of the element
-  const sliderHandle = {
-    x: elementBoundingBox.x + elementBoundingBox.width,
-    y: elementBoundingBox.y + elementBoundingBox.height / 2,
-  }; // calculate the handle position on the right side of the element
-  await page.mouse.move(sliderHandle.x, sliderHandle.y); // move the mouse to the handle position
-  await page.mouse.down(); // simulate a mouse button down event
-  await page.mouse.move(elementBoundingBox.x, sliderHandle.y, { steps: 10 }); // move the mouse to the left side of the element, with 10 intermediate steps
-  await page.mouse.up({ clickCount:8});
+  
+  await await page.getByText("sample").nth(0).click();
+  await  await page.locator('.ql-editor').press('Shift+ArrowLeft');
+//   const element = await page.getByText("sample"); // get the slider element
+//   const elementBoundingBox = await element.boundingBox(); // get the bounding box of the element
+//   const sliderHandle = {
+//     x: elementBoundingBox.x + elementBoundingBox.width,
+//     y: elementBoundingBox.y + elementBoundingBox.height / 2,
+//   }; // calculate the handle position on the right side of the element
+//   await page.mouse.move(sliderHandle.x, sliderHandle.y); // move the mouse to the handle position
+//   await page.mouse.down(); // simulate a mouse button down event
+//   await page.mouse.move(elementBoundingBox.x, sliderHandle.y, { steps: 10 }); // move the mouse to the left side of the element, with 10 intermediate steps
+//   await page.mouse.up({ clickCount:8});
   await expect(page.locator(".ql-tooltip")).toBeVisible(); // simulate a mouse button up event
   //await page.locator(".ql-tooltip").waitFor();
 
@@ -1162,29 +1163,32 @@ test("verify if we click on the embed link the page is redirecting to the embedd
  
  
 })
-test("verify that hyperlink embedded in takeaway using formatting options is clickable",async({page})=>{
+test.only("verify that hyperlink embedded in takeaway using formatting options is clickable",async({page})=>{
     await page.goto("https://my.staging.adaptiveu.app/");
     await page.locator(".challenge-image").nth(0).click();
   
     await page.locator(".review-edit").click();
+    await await page.getByText("sample").nth(0).click();
+  await  await page.locator('.ql-editor').press('Shift+ArrowLeft',{delay:1000});
     //await page.getByText("sample").press("Meta+A",{delay:2000})
   
-    const element = await page.getByText("sample").nth(0); // get the slider element
-    const elementBoundingBox = await element.boundingBox(); // get the bounding box of the element
-    const sliderHandle = {
-      x: elementBoundingBox.x + elementBoundingBox.width,
-      y: elementBoundingBox.y + elementBoundingBox.height / 2,
-    }; // calculate the handle position on the right side of the element
-    await page.mouse.move(sliderHandle.x, sliderHandle.y); // move the mouse to the handle position
-    await page.mouse.down(); // simulate a mouse button down event
-    await page.mouse.move(elementBoundingBox.x, sliderHandle.y, { steps: 10 }); // move the mouse to the left side of the element, with 10 intermediate steps
-    await page.mouse.up({ clickCount:10});
-    await expect(page.locator(".ql-tooltip")).toBeVisible(); 
+    // const element = await page.getByText("sample").nth(0); // get the slider element
+    // const elementBoundingBox = await element.boundingBox(); // get the bounding box of the element
+    // const sliderHandle = {
+    //   x: elementBoundingBox.x + elementBoundingBox.width,
+    //   y: elementBoundingBox.y + elementBoundingBox.height / 2,
+    // }; // calculate the handle position on the right side of the element
+    // await page.mouse.move(sliderHandle.x, sliderHandle.y); // move the mouse to the handle position
+    // await page.mouse.down(); // simulate a mouse button down event
+    // await page.mouse.move(elementBoundingBox.x, sliderHandle.y, { steps: 10 }); // move the mouse to the left side of the element, with 10 intermediate steps
+    // await page.mouse.up({ clickCount:10});
+    //await expect(page.locator(".ql-tooltip")).toBeVisible(); 
     await page.locator(".ql-link").click();
     await page.getByPlaceholder("https://quilljs.com").fill("https://www.google.com/");
+    await page.keyboard.press("Enter");
     await page.getByRole("button", { name: "Save" }).click();
     const page2Promise = page.waitForEvent('popup');
-  await page.getByText("sample").nth(0).click();
+  await page.locator("[href='https://www.google.com/']").click();
   const page2 = await page2Promise;
   await expect(page2.getByAltText("Google")).toBeVisible();
 

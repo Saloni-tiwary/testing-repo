@@ -2,6 +2,29 @@ const{test,expect}=require('@playwright/test');
 const{LinkOuterCard}=require('../pageobject_pagefile/link-outercard');
 const{NavigationURL}=require('../pageobject_pagefile/navigating-base-url');
 const{EditPopupOuterCard}=require('../pageobject_pagefile/editpopup-outerCard');
+const {RecommendTab} = require('../pageobject_pagefile/recommend-tab.js');
+const{DeleteLinkOutercard}=require('../pageobject_pagefile/delete-link-outercard');
+
+
+
+
+test('Verify that a Video can be recommended', async({page})=>{
+  const Urlvideo='https://www.youtube.com/watch?v=Pm2BvdiZUXA';
+  const Minvideo="14"
+  
+  const navigationurl= new NavigationURL(page)
+  await navigationurl.navigationURL()
+  const recommendVideoLink=new RecommendTab(page)
+  const linkoutercard= new LinkOuterCard(page);
+  
+  await recommendVideoLink.univNameVisible();
+  
+  await recommendVideoLink.recommendButtonClick();
+  await recommendVideoLink.linkFill(Urlvideo);
+  await recommendVideoLink.minFill(Minvideo);
+ await recommendVideoLink.saveLink();
+ await recommendVideoLink.videoFirstLinkOuterCardVerify();
+})
 
 
 
@@ -17,6 +40,81 @@ test("verify that link edited to no title cannot be saved", async({page})=>{
     await editpopup.saveLink();
     await editpopup.linkError();
 })
+test("verify that the link title can be edited to other valid title ",async({page})=>{
+  const navigationurl= new NavigationURL(page)
+    await navigationurl.navigationURL();
+    const linkoutercard= new LinkOuterCard(page);
+    const editpopup=new EditPopupOuterCard(page);
+    await linkoutercard.linkOuterCardHover();
+    await linkoutercard.linkMoreOptionsClick();
+    await linkoutercard.editOptionClick();
+    await editpopup.validSecondTitle();
+    await editpopup.saveLink();
+    await editpopup.validSecondTitleSavedVerify();
+})
+test("verify that link title having only special characters cannot be saved",async({page})=>{
+  const navigationurl= new NavigationURL(page)
+    await navigationurl.navigationURL();
+    const linkoutercard= new LinkOuterCard(page);
+    const editpopup=new EditPopupOuterCard(page);
+    await linkoutercard.linkOuterCardHover();
+    await linkoutercard.linkMoreOptionsClick();
+    await linkoutercard.editOptionClick();
+    await editpopup.enterSpecialCharAsTitle();
+    await editpopup.saveLink();
+    await editpopup.linkError();
+
+})
+test("verify that a link title containing only numbers can be saved",async({page})=>{
+  const navigationurl= new NavigationURL(page)
+    await navigationurl.navigationURL();
+    const linkoutercard= new LinkOuterCard(page);
+    const editpopup=new EditPopupOuterCard(page);
+    await linkoutercard.linkOuterCardHover();
+    await linkoutercard.linkMoreOptionsClick();
+    await linkoutercard.editOptionClick();
+    await editpopup.enterOnlyNumbersAsTitle();
+    await editpopup.saveLink();
+    await editpopup.onlyNumTitleSavedVerify();
+})
+ test("verify that leading spaces in the link title can be trimmed",async({page})=>{
+  const navigationurl= new NavigationURL(page)
+    await navigationurl.navigationURL();
+    const linkoutercard= new LinkOuterCard(page);
+    const editpopup=new EditPopupOuterCard(page);
+    await linkoutercard.linkOuterCardHover();
+    await linkoutercard.linkMoreOptionsClick();
+    await linkoutercard.editOptionClick();
+    await editpopup.leadingSpaceInput();
+    await editpopup.saveLink();
+    await editpopup.leadingSpacesTrimmedVerify();
+
+
+ })
+ test("verify that trailing spaces can be trimmed",async({page})=>{
+  const navigationurl= new NavigationURL(page)
+    await navigationurl.navigationURL();
+    const linkoutercard= new LinkOuterCard(page);
+    const editpopup=new EditPopupOuterCard(page);
+    await linkoutercard.linkOuterCardHover();
+    await linkoutercard.linkMoreOptionsClick();
+    await linkoutercard.editOptionClick();
+    await editpopup.trailingSpaceInput();
+    await editpopup.saveLink();
+    await editpopup.trailingSpaceTrimmedVerify();
+ })
+ test("verify that extra intermediate spaces can be trimmed",async({page})=>{
+  const navigationurl= new NavigationURL(page)
+  await navigationurl.navigationURL();
+  const linkoutercard= new LinkOuterCard(page);
+  const editpopup=new EditPopupOuterCard(page);
+  await linkoutercard.linkOuterCardHover();
+  await linkoutercard.linkMoreOptionsClick();
+  await linkoutercard.editOptionClick();
+  await editpopup.extraIntermediateSpaceInput();
+  await editpopup.saveLink();
+  await editpopup.extraIntermediateSpaceTrimmedVerify();
+ })
 
 test("verify that the link edited to only special characters in title cannot be saved",async({page})=>{
   const navigationurl= new NavigationURL(page)
@@ -187,6 +285,24 @@ test("verify that the max minutes a link can have is 10000",async({page})=>{
   await editpopup.emptyMinFill();
   await editpopup.moreThanMaxMinFill();
   await editpopup.maxMinRedirection();
+})
+test('Verify that a link reccommended can be deleted', async({page})=>{
+     
+    
+  const navigationurl= new NavigationURL(page)
+  await navigationurl.navigationURL()
+   
+  const linkoutercard= new LinkOuterCard(page);
+  const deletelinkoutercard= new DeleteLinkOutercard(page);
+   
+ await linkoutercard.linkOuterCardHover();
+  await linkoutercard.linkMoreOptionsClick();
+  await deletelinkoutercard.deleteOptionClick();
+  await deletelinkoutercard.deleteLinkButtonClick();
+  await deletelinkoutercard.deleteContainerNotVisible();
+   
+
+  
 })
 
    

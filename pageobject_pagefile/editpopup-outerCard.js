@@ -15,10 +15,51 @@ class EditPopupOuterCard
     this.RadioButtonArticle=page.locator("#article");
     this.VideoRadioButtonEnable=page.locator(".radio-button");
     this.LinkMin=page.getByPlaceholder("Min");
+    this.LinkTitleOuterCard=page.locator("span.name").nth(0);
 
     }
     async enterEmptyTitle(){
         await this.LinkTitle.fill("");
+    }
+    async enterSpecialCharAsTitle(){
+        await this.LinkTitle.fill("");
+        await this.LinkTitle.fill("!@#$%^&");
+    }
+    async enterOnlyNumbersAsTitle(){
+        await this.LinkTitle.fill("");
+        await this.LinkTitle.fill("12345");
+    }
+    async onlyNumTitleSavedVerify(){
+        await expect(this.LinkTitleOuterCard).toHaveText("12345");
+    }
+    async leadingSpaceInput(){
+        await this.LinkTitle.fill("");
+        await this.LinkTitle.fill("                  Leading space input");
+    }
+    async leadingSpacesTrimmedVerify(){
+        await expect(this.LinkTitleOuterCard).toHaveText("Leading space input");
+    }
+    async trailingSpaceInput(){
+        await this.LinkTitle.fill("");
+        await this.LinkTitle.fill("trailing space input                         ");
+    }
+    async trailingSpaceTrimmedVerify(){
+        await expect(this.LinkTitleOuterCard).toHaveText("trailing space input");
+    }
+    async extraIntermediateSpaceInput(){
+        await this.LinkTitle.fill("");
+        await this.LinkTitle.fill("t     t     t"); 
+    }
+    async extraIntermediateSpaceTrimmedVerify(){
+        await expect(this.LinkTitleOuterCard).toHaveText("t t t");
+    }
+    async validSecondTitle(){
+        await this.LinkTitle.fill("");
+        await this.LinkTitle.fill("valid second title"); 
+    }
+    async validSecondTitleSavedVerify(){
+        await expect(this.LinkTitleOuterCard).toHaveText("valid second title");
+    
     }
     async saveLink(){
         await this.SaveButton.click();

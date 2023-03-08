@@ -13,6 +13,7 @@ class EditPopupLinkInnerview{
         this.LinkNameError=page.locator(".link-name.error");
         this.LinkUrlInputField=page.getByPlaceholder('Share any video/article, which benefits your organization!');
         this.LinkUrlError=page.locator(".recommend-link.error");
+        this.LinkFirstOuterCardTitle=page.locator("h2.link-name");
         
 
     }
@@ -52,14 +53,43 @@ class EditPopupLinkInnerview{
     }
     async validLinkTitleInput(){
         await this.LinkTitleLinkInnerview.fill("");
-        await this.LinkTitleLinkInnerview.fill("testing");
+        await this.LinkTitleLinkInnerview.fill("testing edit name");
     }
     async validLinkTitleConfirm(){
-       await expect(this.LinkTitleConfirm).toHaveText("testing");
+       await expect(this.LinkTitleConfirm).toHaveText("testing edit name");
     }
     async specialCharLinkTitleInput(){
         await this.LinkTitleLinkInnerview.fill("");
         await this.LinkTitleLinkInnerview.fill("!@#$%");
+    }
+    async onlyNumInput(){
+        await this.LinkTitleLinkInnerview.fill("");
+        await this.LinkTitleLinkInnerview.fill("123");
+    }
+    async verifyNumTitleInput(){
+      await expect(this.LinkFirstOuterCardTitle).toContainText("123")
+
+    }
+    async leadingSpaceInput(){
+        await this.LinkTitleLinkInnerview.fill("");
+        await this.LinkTitleLinkInnerview.fill("                      leading space test");
+    }
+    async leadingSpaceTrimmedVerify(){
+        await expect(this.LinkFirstOuterCardTitle).toContainText("leading space test")
+    }
+    async trailingSpacesInput(){
+        await this.LinkTitleLinkInnerview.fill("");
+        await this.LinkTitleLinkInnerview.fill("trailing space test                             ");
+    }
+    async trailingSpaceTrimmedVerify(){
+        await expect(this.LinkFirstOuterCardTitle).toContainText("trailing space test")
+    }
+    async extraIntermediateSpaceInput(){
+        await this.LinkTitleLinkInnerview.fill("");
+        await this.LinkTitleLinkInnerview.fill("i     i     i");
+    }
+    async extraIntermediateSpaceTrimmedVerify(){
+        await expect(this.LinkFirstOuterCardTitle).toContainText("i i i")
     }
     async invalidTitleWarning(){
         await expect(this.WarningMessage).toContainText("Please provide link name with at least one character other than special characters!");

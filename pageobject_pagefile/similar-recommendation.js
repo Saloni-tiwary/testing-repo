@@ -8,6 +8,8 @@ class SimilarRecommendation{
         this.LearningMin=page.getByPlaceholder('Min');
         this.RecommendingSaveButton=page.locator('#popup').getByRole('button', { name: 'Recommend' });
         this.DuplicateMessage=page.locator(".duplicate-message");
+        this.ViewSimilarURL=page.locator("//a[text()='View']")
+        this.LinkName=page.locator(".link-name");
 
     }
    async clickRecommendTab(){
@@ -30,6 +32,13 @@ class SimilarRecommendation{
     async similarURLWarning(){
         await expect(this.DuplicateMessage).toHaveText("Oops! We have predicted a similar recommendation View");
     }
+    async navigateSimilarUrl(){
+        await this.ViewSimilarURL.click()
+    }
+    async navigatedSimilarUrlVerify(){
+        await expect(this.LinkName).toContainText("excel - Can i use TextSplit with");
+    }
+
 
 
 }
