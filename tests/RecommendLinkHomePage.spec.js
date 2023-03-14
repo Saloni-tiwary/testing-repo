@@ -42,7 +42,7 @@ test('Verify that a Video can be recommended', async({page})=>{
     
 })
 test("verify that a article link can be recommended",async({page})=>{
-    const Urlarticle="https://playwrightsolutions.com/how-do-i-test-a-website-that-has-a-page-redirect-with-playwright/"
+    const Urlarticle="https://playwright.dev/docs/navigations"
     const Minarticle="14"
     
     const navigationurl= new NavigationURL(page)

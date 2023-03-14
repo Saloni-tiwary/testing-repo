@@ -48,7 +48,7 @@ async videoFirstLinkOuterCardVerify(){
     await expect(this.LinkOuterCardVerify).toContainText("10 Minute Timer")
 }
 async articleFirstLinkOuterCardVerify(){
-    await expect(this.LinkOuterCardVerify).toContainText("test a website that has a page")
+    await expect(this.LinkOuterCardVerify).toContainText("Navigations | Playwright")
 }
 async bookFirstLinkOuterCardVerify(){
     await expect(this.LinkOuterCardVerify).toContainText("Audible com")

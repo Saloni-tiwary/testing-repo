@@ -3,8 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "login.spec.js",
-  "scripts": {},
-  "keywords": [],
+  "scripts":{
+    "main": "node tests/main.js"
+
+  },
+  
+  "keywords": [
+    "npm",
+    "scripts"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {

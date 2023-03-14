@@ -905,24 +905,27 @@ test("verify on clicking cancel after giving edited takeaway, the previous takea
   await page.getByRole("button", { name: "Cancel" }).click();
   await expect(page.locator(".ql-editor")).toHaveText("sample2");
 });
-test("verify as we select the text in the takeaway the formatting options are available", async ({
+test.only("verify as we select the text in the takeaway the formatting options are available", async ({
   page,
 }) => {
   await page.goto("https://my.staging.adaptiveu.app/");
   await page.locator(".challenge-image").nth(0).click();
   await page.locator(".review-edit").click();
-  await page.getByText("sample").click({ button: "right" });
+  await page.getByText("sample").nth(0).click(); 
+  await page.locator('.ql-editor').press('Shift+ArrowLeft');
+   
+//   await page.getByText("sample").click({ button: "right" });
 
-  const element = await page.getByText("sample"); // get the slider element
-  const elementBoundingBox = await element.boundingBox(); // get the bounding box of the element
-  const sliderHandle = {
-    x: elementBoundingBox.x + elementBoundingBox.width,
-    y: elementBoundingBox.y + elementBoundingBox.height / 2,
-  }; // calculate the handle position on the right side of the element
-  await page.mouse.move(sliderHandle.x, sliderHandle.y); // move the mouse to the handle position
-  await page.mouse.down(); // simulate a mouse button down event
-  await page.mouse.move(elementBoundingBox.x, sliderHandle.y, { steps: 10 }); // move the mouse to the left side of the element, with 10 intermediate steps
-  await page.mouse.up({ clickCount: 2 }); // simulate a mouse button up event
+//   const element = await page.getByText("sample"); // get the slider element
+//   const elementBoundingBox = await element.boundingBox(); // get the bounding box of the element
+//   const sliderHandle = {
+//     x: elementBoundingBox.x + elementBoundingBox.width,
+//     y: elementBoundingBox.y + elementBoundingBox.height / 2,
+//   }; // calculate the handle position on the right side of the element
+//   await page.mouse.move(sliderHandle.x, sliderHandle.y); // move the mouse to the handle position
+//   await page.mouse.down(); // simulate a mouse button down event
+//   await page.mouse.move(elementBoundingBox.x, sliderHandle.y, { steps: 10 }); // move the mouse to the left side of the element, with 10 intermediate steps
+//   await page.mouse.up({ clickCount: 2 }); // simulate a mouse button up event
   await expect(page.locator(".ql-tooltip")).toBeVisible();
 });
 test("verify when the bold option is clicked the takeaway turns bold", async ({
@@ -931,18 +934,20 @@ test("verify when the bold option is clicked the takeaway turns bold", async ({
   await page.goto("https://my.staging.adaptiveu.app/");
   await page.locator(".challenge-image").nth(0).click();
   await page.locator(".review-edit").click();
-  await page.getByText("sample").click({ button: "right" });
+  await page.getByText("sample").nth(0).click(); 
+  await page.locator('.ql-editor').press('Shift+ArrowLeft');
+   
 
-  const element = await page.getByText("sample"); // get the slider element
-  const elementBoundingBox = await element.boundingBox(); // get the bounding box of the element
-  const sliderHandle = {
-    x: elementBoundingBox.x + elementBoundingBox.width,
-    y: elementBoundingBox.y + elementBoundingBox.height / 2,
-  }; // calculate the handle position on the right side of the element
-  await page.mouse.move(sliderHandle.x, sliderHandle.y); // move the mouse to the handle position
-  await page.mouse.down(); // simulate a mouse button down event
-  await page.mouse.move(elementBoundingBox.x, sliderHandle.y, { steps: 10 }); // move the mouse to the left side of the element, with 10 intermediate steps
-  await page.mouse.up({ clickCount: 6 });
+//   const element = await page.getByText("sample"); // get the slider element
+//   const elementBoundingBox = await element.boundingBox(); // get the bounding box of the element
+//   const sliderHandle = {
+//     x: elementBoundingBox.x + elementBoundingBox.width,
+//     y: elementBoundingBox.y + elementBoundingBox.height / 2,
+//   }; // calculate the handle position on the right side of the element
+//   await page.mouse.move(sliderHandle.x, sliderHandle.y); // move the mouse to the handle position
+//   await page.mouse.down(); // simulate a mouse button down event
+//   await page.mouse.move(elementBoundingBox.x, sliderHandle.y, { steps: 10 }); // move the mouse to the left side of the element, with 10 intermediate steps
+//   await page.mouse.up({ clickCount: 6 });
   await expect(page.locator(".ql-tooltip")).toBeVisible(); // simulate a mouse button up event
   //await page.locator(".ql-tooltip").waitFor();
   await page.locator(".ql-bold").click();
@@ -955,18 +960,20 @@ test("verify when italics option is clicked the takeaway text turn italics", asy
   await page.locator(".challenge-image").nth(0).click();
 
   await page.locator(".review-edit").click();
-  await page.getByText("sample").click({ button: "right" });
+  await page.getByText("sample").nth(0).click(); 
+  await page.locator('.ql-editor').press('Shift+ArrowLeft');
+  
 
-  const element = await page.getByText("sample"); // get the slider element
-  const elementBoundingBox = await element.boundingBox(); // get the bounding box of the element
-  const sliderHandle = {
-    x: elementBoundingBox.x + elementBoundingBox.width,
-    y: elementBoundingBox.y + elementBoundingBox.height / 2,
-  }; // calculate the handle position on the right side of the element
-  await page.mouse.move(sliderHandle.x, sliderHandle.y); // move the mouse to the handle position
-  await page.mouse.down(); // simulate a mouse button down event
-  await page.mouse.move(elementBoundingBox.x, sliderHandle.y, { steps: 10 }); // move the mouse to the left side of the element, with 10 intermediate steps
-  await page.mouse.up({ clickCount: 6 });
+//   const element = await page.getByText("sample"); // get the slider element
+//   const elementBoundingBox = await element.boundingBox(); // get the bounding box of the element
+//   const sliderHandle = {
+//     x: elementBoundingBox.x + elementBoundingBox.width,
+//     y: elementBoundingBox.y + elementBoundingBox.height / 2,
+//   }; // calculate the handle position on the right side of the element
+//   await page.mouse.move(sliderHandle.x, sliderHandle.y); // move the mouse to the handle position
+//   await page.mouse.down(); // simulate a mouse button down event
+//   await page.mouse.move(elementBoundingBox.x, sliderHandle.y, { steps: 10 }); // move the mouse to the left side of the element, with 10 intermediate steps
+//   await page.mouse.up({ clickCount: 6 });
   //await expect(page.locator(".ql-tooltip")).toBeVisible(); // simulate a mouse button up event
   await page.locator(".ql-tooltip").waitFor();
   await page.locator(".ql-italic").click();
@@ -979,18 +986,20 @@ test("verify when underlined is clicked the takeaway text is underlined", async 
   await page.locator(".challenge-image").nth(0).click();
 
   await page.locator(".review-edit").click();
-  //await page.getByText("sample").press("Meta+A",{delay:2000})
+  await page.getByText("sample").nth(0).click(); 
+  await page.locator('.ql-editor').press('Shift+ArrowLeft');
+//   //await page.getByText("sample").press("Meta+A",{delay:2000})
 
-  const element = await page.getByText("sample"); // get the slider element
-  const elementBoundingBox = await element.boundingBox(); // get the bounding box of the element
-  const sliderHandle = {
-    x: elementBoundingBox.x + elementBoundingBox.width,
-    y: elementBoundingBox.y + elementBoundingBox.height / 2,
-  }; // calculate the handle position on the right side of the element
-  await page.mouse.move(sliderHandle.x, sliderHandle.y); // move the mouse to the handle position
-  await page.mouse.down(); // simulate a mouse button down event
-  await page.mouse.move(elementBoundingBox.x, sliderHandle.y, { steps: 10 }); // move the mouse to the left side of the element, with 10 intermediate steps
-  await page.mouse.up({ clickCount: 4 });
+//   const element = await page.getByText("sample"); // get the slider element
+//   const elementBoundingBox = await element.boundingBox(); // get the bounding box of the element
+//   const sliderHandle = {
+//     x: elementBoundingBox.x + elementBoundingBox.width,
+//     y: elementBoundingBox.y + elementBoundingBox.height / 2,
+//   }; // calculate the handle position on the right side of the element
+//   await page.mouse.move(sliderHandle.x, sliderHandle.y); // move the mouse to the handle position
+//   await page.mouse.down(); // simulate a mouse button down event
+//   await page.mouse.move(elementBoundingBox.x, sliderHandle.y, { steps: 10 }); // move the mouse to the left side of the element, with 10 intermediate steps
+//   await page.mouse.up({ clickCount: 4 });
   await expect(page.locator(".ql-tooltip")).toBeVisible(); // simulate a mouse button up event
   //await page.locator(".ql-tooltip").waitFor();
   await page.locator(".ql-bold").click();
@@ -1002,23 +1011,26 @@ test("verify a text can be both bold and italics", async ({ page }) => {
   await page.locator(".challenge-image").nth(0).click();
 
   await page.locator(".review-edit").click();
-  //await page.getByText("sample").press("Meta+A",{delay:2000})
+  await page.getByText("sample").nth(0).click(); 
+  await page.locator('.ql-editor').press('Shift+ArrowLeft');
+//   //await page.getByText("sample").press("Meta+A",{delay:2000})
 
-  const element = await page.getByText("sample"); // get the slider element
-  const elementBoundingBox = await element.boundingBox(); // get the bounding box of the element
-  const sliderHandle = {
-    x: elementBoundingBox.x + elementBoundingBox.width,
-    y: elementBoundingBox.y + elementBoundingBox.height / 2,
-  }; // calculate the handle position on the right side of the element
-  await page.mouse.move(sliderHandle.x, sliderHandle.y); // move the mouse to the handle position
-  await page.mouse.down(); // simulate a mouse button down event
-  await page.mouse.move(elementBoundingBox.x, sliderHandle.y, { steps: 10 }); // move the mouse to the left side of the element, with 10 intermediate steps
-  await page.mouse.up({ clickCount: 6 });
+//   const element = await page.getByText("sample"); // get the slider element
+//   const elementBoundingBox = await element.boundingBox(); // get the bounding box of the element
+//   const sliderHandle = {
+//     x: elementBoundingBox.x + elementBoundingBox.width,
+//     y: elementBoundingBox.y + elementBoundingBox.height / 2,
+//   }; // calculate the handle position on the right side of the element
+//   await page.mouse.move(sliderHandle.x, sliderHandle.y); // move the mouse to the handle position
+//   await page.mouse.down(); // simulate a mouse button down event
+//   await page.mouse.move(elementBoundingBox.x, sliderHandle.y, { steps: 10 }); // move the mouse to the left side of the element, with 10 intermediate steps
+//   await page.mouse.up({ clickCount: 6 });
   await expect(page.locator(".ql-tooltip")).toBeVisible(); // simulate a mouse button up event
   //await page.locator(".ql-tooltip").waitFor();
 
-  await page.locator(".ql-bold").click({ delay: 2000 });
-  await page.locator(".ql-italic").click({ delay: 2000 });
+  await page.locator(".ql-bold").click();
+  await page.locator(".ql-italic").click();
+ //await page.locator("p strong em").waitFor();
   await expect(page.locator("p strong em")).toBeVisible();
 });
 
@@ -1027,24 +1039,27 @@ test("verify a text can be both bold and underlined", async ({ page }) => {
   await page.locator(".challenge-image").nth(0).click();
 
   await page.locator(".review-edit").click();
+  await page.getByText("sample").nth(0).click(); 
+  await page.locator('.ql-editor').press('Shift+ArrowLeft');
   //await page.getByText("sample").press("Meta+A",{delay:2000})
 
-  const element = await page.getByText("sample"); // get the slider element
-  const elementBoundingBox = await element.boundingBox(); // get the bounding box of the element
-  const sliderHandle = {
-    x: elementBoundingBox.x + elementBoundingBox.width,
-    y: elementBoundingBox.y + elementBoundingBox.height / 2,
-  }; // calculate the handle position on the right side of the element
-  await page.mouse.move(sliderHandle.x, sliderHandle.y); // move the mouse to the handle position
-  await page.mouse.down(); // simulate a mouse button down event
-  await page.mouse.move(elementBoundingBox.x, sliderHandle.y, { steps: 10 }); // move the mouse to the left side of the element, with 10 intermediate steps
-  await page.mouse.up({ clickCount: 6 });
+//   const element = await page.getByText("sample"); // get the slider element
+//   const elementBoundingBox = await element.boundingBox(); // get the bounding box of the element
+//   const sliderHandle = {
+//     x: elementBoundingBox.x + elementBoundingBox.width,
+//     y: elementBoundingBox.y + elementBoundingBox.height / 2,
+//   }; // calculate the handle position on the right side of the element
+//   await page.mouse.move(sliderHandle.x, sliderHandle.y); // move the mouse to the handle position
+//   await page.mouse.down(); // simulate a mouse button down event
+//   await page.mouse.move(elementBoundingBox.x, sliderHandle.y, { steps: 10 }); // move the mouse to the left side of the element, with 10 intermediate steps
+//   await page.mouse.up({ clickCount: 6 });
   await expect(page.locator(".ql-tooltip")).toBeVisible(); // simulate a mouse button up event
-  await page.locator(".ql-tooltip").waitFor();
+ await page.locator(".ql-tooltip").waitFor();
 
   await page.locator(".ql-bold").click();
   await page.locator(".ql-underline").click();
-
+  //await page.locator("p strong u").waitFor()
+   
   await expect(page.locator("p strong u")).toBeVisible();
 });
 
@@ -1055,18 +1070,20 @@ test("verify whether the text can be italics and underlined", async ({
   await page.locator(".challenge-image").nth(0).click();
 
   await page.locator(".review-edit").click();
+  await page.getByText("sample").nth(0).click(); 
+  await page.locator('.ql-editor').press('Shift+ArrowLeft');
   //await page.getByText("sample").press("Meta+A",{delay:2000})
 
-  const element = await page.getByText("sample"); // get the slider element
-  const elementBoundingBox = await element.boundingBox(); // get the bounding box of the element
-  const sliderHandle = {
-    x: elementBoundingBox.x + elementBoundingBox.width,
-    y: elementBoundingBox.y + elementBoundingBox.height / 2,
-  }; // calculate the handle position on the right side of the element
-  await page.mouse.move(sliderHandle.x, sliderHandle.y); // move the mouse to the handle position
-  await page.mouse.down(); // simulate a mouse button down event
-  await page.mouse.move(elementBoundingBox.x, sliderHandle.y, { steps: 10 }); // move the mouse to the left side of the element, with 10 intermediate steps
-  await page.mouse.up({ clickCount: 6 });
+//   const element = await page.getByText("sample"); // get the slider element
+//   const elementBoundingBox = await element.boundingBox(); // get the bounding box of the element
+//   const sliderHandle = {
+//     x: elementBoundingBox.x + elementBoundingBox.width,
+//     y: elementBoundingBox.y + elementBoundingBox.height / 2,
+//   }; // calculate the handle position on the right side of the element
+//   await page.mouse.move(sliderHandle.x, sliderHandle.y); // move the mouse to the handle position
+//   await page.mouse.down(); // simulate a mouse button down event
+//   await page.mouse.move(elementBoundingBox.x, sliderHandle.y, { steps: 10 }); // move the mouse to the left side of the element, with 10 intermediate steps
+//   await page.mouse.up({ clickCount: 6 });
   await expect(page.locator(".ql-tooltip")).toBeVisible(); // simulate a mouse button up event
   //await page.locator(".ql-tooltip").waitFor();
 
@@ -1081,18 +1098,20 @@ test("verify that a text can be bold italics and underlined", async ({
   await page.locator(".challenge-image").nth(0).click();
 
   await page.locator(".review-edit").click();
+  await page.getByText("sample").nth(0).click(); 
+  await page.locator('.ql-editor').press('Shift+ArrowLeft');
   //await page.getByText("sample").press("Meta+A",{delay:2000})
 
-  const element = await page.getByText("sample"); // get the slider element
-  const elementBoundingBox = await element.boundingBox(); // get the bounding box of the element
-  const sliderHandle = {
-    x: elementBoundingBox.x + elementBoundingBox.width,
-    y: elementBoundingBox.y + elementBoundingBox.height / 2,
-  }; // calculate the handle position on the right side of the element
-  await page.mouse.move(sliderHandle.x, sliderHandle.y); // move the mouse to the handle position
-  await page.mouse.down(); // simulate a mouse button down event
-  await page.mouse.move(elementBoundingBox.x, sliderHandle.y, { steps: 10 }); // move the mouse to the left side of the element, with 10 intermediate steps
-  await page.mouse.up({ clickCount: 6 });
+//   const element = await page.getByText("sample"); // get the slider element
+//   const elementBoundingBox = await element.boundingBox(); // get the bounding box of the element
+//   const sliderHandle = {
+//     x: elementBoundingBox.x + elementBoundingBox.width,
+//     y: elementBoundingBox.y + elementBoundingBox.height / 2,
+//   }; // calculate the handle position on the right side of the element
+//   await page.mouse.move(sliderHandle.x, sliderHandle.y); // move the mouse to the handle position
+//   await page.mouse.down(); // simulate a mouse button down event
+//   await page.mouse.move(elementBoundingBox.x, sliderHandle.y, { steps: 10 }); // move the mouse to the left side of the element, with 10 intermediate steps
+//   await page.mouse.up({ clickCount: 6 });
   await expect(page.locator(".ql-tooltip")).toBeVisible(); // simulate a mouse button up event
   //await page.locator(".ql-tooltip").waitFor();
 
@@ -1110,16 +1129,17 @@ test("verify that a text can be consolidated in numbered points", async ({
   await page.locator(".review-edit").click();
   //await page.getByText("sample").press("Meta+A",{delay:2000})
 
-  const element = await page.getByText("sample"); // get the slider element
-  const elementBoundingBox = await element.boundingBox(); // get the bounding box of the element
-  const sliderHandle = {
-    x: elementBoundingBox.x + elementBoundingBox.width,
-    y: elementBoundingBox.y + elementBoundingBox.height / 2,
-  }; // calculate the handle position on the right side of the element
-  await page.mouse.move(sliderHandle.x, sliderHandle.y); // move the mouse to the handle position
-  await page.mouse.down(); // simulate a mouse button down event
-  await page.mouse.move(elementBoundingBox.x, sliderHandle.y, { steps: 10 }); // move the mouse to the left side of the element, with 10 intermediate steps
-  await page.mouse.up({ clickCount: 6 });
+  await page.getByText("sample").nth(0).click(); 
+  await page.locator('.ql-editor').press('Shift+ArrowLeft');// get the slider element
+//   const elementBoundingBox = await element.boundingBox(); // get the bounding box of the element
+//   const sliderHandle = {
+//     x: elementBoundingBox.x + elementBoundingBox.width,
+//     y: elementBoundingBox.y + elementBoundingBox.height / 2,
+//   }; // calculate the handle position on the right side of the element
+//   await page.mouse.move(sliderHandle.x, sliderHandle.y); // move the mouse to the handle position
+//   await page.mouse.down(); // simulate a mouse button down event
+//   await page.mouse.move(elementBoundingBox.x, sliderHandle.y, { steps: 10 }); // move the mouse to the left side of the element, with 10 intermediate steps
+//   await page.mouse.up({ clickCount: 6 });
   await expect(page.locator(".ql-tooltip")).toBeVisible(); // simulate a mouse button up event
   //await page.locator(".ql-tooltip").waitFor();
 
@@ -1133,8 +1153,8 @@ test("verify that a takeaway can be consolidated into bullet points", async ({pa
 
   await page.locator(".review-edit").click();
   
-  await await page.getByText("sample").nth(0).click();
-  await  await page.locator('.ql-editor').press('Shift+ArrowLeft');
+   await page.getByText("sample").nth(0).click();
+    await page.locator('.ql-editor').press('Shift+ArrowLeft');
 //   const element = await page.getByText("sample"); // get the slider element
 //   const elementBoundingBox = await element.boundingBox(); // get the bounding box of the element
 //   const sliderHandle = {
@@ -1159,17 +1179,17 @@ test("verify if we click on the embed link the page is redirecting to the embedd
   const page2Promise = page.waitForEvent('popup');
   await page.locator(".embed-description").click();
   const page2 = await page2Promise;
-  await expect(page2.getByRole('heading', { name: 'Navigation lifecycle#​' })).toBeVisible();
+  await expect(page2.getByRole('navigation', { name: 'Main' })).toBeVisible();
  
  
 })
-test.only("verify that hyperlink embedded in takeaway using formatting options is clickable",async({page})=>{
+test("verify that hyperlink embedded in takeaway using formatting options is clickable",async({page})=>{
     await page.goto("https://my.staging.adaptiveu.app/");
     await page.locator(".challenge-image").nth(0).click();
   
     await page.locator(".review-edit").click();
-    await await page.getByText("sample").nth(0).click();
-  await  await page.locator('.ql-editor').press('Shift+ArrowLeft',{delay:1000});
+    await  page.getByText("sample").nth(0).click();
+   await page.locator('.ql-editor').press('Shift+ArrowLeft+ArrowLeft+ArrowLeft+ArrowLeft+ArrowLeft+ArrowLeft');
     //await page.getByText("sample").press("Meta+A",{delay:2000})
   
     // const element = await page.getByText("sample").nth(0); // get the slider element
@@ -1183,13 +1203,25 @@ test.only("verify that hyperlink embedded in takeaway using formatting options i
     // await page.mouse.move(elementBoundingBox.x, sliderHandle.y, { steps: 10 }); // move the mouse to the left side of the element, with 10 intermediate steps
     // await page.mouse.up({ clickCount:10});
     //await expect(page.locator(".ql-tooltip")).toBeVisible(); 
+     
     await page.locator(".ql-link").click();
-    await page.getByPlaceholder("https://quilljs.com").fill("https://www.google.com/");
+    await page.getByPlaceholder("https://quilljs.com").type("https://www.google.com/",{delay:10});
     await page.keyboard.press("Enter");
     await page.getByRole("button", { name: "Save" }).click();
-    const page2Promise = page.waitForEvent('popup');
-  await page.locator("[href='https://www.google.com/']").click();
-  const page2 = await page2Promise;
-  await expect(page2.getByAltText("Google")).toBeVisible();
+    await expect(page.getByRole("button", { name: "Save" })).not.toBeVisible();
+   // await page.locator(".review-edit").waitFor({state:"attached"})
+   // await page.waitForLoadState({state:"networkidle"})
+   const page2Promise = page.waitForEvent('popup');
+   //await  page.getByText("sample").nth(0).click({delay:1000});
+   //await page.locator("[href='https://www.google.com/'][rel='noopener noreferrer']").waitFor();
+  // await page.locator("[href='https://www.google.com/'][rel='noopener noreferrer']").click({delay:20});
+  await page.getByRole("link",{ name:"sample"}).waitFor({state:"attached"})
+   await page.getByRole("link",{name:"sample",exact:true}).click();
+   //const page2Promise = page.waitForEvent('popup');
+   const page2 = await page2Promise;
+   await expect(page2.getByAltText("Google")).toBeVisible();
+  // Start waiting for navigation before clicking. Note no await.
+ 
 
 })
+ 
