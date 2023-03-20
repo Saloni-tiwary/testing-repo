@@ -204,7 +204,7 @@ test("verify that the link edited to only special characters in title cannot be 
   //await expect(page.locator("voice-box warning")).tobevisible()
 });
 
-test.only("verify that the title can have max 200 characters", async ({ page }) => {
+test("verify that the title can have max 200 characters", async ({ page }) => {
   await page.goto("https://my.staging.adaptiveu.app/");
   await page.locator(".challenge-image").nth(0).hover();
   await page.locator(".link-dropdown").nth(0).click();
@@ -213,7 +213,7 @@ test.only("verify that the title can have max 200 characters", async ({ page }) 
   for (let i = 1; i <= 201; i++) {
     await page.getByPlaceholder("Enter Title").type("1");
   }
-
+//commited something
   await page.getByRole("button", { name: "save" }).click();
   await expect(page.getByPlaceholder("Enter Title")).toHaveClass(
     "link-name error"
