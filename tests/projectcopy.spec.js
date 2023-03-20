@@ -204,12 +204,12 @@ test("verify that the link edited to only special characters in title cannot be 
   //await expect(page.locator("voice-box warning")).tobevisible()
 });
 
-test("verify that the title can have max 200 characters", async ({ page }) => {
-  var data;
+test.only("verify that the title can have max 200 characters", async ({ page }) => {
+  await page.goto("https://my.staging.adaptiveu.app/");
   await page.locator(".challenge-image").nth(0).hover();
   await page.locator(".link-dropdown").nth(0).click();
   await page.locator("[data-status='edit']").nth(0).click();
-  await page.getByPlaceholder("Enter Title").fill("");
+  await page.getByPlaceholder("Enter Title").fill("");//emptties a particular field
   for (let i = 1; i <= 201; i++) {
     await page.getByPlaceholder("Enter Title").type("1");
   }
@@ -905,7 +905,7 @@ test("verify on clicking cancel after giving edited takeaway, the previous takea
   await page.getByRole("button", { name: "Cancel" }).click();
   await expect(page.locator(".ql-editor")).toHaveText("sample2");
 });
-test.only("verify as we select the text in the takeaway the formatting options are available", async ({
+test("verify as we select the text in the takeaway the formatting options are available", async ({
   page,
 }) => {
   await page.goto("https://my.staging.adaptiveu.app/");
@@ -1224,4 +1224,18 @@ test("verify that hyperlink embedded in takeaway using formatting options is cli
  
 
 })
+ //login https://my.staging.adaptiveu.app/ using invalid user name and invalid password
+//  test("verify if we click on the embed link the page is redirecting to the embedded link",async({page})=>{
+//     await page.goto("https://my.staging.adaptiveu.app/");
+//   await page.locator(".challenge-image").nth(0).click();
  
+//   const page2Promise = page.waitForEvent('popup');
+//   await page.locator(".embed-description").click();
+//   const page2 = await page2Promise;
+//   await expect(page2.getByRole('navigation', { name: 'Main' })).toBeVisible();
+ 
+ 
+// })
+
+  
+

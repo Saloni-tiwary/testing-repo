@@ -1,9 +1,7 @@
 var http = require("http");
-//use the require directive to load Node.js modules.
+ 
 http.createServer(function (request, response) {
-    // Send the HTTP header 
-    //creates the instance of the server
-    // HTTP Status: 200 : OK
+    
     // Content Type: text/plain
     const body = 'Hello World';
 response
@@ -13,10 +11,7 @@ response
     'Content-Type': 'text/plain'
   })
   .end(body);
-//     response.writeHead(200, {'Content-Type': 'text/plain'});
-    
-//     // Send the response body as "Hello World"
-//     response.end('Hello World\n');
+ 
  }).listen(8000);
  
  // Console will print the message

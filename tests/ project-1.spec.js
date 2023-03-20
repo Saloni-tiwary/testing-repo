@@ -4,7 +4,9 @@ const { test, expect, request} = require('@playwright/test');
     
 
 test.beforeEach(async ({page})=> {
-    
+  //write test case to login   https://my.staging.adaptiveu.app/ with invalid username and password
+
+
     
    // var context= await browser.newContext();
    // var page= await context.newPage();
@@ -718,3 +720,29 @@ await expect(page.locator(".ql-tooltip")).toBeVisible();
 
 
    
+const { test, expect, request} = require('@playwright/test');
+
+
+beforeAll(async () => {
+  // Launch a new browser instance
+  browser = await chromium.launch();
+
+  // Create a new browser context
+  const context = await browser.newContext();
+
+  // Create a new page
+  page = await context.newPage();
+});
+
+afterAll(async () => {
+  // Close the browser instance
+  await browser.close();
+});
+
+test('Verify that the user is navigated  to Google', async () => {
+  // Navigate to Google
+  await page.goto('https://www.google.com');
+
+  // Verify that the page title is correct
+  expect(await page.title()).toBe('Google');
+});
