@@ -25,7 +25,7 @@ const { devices,expect} = require('@playwright/test');
   
 
   /* Maximum time one test can run for. */
-  timeout: 200*1000,
+  timeout: 15*1000,
   expect: {
     /**
      * Maximum time expect() should wait for the condition to be met.
