@@ -1,53 +1,4 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
-
-name: Integration
-
-
-#on block specifies when we want to run this block
-on:
-  
-  workflow_dispatch:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
-jobs:
-  build:
-  #job is going to run on a server which is hosted by github
-    runs-on:  windows-latest
-#stragegy allows to to setup multiple different node versions
-    strategy:
-      matrix:
-        node-version: [18.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-# these are the steps we need to take to run our job correctly 
-    steps:
-      - uses: actions/checkout@v2
-
-      - uses: actions/setup-node@v2
-        with:
-          node-version: "16.x"
-      - uses: microsoft/playwright-github-action@v1
-         
-       
-
-      - name: Install dependencies and Install Playwright Browsers
-        run: npm install && npx playwright install-deps chromium
-
-      - name: run relevent tests
-        run:  npx playwright install && npx playwright test tests/ContentFilter.spec.js
-
-      - uses: actions/upload-artifact@v2
-        if: always()
-        with:
-         name: playwright-report
-         path: playwright-report/
-         retention-days: 30
-
-    
-name: Playwright Tests
+ name: Playwright Tests
 on:
   push:
     branches: [ main, master ]
@@ -58,12 +9,12 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
-     - uses: actions/checkout@v3
-     - uses: actions/setup-node@v3
-       with:
-         node-version: 16
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 16
     - name: Install dependencies
-       run: npm ci
+      run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright tests
@@ -74,4 +25,4 @@ jobs:
         name: playwright-report
         path: playwright-report/
         retention-days: 30
-
+ 
