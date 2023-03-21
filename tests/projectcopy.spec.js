@@ -1224,18 +1224,46 @@ test("verify that hyperlink embedded in takeaway using formatting options is cli
  
 
 })
- //login https://my.staging.adaptiveu.app/ using invalid user name and invalid password
-//  test("verify if we click on the embed link the page is redirecting to the embedded link",async({page})=>{
-//     await page.goto("https://my.staging.adaptiveu.app/");
-//   await page.locator(".challenge-image").nth(0).click();
- 
-//   const page2Promise = page.waitForEvent('popup');
-//   await page.locator(".embed-description").click();
-//   const page2 = await page2Promise;
-//   await expect(page2.getByRole('navigation', { name: 'Main' })).toBeVisible();
- 
- 
-// })
+  test("Verify if the video is not watched and done button is clicked then problem in completion URL is visible",async({page})=>{
+    await page.goto("https://my.staging.adaptiveu.app/");
+    await page.locator(".challenge-image").nth(0).click();
+    await page.locator("button.btn-cta.done").click();
+    await expect(page.locator("button.btn.problem-submit")).toContainText("Problem");
 
-  
 
+  })
+  test("verify when problem in completion cannot be used without giving the takeawayd",async({page})=>{
+    await page.goto("https://my.staging.adaptiveu.app/");
+    await page.locator(".challenge-image").nth(0).click();
+    await page.locator("button.btn-cta.done").click();
+    await page.locator("button.btn.problem-submit").waitFor();
+    await page.locator("button.btn.problem-submit").click();
+    await expect(page.locator(".voice-box.warning")).toContainText("Complete the takeaway")
+
+
+  })
+  test("verify on clicking the problem in completion URL a popup opens asking reasonsfor using the feature",async({page})=>{ 
+    await page.goto("https://my.staging.adaptiveu.app/");
+    await page.locator(".challenge-image").nth(0).click();
+    await page.locator("button.btn-cta.done").click();
+    await page.locator("button.btn.problem-submit").waitFor();
+    await page.locator(".ql-editor").fill("testing problem in completion");
+    await page.locator("button.btn.problem-submit").click();
+    await expect(page.locator(".popup-content")).toContainText("Problem Completing");
+
+     
+  })
+  test("verify on giving reasons in problem in completion learning minutes are accumulated",async({page})=>{
+    await page.goto("https://my.staging.adaptiveu.app/");
+    await page.locator(".challenge-image").nth(0).click();
+    await page.locator("button.btn-cta.done").waitFor()
+    await page.locator("button.btn-cta.done").click({delay:100});
+    await page.locator("button.btn.problem-submit").waitFor();
+    await page.locator(".ql-editor").fill("testing problem in completion");
+    await page.locator("button.btn.problem-submit").click();
+    await page.locator(".confirmation-input").fill("testing problem in completion");
+    await page.locator(".popup-action button").click();
+    await page.locator(".popup-close").click();
+    await expect(page.locator(".done-status")).toContainText("Great, you have accumulated");
+
+  })
