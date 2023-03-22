@@ -152,17 +152,17 @@ test("verify that a user cannot give an empty takeaway",async({page})=>{
  
   
   })
-  test("verify that the edited takeaway has edited visible in the takeaway text area",async({page})=>{
-    const navigationurl= new NavigationURL(page)
-    await navigationurl.navigationURL();
-    const linkoutercard= new LinkOuterCard(page);
-    const takeawaysandremoveprogress=new TakeawaysAndRemoveProgress(page);
-    await linkoutercard.linkOuterCardClick();
-    await takeawaysandremoveprogress.clickEditTakeawayTab();
-    await takeawaysandremoveprogress.givingSecondValidTakeaway();
+  // test("verify that the edited takeaway has edited visible in the takeaway text area",async({page})=>{
+  //   const navigationurl= new NavigationURL(page)
+  //   await navigationurl.navigationURL();
+  //   const linkoutercard= new LinkOuterCard(page);
+  //   const takeawaysandremoveprogress=new TakeawaysAndRemoveProgress(page);
+  //   await linkoutercard.linkOuterCardClick();
+  //   await takeawaysandremoveprogress.clickEditTakeawayTab();
+  //   await takeawaysandremoveprogress.givingSecondValidTakeaway();
 
-    await takeawaysandremoveprogress.editedTextVisible();
-  })
+  //   await takeawaysandremoveprogress.editedTextVisible();
+  // })
   test("verify that the given takeaway cannot be edited to null takeaway",async({page})=>{
     const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL();

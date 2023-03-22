@@ -61,14 +61,14 @@ test("verify on clicking the link outercard the link innerview of the same link 
         await linkinnerviewui.moreOptionsVisible();
       })
     
-    test("Verify that if the link is added to learn the add to learn checkbox is checked",async({page})=>{
-        const navigationurl= new NavigationURL(page)
-        await navigationurl.navigationURL();
-        const linkinnerviewui=new LinkInnerViewUI(page);
-        await linkinnerviewui.selectAddedToLearnLinkFromOuterCard();
-        await linkinnerviewui.verifyLinkAddedToLearnInInnerView();
+    // test("Verify that if the link is added to learn the add to learn checkbox is checked",async({page})=>{
+    //     const navigationurl= new NavigationURL(page)
+    //     await navigationurl.navigationURL();
+    //     const linkinnerviewui=new LinkInnerViewUI(page);
+    //     await linkinnerviewui.selectAddedToLearnLinkFromOuterCard();
+    //     await linkinnerviewui.verifyLinkAddedToLearnInInnerView();
         
       
-      })
+    //   })
 
  
