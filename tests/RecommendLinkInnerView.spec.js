@@ -117,21 +117,21 @@ test("verify same link cannot be recommended again",async({page})=>{
    await similarRecommendation.similarURLWarning();
      
   })
-// test("Verify On entering an exact similar URL the user is able to redirect to it ",async({page})=>{
-//     const Urlsimilar="https://stackoverflow.com/questions/74980624/can-i-use-textsplit-with-find-formula"
-//     const Minsilimar="14";
-//     const navigationurl= new NavigationURL(page)
-//     await navigationurl.navigationURL()
-//     const recommendVideoLink=new RecommendTab(page)
-//     const linkoutercard= new LinkOuterCard(page);
-//     const similarRecommendation=new SimilarRecommendation(page)
-//     await recommendVideoLink.univNameVisible();
-//     await linkoutercard.linkOuterCardClick();
+test("Verify On entering an exact similar URL the user is able to redirect to it ",async({page})=>{
+    const Urlsimilar="https://stackoverflow.com/questions/74980624/can-i-use-textsplit-with-find-formula"
+    const Minsilimar="14";
+    const navigationurl= new NavigationURL(page)
+    await navigationurl.navigationURL()
+    const recommendVideoLink=new RecommendTab(page)
+    const linkoutercard= new LinkOuterCard(page);
+    const similarRecommendation=new SimilarRecommendation(page)
+    await recommendVideoLink.univNameVisible();
+    await linkoutercard.linkOuterCardClick();
     
-//     await recommendVideoLink.recommendButtonClick();
-//     await recommendVideoLink.linkFill(Urlsimilar);
-//     await recommendVideoLink.minFill(Minsilimar);
-//    await recommendVideoLink.saveLink();
-//    await similarRecommendation.navigateSimilarUrl();
-//    await similarRecommendation.navigatedSimilarUrlVerify();
-//   })
+    await recommendVideoLink.recommendButtonClick();
+    await recommendVideoLink.linkFill(Urlsimilar);
+    await recommendVideoLink.minFill(Minsilimar);
+   await recommendVideoLink.saveLink();
+   await similarRecommendation.navigateSimilarUrl();
+   await similarRecommendation.navigatedSimilarUrlVerify();
+  })

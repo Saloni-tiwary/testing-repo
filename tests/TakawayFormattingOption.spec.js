@@ -227,23 +227,23 @@ test("verify as we select the text in the takeaway the formatting options are av
  
  
 })
-// test("verify that hyperlink embedded in takeaway using formatting options is clickable",async({page})=>{
-//     const navigationurl= new NavigationURL(page)
-//     await navigationurl.navigationURL();
-//     const linkoutercard= new LinkOuterCard(page); 
-//     const takeawaysandremoveprogress=new TakeawaysAndRemoveProgress(page);
-//     const takeawayformattingoptions=new TakeawaysFormattingOptions(page);
-//     await linkoutercard.linkOuterCardClick();
-//     await takeawaysandremoveprogress.clickEditTakeawayTab();
-//     await takeawayformattingoptions.clickingSampleTakeaway();
-//     await takeawayformattingoptions.selectingWholeSampleText();
-//     await takeawayformattingoptions.hyperlinkFormattingOptionClick();
-//     await takeawayformattingoptions.hyperlinkLinkInput();
-//     await takeawayformattingoptions.saveButtonClick();
-//     await takeawayformattingoptions.saveButtonNotVisibleVerify(); 
-//     await takeawayformattingoptions.hyperLinkClickAndwaitForRedirectionAndVerify();
+test("verify that hyperlink embedded in takeaway using formatting options is clickable",async({page})=>{
+    const navigationurl= new NavigationURL(page)
+    await navigationurl.navigationURL();
+    const linkoutercard= new LinkOuterCard(page); 
+    const takeawaysandremoveprogress=new TakeawaysAndRemoveProgress(page);
+    const takeawayformattingoptions=new TakeawaysFormattingOptions(page);
+    await linkoutercard.linkOuterCardClick();
+    await takeawaysandremoveprogress.clickEditTakeawayTab();
+    await takeawayformattingoptions.clickingSampleTakeaway();
+    await takeawayformattingoptions.selectingWholeSampleText();
+    await takeawayformattingoptions.hyperlinkFormattingOptionClick();
+    await takeawayformattingoptions.hyperlinkLinkInput();
+    await takeawayformattingoptions.saveButtonClick();
+    await takeawayformattingoptions.saveButtonNotVisibleVerify(); 
+    await takeawayformattingoptions.hyperLinkClickAndwaitForRedirectionAndVerify();
   
-// })
+})
 test('Verify that a link reccommended can be deleted', async({page})=>{
      
     

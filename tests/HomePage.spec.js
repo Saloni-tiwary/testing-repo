@@ -3,10 +3,10 @@ const { HomePage } = require('../pageobject_pagefile/ home-page');
 const {NavigationURL}= require('../pageobject_pagefile/navigating-base-url')
 
     
-// test('recommend tab UI', async({page})=>{
-//     const recommendLink=new RecommendTab(page)
-//     recommendLink.recommendTabVisible()
-//})
+test('recommend tab UI', async({page})=>{
+    const recommendLink=new RecommendTab(page)
+    recommendLink.recommendTabVisible()
+})
 test("verify on clicking menu, sidebar disappers if visible",async({page})=>{
     const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL();

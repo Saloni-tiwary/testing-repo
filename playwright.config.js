@@ -25,13 +25,13 @@ const { devices,expect} = require('@playwright/test');
   
 
   /* Maximum time one test can run for. */
-  timeout: 50*1000,
+  timeout: 30*1000,
   expect: {
     /**
      * Maximum time expect() should wait for the condition to be met.
      * For example in `await expect(locator).toHaveText();`
      */
-    timeout: 500000
+    timeout: 15000
   },
   /* Run tests in files in parallel */
   fullyParallel: true,
