@@ -28,7 +28,7 @@ test('Verify that a Video can be recommended', async({page})=>{
     await recommendVideoLink.univNameVisible();
     
     await recommendVideoLink.recommendButtonClick();
-    await linkoutercard.linkOuterCardClick();
+    
     await recommendVideoLink.linkFill(Urlvideo);
     await recommendVideoLink.minFill(Minvideo);
    await recommendVideoLink.saveLink();
