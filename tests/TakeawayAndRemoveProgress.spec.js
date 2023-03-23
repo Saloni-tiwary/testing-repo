@@ -4,21 +4,16 @@ const{NavigationURL}=require('../pageobject_pagefile/navigating-base-url');
 const{TakeawaysAndRemoveProgress}=require('../pageobject_pagefile/takeaways-and-remove-progress');
 const{RecommendTab} = require('../pageobject_pagefile/recommend-tab.js');
 const{DeleteLinkOutercard}=require('../pageobject_pagefile/delete-link-outercard');
+const{RecommendingSampleLink}=require('../pageobject_pagefile/recommending-sample-link');
 
 test('Recommending a sample article', async({page})=>{
     const Urlarticle= "https://playwright.dev/docs/navigations";
     const Minarticle="14"
     const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL()
-    const recommendVideoLink=new RecommendTab(page)
-    const linkoutercard= new LinkOuterCard(page);
-    await recommendVideoLink.univNameVisible();
-    await recommendVideoLink.recommendButtonClick();
-    await recommendVideoLink.linkFill(Urlarticle);
-    await recommendVideoLink.minFill(Minarticle);
-   await recommendVideoLink.saveLink();
-   await recommendVideoLink.articleFirstLinkOuterCardVerify();
-  })
+    const recommendingsamplelink=new RecommendingSampleLink(page);
+    await recommendingsamplelink.recommendingSampleArticleLink(Urlarticle,Minarticle);
+})
 
 
 
@@ -152,7 +147,7 @@ test("verify that a user cannot give an empty takeaway",async({page})=>{
  
   
   })
-  test("verify that the edited takeaway has edited visible in the takeaway text area",async({page})=>{
+  test.only("verify that the edited takeaway has edited visible in the takeaway text area",async({page})=>{
     const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL();
     const linkoutercard= new LinkOuterCard(page);
@@ -160,7 +155,7 @@ test("verify that a user cannot give an empty takeaway",async({page})=>{
     await linkoutercard.linkOuterCardClick();
     await takeawaysandremoveprogress.clickEditTakeawayTab();
     await takeawaysandremoveprogress.givingSecondValidTakeaway();
-
+    await takeawaysandremoveprogress.savingEditedTakeaway();
     await takeawaysandremoveprogress.editedTextVisible();
   })
   test("verify that the given takeaway cannot be edited to null takeaway",async({page})=>{

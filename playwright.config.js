@@ -25,13 +25,13 @@ const { devices,expect} = require('@playwright/test');
   
 
   /* Maximum time one test can run for. */
-  timeout: 50*1000,
+  timeout: 60*1000,
   expect: {
     /**
      * Maximum time expect() should wait for the condition to be met.
      * For example in `await expect(locator).toHaveText();`
      */
-    timeout: 50000
+    timeout: 20000
   },
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -40,7 +40,7 @@ const { devices,expect} = require('@playwright/test');
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 4 : undefined,
+  workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
    

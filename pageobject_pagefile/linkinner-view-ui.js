@@ -11,8 +11,9 @@ class LinkInnerViewUI{
         this.LinkInnerViewLearningMin=page.locator(".link-min");
         this.LinkInnerViewMoreOptions=page.locator(".dropdown-select");
         this.MoreOptionsVerify=page.locator("div .dropdown-menu");
-        this.LinkOuterCardAddedToLearn=page.locator("figcaption",{has: page.locator("[data-tippy-content='Added to Learn']").nth(0)});
+        this.LinkOuterCardAddedToLearn=page.locator("figcaption",{has: page.locator("[data-tippy-content='Added to Learn']")}).nth(0);
         this.LinkInnerViewAddedToLearn=page.locator(".add-myq.active")
+        
 
 
     }

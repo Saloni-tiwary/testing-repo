@@ -103,7 +103,7 @@ class TakeawaysAndRemoveProgress{
         await expect(this.TakeawayTextArea).toContainText("testing sample takeaway")
     }
     async editedTextVisible(){
-        await expect(this.EditedVisible).toBeVisible();
+        await expect((this.TakeawayDate).nth(0)).toContainText('(edited)')
     }
     async givingThirdValidTakeaway(){
         await this.TakeawayTextArea.fill("");
