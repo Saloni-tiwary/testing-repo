@@ -147,7 +147,7 @@ test("verify that a user cannot give an empty takeaway",async({page})=>{
  
   
   })
-  test.only("verify that the edited takeaway has edited visible in the takeaway text area",async({page})=>{
+  test("verify that the edited takeaway has edited visible in the takeaway text area",async({page})=>{
     const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL();
     const linkoutercard= new LinkOuterCard(page);
