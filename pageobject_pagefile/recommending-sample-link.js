@@ -2,7 +2,7 @@ const { expect } = require("@playwright/test");
 class RecommendingSampleLink{
 
 constructor(page){
-
+this.page=page
 this.UnivNameVisible=page.locator(".university-name");
 this.Recommendbutton=page.getByRole('button', { name: '+ Recommend' })
 this.EnterURL=page.getByPlaceholder('Share any video/article, which benefits your organization!')

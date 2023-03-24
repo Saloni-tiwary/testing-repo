@@ -6,7 +6,8 @@ const{TakeawaysFormattingOptions}=require('../pageobject_pagefile/takeaways-form
 const {RecommendTab} = require('../pageobject_pagefile/recommend-tab.js');
 const{DeleteLinkOutercard}=require('../pageobject_pagefile/delete-link-outercard');
 
-
+test.describe.configure({ mode: 'serial' });
+test.describe('My test suite', () => {
 test('Recommending a sample article', async({page})=>{
     const Urlarticle= "https://playwright.dev/docs/navigations";
     const Minarticle="14"
@@ -262,4 +263,4 @@ test('Verify that a link reccommended can be deleted', async({page})=>{
 
     
 })
- 
+})

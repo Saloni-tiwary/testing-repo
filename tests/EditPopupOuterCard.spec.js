@@ -8,8 +8,8 @@ const{DeleteLinkOutercard}=require('../pageobject_pagefile/delete-link-outercard
 
 
 
-test('Verify that a Video can be recommended', async({page})=>{
-  const Urlvideo='https://www.youtube.com/watch?v=hOIJRGuBkS4';
+test.beforeEach( async({page})=>{
+  const Urlvideo='https://www.youtube.com/watch?v=TW4WgGTp-iw';
   const Minvideo="14"
   
   const navigationurl= new NavigationURL(page)
@@ -25,7 +25,24 @@ test('Verify that a Video can be recommended', async({page})=>{
  await recommendVideoLink.saveLink();
  await recommendVideoLink.videoFirstLinkOuterCardVerify();
 })
+test.afterEach(async({page})=>{
+     
+    
+  const navigationurl= new NavigationURL(page)
+  await navigationurl.navigationURL()
+   
+  const linkoutercard= new LinkOuterCard(page);
+  const deletelinkoutercard= new DeleteLinkOutercard(page);
+   
+ await linkoutercard.linkOuterCardHover();
+  await linkoutercard.linkMoreOptionsClick();
+  await deletelinkoutercard.deleteOptionClick();
+  await deletelinkoutercard.deleteLinkButtonClick();
+  await deletelinkoutercard.deleteContainerNotVisible();
+   
 
+  
+})
 
 
 test("verify that link edited to no title cannot be saved", async({page})=>{
@@ -286,24 +303,7 @@ test("verify that the max minutes a link can have is 10000",async({page})=>{
   await editpopup.moreThanMaxMinFill();
   await editpopup.maxMinRedirection();
 })
-test('Verify that a link reccommended can be deleted', async({page})=>{
-     
-    
-  const navigationurl= new NavigationURL(page)
-  await navigationurl.navigationURL()
-   
-  const linkoutercard= new LinkOuterCard(page);
-  const deletelinkoutercard= new DeleteLinkOutercard(page);
-   
- await linkoutercard.linkOuterCardHover();
-  await linkoutercard.linkMoreOptionsClick();
-  await deletelinkoutercard.deleteOptionClick();
-  await deletelinkoutercard.deleteLinkButtonClick();
-  await deletelinkoutercard.deleteContainerNotVisible();
-   
-
-  
-})
+ 
 
    
 

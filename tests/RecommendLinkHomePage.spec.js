@@ -17,7 +17,7 @@ test('recommend tab UI', async({page})=>{
     
 })
 test('Verify that a Video can be recommended', async({page})=>{
-    const Urlvideo='https://www.youtube.com/watch?v=hOIJRGuBkS4';
+    const Urlvideo='https://www.youtube.com/watch?v=TW4WgGTp-iw';
     const Minvideo="14"
     
     const navigationurl= new NavigationURL(page)

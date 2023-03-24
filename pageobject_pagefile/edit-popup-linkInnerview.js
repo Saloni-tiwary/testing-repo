@@ -14,8 +14,12 @@ class EditPopupLinkInnerview{
         this.LinkUrlInputField=page.getByPlaceholder('Share any video/article, which benefits your organization!');
         this.LinkUrlError=page.locator(".recommend-link.error");
         this.LinkFirstOuterCardTitle=page.locator("h2.link-name");
+        this.EditPopupClose=page.locator(".popup-close")
         
 
+    }
+    async closeEditPopupInnerview(){
+        await this.EditPopupClose.click()
     }
     async editOptionClick(){
        await this.EditOption.click();
@@ -49,7 +53,7 @@ class EditPopupLinkInnerview{
     
     }
     async validLinkMinConfirmation(){
-        await expect(this.LinkMinutes).toHaveText("10m");
+        await expect(this.LinkMinutes).toHaveText("14m");
     }
     async validLinkTitleInput(){
         await this.LinkTitleLinkInnerview.fill("");

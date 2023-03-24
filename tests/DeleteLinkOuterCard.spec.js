@@ -39,7 +39,7 @@ test("verify that on clicking the delete from more options delete popup is opene
 
   })
   test('Verify that a link can be deleted', async({page})=>{
-    const Urlvideo='https://www.youtube.com/watch?v=Pm2BvdiZUXA';
+    const Urlvideo='https://www.youtube.com/watch?v=TW4WgGTp-iw';
     const Minvideo="14"
     
     const navigationurl= new NavigationURL(page)

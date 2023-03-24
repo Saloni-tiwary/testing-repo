@@ -14,6 +14,7 @@ class ProblemInCompletion{
         this.DoneStatus=page.locator(".done-status");
         this.LinkName=page.locator(".link-name");
         this.UserName=page.locator(".user-name");
+        this.Popupclose=page.locator(".popup-close");
 
     }
     async takeawayDoneButtonClick(){
@@ -57,6 +58,9 @@ class ProblemInCompletion{
     }
     async learningMinutesAccumulatedVerify(){
         await expect(this.DoneStatus).toContainText("Great, you have accumulated");
+    }
+    async closeProbInCompletionPopup(){
+        await this.Popupclose.click()
     }
 }
 module.exports = {ProblemInCompletion};

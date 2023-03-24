@@ -16,7 +16,12 @@ class EditPopupOuterCard
     this.VideoRadioButtonEnable=page.locator(".radio-button");
     this.LinkMin=page.getByPlaceholder("Min");
     this.LinkTitleOuterCard=page.locator("span.name").nth(0);
+    this.EditPopupClose=page.locator(".popup-close")
+        
 
+    }
+    async editPopupCloseOutercard(){
+        await this.EditPopupClose.click()
     }
     async enterEmptyTitle(){
         await this.LinkTitle.fill("");
