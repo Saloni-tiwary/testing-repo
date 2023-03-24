@@ -45,7 +45,7 @@ async saveLink(){
     await this.RecommendingSaveButton.click()
 }
 async videoFirstLinkOuterCardVerify(){
-    await expect(this.LinkOuterCardVerify).toContainText("10 Minute Timer")
+    await expect(this.LinkOuterCardVerify).toContainText("⏰ GOOGLE TIMER - 12 minute countdown Timer with Alarm ⏰")
 }
 async articleFirstLinkOuterCardVerify(){
     await expect(this.LinkOuterCardVerify).toContainText("Navigations | Playwright")

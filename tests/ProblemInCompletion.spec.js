@@ -8,7 +8,7 @@ const{ProblemInCompletion}=require('../pageobject_pagefile/problem-in-completion
 
 
 test("Giving a sample takeaway", async({page})=>{
-    const Urlvideo= 'https://www.youtube.com/watch?v=Pm2BvdiZUXA';
+    const Urlvideo= 'https://www.youtube.com/watch?v=hOIJRGuBkS4';
     const Minvideo="14"
     
     const navigationurl= new NavigationURL(page)

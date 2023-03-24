@@ -7,7 +7,7 @@ const{LinkInnerViewUI}=require('../pageobject_pagefile/linkinner-view-ui');
 const{DeleteLinkInnerView}=require('../pageobject_pagefile/delete-link-innerview');
 
 test("Giving a sample takeaway", async({page})=>{
-    const Urlvideo= 'https://www.youtube.com/watch?v=Pm2BvdiZUXA';
+    const Urlvideo= 'https://www.youtube.com/watch?v=hOIJRGuBkS4';
     const Minvideo="14"
     
     const navigationurl= new NavigationURL(page)

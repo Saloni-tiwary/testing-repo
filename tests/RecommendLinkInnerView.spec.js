@@ -6,7 +6,7 @@ const{LinkOuterCard}=require('../pageobject_pagefile/link-outercard');
 const{DeleteLinkOutercard}=require('../pageobject_pagefile/delete-link-outercard');
 
 test('Verify that a Video can be recommended', async({page})=>{
-    const Urlvideo='https://www.youtube.com/watch?v=Pm2BvdiZUXA';
+    const Urlvideo='https://www.youtube.com/watch?v=hOIJRGuBkS4';
     const Minvideo="14"
     
     const navigationurl= new NavigationURL(page)
