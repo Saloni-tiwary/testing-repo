@@ -7,7 +7,7 @@ const {RecommendTab} = require('../pageobject_pagefile/recommend-tab.js');
 const{DeleteLinkOutercard}=require('../pageobject_pagefile/delete-link-outercard');
 
 test.describe.configure({ mode: 'serial' });
-test.describe('My test suite', () => {
+test.describe('My other test suite', () => {
 test('Recommending a sample article', async({page})=>{
     const Urlarticle= "https://playwright.dev/docs/navigations";
     const Minarticle="14"
