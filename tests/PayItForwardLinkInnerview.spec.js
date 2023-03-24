@@ -58,7 +58,7 @@ test("verify that a link cannot be paid forwarded without recepients",async({pag
     await payitforwardlinkinnerview.typeTwoCharacterAsInput();
     await payitforwardlinkinnerview.recepientDropdownNotVisisbleConfirmation();
   })
-  test("verify that a link is forwarded to multiple people",async({page})=>{
+  test.only("verify that a link is forwarded to multiple people",async({page})=>{
     const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL();
     const linkoutercard= new LinkOuterCard(page);

@@ -51,7 +51,7 @@ async articleFirstLinkOuterCardVerify(){
     await expect(this.LinkOuterCardVerify).toContainText("Navigations | Playwright")
 }
 async bookFirstLinkOuterCardVerify(){
-    await expect(this.LinkOuterCardVerify).toContainText("Audible com")
+    await expect(this.LinkOuterCardVerify).toContainText("The Selfish Gene by Richard Dawkins")
 }
 async audioFirstLinkOuterCardVerify(){
     await expect(this.LinkOuterCardVerify).toContainText("175 Psychological Safety")

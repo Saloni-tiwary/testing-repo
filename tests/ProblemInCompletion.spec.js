@@ -75,6 +75,7 @@ test("Giving a sample takeaway", async({page})=>{
     await navigationurl.navigationURL();
     const linkoutercard= new LinkOuterCard(page); 
     const problemincompletion=new ProblemInCompletion(page);
+    
     await linkoutercard.linkOuterCardClick(); 
     await problemincompletion.takeawayDoneButtonClick();
     await problemincompletion.givingValidTakeaway();

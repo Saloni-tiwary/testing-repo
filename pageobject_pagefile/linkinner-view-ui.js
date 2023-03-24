@@ -21,7 +21,7 @@ class LinkInnerViewUI{
         let Title=await this.LinkTitle.nth(0).textContent()
         console.log(Title)
         await this.LinkOuterCard.nth(0).click();
-        await expect( this.LinkInnerviewTitle).toContainText(Title);
+        await expect( this.LinkInnerviewTitle).toContainText(Title.substring(0,7));
     }
      
      

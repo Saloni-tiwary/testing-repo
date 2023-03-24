@@ -9,7 +9,7 @@ class PayItforwardLinkInnerview{
         this.RecepientInputField=page.getByPlaceholder("Type to add people");
         this.RecepientDropdown=page.locator("people-search.dropdown.open");
         this.FirstOtherRecipient=page.locator('a').filter({ hasText: 'Shakkthi Rajkumar' });
-        this.SecondOtherRecipient=page.locator('a').filter({ hasText: 'Saloni Tiwary' });
+        this.SecondOtherRecipient=page.locator('a').filter({ hasText: 'Selva kumar' });
         this.PayItForwardNotes=page.getByPlaceholder("Type your note here....");
         this.SuccessMeessage=page.locator("div .success");
 
@@ -41,7 +41,7 @@ class PayItforwardLinkInnerview{
     }
     async typeSecondOtherRecipient(){
         await this.RecepientInputField.click();
-        await this.RecepientInputField.type('sal',{delay:3000})
+        await this.RecepientInputField.type('sel',{delay:3000})
     }
     async secondOtherRecipientClick(){
         await this.SecondOtherRecipient.click();
