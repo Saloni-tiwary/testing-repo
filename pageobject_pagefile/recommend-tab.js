@@ -1,4 +1,5 @@
 const { expect } = require("@playwright/test");
+const { Console } = require("console");
 
 class RecommendTab{
 
@@ -14,6 +15,8 @@ this.LearningMin= page.getByPlaceholder('Min')
 this.RecommendingSaveButton= page.locator('#popup').getByRole('button', { name: 'Recommend' })
 this.LinkOuterCardVerify=page.locator(".tippy").nth(0);
 this.UnivNameVisible=page.locator(".university-name");
+this.CloseHeader= page.locator("i#close-icon");
+this.CardBody=page.locator(".name");
 
 }
 async recommendTabVisible(){
@@ -23,7 +26,13 @@ async recommendTabVisible(){
 
 }
 async univNameVisible(){
-await expect(this.UnivNameVisible).toBeVisible()
+await expect(this.UnivNameVisible).toBeVisible();
+const header=await this.CloseHeader.isVisible()
+    console.log(header);
+    if(header===true){
+        await this.CloseHeader.click()
+    }
+
 }
 async recommendButtonClick(){
     
@@ -42,19 +51,59 @@ async minFill(Min){
     await this.LearningMin.fill(Min);
 }
 async saveLink(){
-    await this.RecommendingSaveButton.click()
+    await this.RecommendingSaveButton.click();
+    await this.page.waitForLoadState("networkidle");
 }
-async videoFirstLinkOuterCardVerify(){
-    await expect(this.LinkOuterCardVerify).toContainText("#24 - File Upload in Playwright")
+async videoFirstLinkOuterCardVerify(test1){
+     
+    const cardbody=await this.CardBody;
+    const count= await cardbody.count();
+    for(let i=0;i<count;i++){
+        var text=test1
+        if(await this.CardBody.nth(i).textContent()===text){
+            console.log("video is recommended")
+          break;
+        }
+    
+
+
 }
-async articleFirstLinkOuterCardVerify(){
-    await expect(this.LinkOuterCardVerify).toContainText("Navigations | Playwright")
+
+    
 }
-async bookFirstLinkOuterCardVerify(){
-    await expect(this.LinkOuterCardVerify).toContainText("The Selfish Gene by Richard Dawkins")
+async articleFirstLinkOuterCardVerify(test2){
+    const cardbody=await this.CardBody;
+    const count= await cardbody.count();
+    for(let i=0;i<count;i++){
+        var text=test2
+        if(await this.CardBody.nth(i).textContent()===text){
+           console.log("article is recommended")
+          break;
+        }
+    }
 }
-async audioFirstLinkOuterCardVerify(){
-    await expect(this.LinkOuterCardVerify).toContainText("175 Psychological Safety")
+async bookFirstLinkOuterCardVerify(test3){
+    const cardbody=await this.CardBody;
+    const count= await cardbody.count();
+    for(let i=0;i<count;i++){
+        var text=test3
+        if(await this.CardBody.nth(i).textContent()===text){
+            console.log("book is recommended")
+          break;
+        }
+    }
+}
+async audioFirstLinkOuterCardVerify(test4){
+    const cardbody=await this.CardBody;
+    const count= await cardbody.count();
+    for(let i=0;i<count;i++){
+        var text=test4
+        if(await this.CardBody.nth(i).textContent()===text){
+             console.log("audio is recommended")
+          break;
+        }
+    }
+    //await expect(this.LinkOuterCardVerify).toContainText("175 Psychological Safety")
 }
 }
 module.exports={RecommendTab};

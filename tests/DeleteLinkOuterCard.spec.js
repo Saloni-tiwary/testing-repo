@@ -3,6 +3,13 @@ const{LinkOuterCard}=require('../pageobject_pagefile/link-outercard');
 const{NavigationURL}=require('../pageobject_pagefile/navigating-base-url');
 const{DeleteLinkOutercard}=require('../pageobject_pagefile/delete-link-outercard');
 const {RecommendTab} = require('../pageobject_pagefile/recommend-tab.js');
+const{RecommendingSampleLink}=require('../pageobject_pagefile/recommending-sample-link');
+const{DeleteSampleLinkOuterCard}=require('../pageobject_pagefile/delete-samplelink-outercard')
+ 
+const{urls}=require('../constant/urls');
+
+
+
 
 test("verify that on clicking the delete from more options delete popup is opened", async({page})=>{
     const navigationurl= new NavigationURL(page)
@@ -20,6 +27,7 @@ test("verify that on clicking the delete from more options delete popup is opene
     await navigationurl.navigationURL();
     const linkoutercard= new LinkOuterCard(page);
     const deletelinkoutercard= new DeleteLinkOutercard(page);
+     
     await linkoutercard.linkOuterCardHover();
     await linkoutercard.linkMoreOptionsClick();
     await deletelinkoutercard.deleteOptionClick();
@@ -36,30 +44,27 @@ test("verify that on clicking the delete from more options delete popup is opene
     await deletelinkoutercard.deleteOptionClick();
     await deletelinkoutercard.deletePopupNoButtonClick();
     await deletelinkoutercard.deletePopupCancelledVerify();
+     
 
   })
   test('Verify that a link can be deleted', async({page})=>{
-    const Urlvideo='https://www.youtube.com/watch?v=TW4WgGTp-iw';
-    const Minvideo="14"
-    
+     
+     
+    const deletelinkoutercard=new DeleteSampleLinkOuterCard(page)
     const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL()
     const recommendVideoLink=new RecommendTab(page)
-    const linkoutercard= new LinkOuterCard(page);
-    const deletelinkoutercard= new DeleteLinkOutercard(page);
+    //const linkoutercard= new LinkOuterCard(page);
     await recommendVideoLink.univNameVisible();
     
     await recommendVideoLink.recommendButtonClick();
-    await recommendVideoLink.linkFill(Urlvideo);
-    await recommendVideoLink.minFill(Minvideo);
+    
+    await recommendVideoLink.linkFill(urls.URL53);
+    await recommendVideoLink.minFill(urls.MIN);
    await recommendVideoLink.saveLink();
-   await recommendVideoLink.videoFirstLinkOuterCardVerify();
-   await linkoutercard.linkOuterCardHover();
-    await linkoutercard.linkMoreOptionsClick();
-    await deletelinkoutercard.deleteOptionClick();
-    await deletelinkoutercard.deleteLinkButtonClick();
-    await deletelinkoutercard.deleteContainerNotVisible();
-     
+   await recommendVideoLink.videoFirstLinkOuterCardVerify("Evaluating JavaScript | Playwright");
+   await deletelinkoutercard.deletingSampleLinkOutercard("Evaluating JavaScript | Playwright")
+
 
     
 })

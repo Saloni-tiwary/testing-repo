@@ -11,11 +11,21 @@ class  LinkOuterCard{
         this.PayItForward=page.locator(".pay-forward");
         this.ContainerPopup=page.locator(".container");
         this.EditOption=page.locator("[data-status='edit']")
+        this.CardBody=page.locator(".name");
+
 
     }
-    async linkOuterCardHover(){
-        await this.LinkOuterCard.nth(0).hover();
+    async linkOuterCardHover(linkTitle){
+        const cardbody=await this.CardBody;
+    const count= await cardbody.count();
+    for(let i=0;i<count;i++){
+        var text=linkTitle
+        if(await this.CardBody.nth(i).textContent()===text){
+            await this.CardBody.nth(i).hover();
     }
+}
+    }
+
 
   async  linkOuterCardClick(){
         await this.LinkOuterCard.nth(0).click();

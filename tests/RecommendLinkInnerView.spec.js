@@ -4,10 +4,11 @@ const{SimilarRecommendation}=require('../pageobject_pagefile/similar-recommendat
 const {NavigationURL}= require('../pageobject_pagefile/navigating-base-url');
 const{LinkOuterCard}=require('../pageobject_pagefile/link-outercard');
 const{DeleteLinkOutercard}=require('../pageobject_pagefile/delete-link-outercard');
+const{RecommendSampleLinkWithOutClick}=require('../pageobject_pagefile/recommending-sample-link-noclick')
+const{urls}=require('../constant/urls');
 
 test('Verify that a Video can be recommended', async({page})=>{
-    const Urlvideo='https://www.youtube.com/watch?v=TW4WgGTp-iw';
-    const Minvideo="14"
+     
     
     const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL()
@@ -17,12 +18,13 @@ test('Verify that a Video can be recommended', async({page})=>{
     const deletelinkoutercard= new DeleteLinkOutercard(page);
     await recommendVideoLink.univNameVisible();
     await linkoutercard.linkOuterCardClick();
+
     await recommendVideoLink.recommendButtonClick();
-    await recommendVideoLink.linkFill(Urlvideo);
-    await recommendVideoLink.minFill(Minvideo);
+    await recommendVideoLink.linkFill(urls.URLV2);
+    await recommendVideoLink.minFill(urls.MIN);
    await recommendVideoLink.saveLink();
-   await recommendVideoLink.videoFirstLinkOuterCardVerify();
-   await linkoutercard.linkOuterCardHover();
+   await recommendVideoLink.videoFirstLinkOuterCardVerify("Playwright Masterclass - Playwright Test");
+   await linkoutercard.linkOuterCardHover("Playwright Masterclass - Playwright Test");
     await linkoutercard.linkMoreOptionsClick();
     await deletelinkoutercard.deleteOptionClick();
     await deletelinkoutercard.deleteLinkButtonClick();
@@ -32,8 +34,7 @@ test('Verify that a Video can be recommended', async({page})=>{
     
 })
 test("verify that a article link can be recommended",async({page})=>{
-    const Urlarticle="https://playwright.dev/docs/navigations"
-    const Minarticle="14"
+     
 
     const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL()
@@ -44,11 +45,11 @@ test("verify that a article link can be recommended",async({page})=>{
     await linkoutercard.linkOuterCardClick();
     
     await recommendVideoLink.recommendButtonClick();
-    await recommendVideoLink.linkFill(Urlarticle);
-    await recommendVideoLink.minFill(Minarticle);
+    await recommendVideoLink.linkFill(urls.URLAR2);
+    await recommendVideoLink.minFill(urls.MIN);
    await recommendVideoLink.saveLink();
-   await recommendVideoLink.articleFirstLinkOuterCardVerify();
-   await linkoutercard.linkOuterCardHover();
+   await recommendVideoLink.articleFirstLinkOuterCardVerify("Matplotlib: Formatting Axes");
+   await linkoutercard.linkOuterCardHover("Matplotlib: Formatting Axes");
     await linkoutercard.linkMoreOptionsClick();
     await deletelinkoutercard.deleteOptionClick();
     await deletelinkoutercard.deleteLinkButtonClick();
@@ -56,8 +57,7 @@ test("verify that a article link can be recommended",async({page})=>{
 
 })
 test("verify that a user can recommend a book",async({page})=>{
-    const Urlbook="https://www.audible.in/pd/The-Selfish-Gene-Audiobook/B07CNG6GPX"
-    const Minbook="14"
+     
      
     const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL()
@@ -68,11 +68,11 @@ test("verify that a user can recommend a book",async({page})=>{
     await linkoutercard.linkOuterCardClick();
     
     await recommendVideoLink.recommendButtonClick();
-    await recommendVideoLink.linkFill(Urlbook);
-    await recommendVideoLink.minFill(Minbook);
+    await recommendVideoLink.linkFill(urls.URLB);
+    await recommendVideoLink.minFill(urls.MIN);
    await recommendVideoLink.saveLink();
-   await recommendVideoLink.bookFirstLinkOuterCardVerify();
-   await linkoutercard.linkOuterCardHover();
+   await recommendVideoLink.bookFirstLinkOuterCardVerify("Audible com | Try Audible Free Today");
+   await linkoutercard.linkOuterCardHover("Audible com | Try Audible Free Today");
     await linkoutercard.linkMoreOptionsClick();
     await deletelinkoutercard.deleteOptionClick();
     await deletelinkoutercard.deleteLinkButtonClick();
@@ -80,8 +80,7 @@ test("verify that a user can recommend a book",async({page})=>{
 
 })
 test("verify that an audio can be recommended",async({page})=>{
-    const Urlaudio="https://open.spotify.com/episode/2Q3frHZltANbcAKT8rZHpG";
-    const Minaudio="14";
+     
     const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL()
     const recommendVideoLink=new RecommendTab(page)
@@ -91,11 +90,11 @@ test("verify that an audio can be recommended",async({page})=>{
     await linkoutercard.linkOuterCardClick();
     
     await recommendVideoLink.recommendButtonClick();
-    await recommendVideoLink.linkFill(Urlaudio);
-    await recommendVideoLink.minFill(Minaudio);
+    await recommendVideoLink.linkFill(urls.URLAU2);
+    await recommendVideoLink.minFill(urls.MIN);
    await recommendVideoLink.saveLink();
-   await recommendVideoLink.audioFirstLinkOuterCardVerify();
-   await linkoutercard.linkOuterCardHover();
+   await recommendVideoLink.audioFirstLinkOuterCardVerify("175  Psychological Safety in Today's Workplace with Dr  Amy Edmondson (Part 1) - The Greg McKeown Podcast | Podcast on Spotify");
+   await linkoutercard.linkOuterCardHover("175  Psychological Safety in Today's Workplace with Dr  Amy Edmondson (Part 1) - The Greg McKeown Podcast | Podcast on Spotify");
     await linkoutercard.linkMoreOptionsClick();
     await deletelinkoutercard.deleteOptionClick();
     await deletelinkoutercard.deleteLinkButtonClick();
@@ -105,21 +104,19 @@ test("verify that an audio can be recommended",async({page})=>{
 test("verify same link cannot be recommended again",async({page})=>{
     const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL()
-    const Url="https://stackoverflow.com/questions/74980624/can-i-use-textsplit-with-find-formula"
-    const Min="10"
+    
     const similarRecommendation=new SimilarRecommendation(page)
     const linkoutercard= new LinkOuterCard(page);
     await linkoutercard.linkOuterCardClick();
    await similarRecommendation.clickRecommendTab();
-   await similarRecommendation.enterURL(Url);
-   await similarRecommendation.enterMin(Min);
+   await similarRecommendation.enterURL(urls.URLSIM2);
+   await similarRecommendation.enterMin(urls.MIN);
    await similarRecommendation.saveUrl();
    await similarRecommendation.similarURLWarning();
      
   })
 test("Verify On entering an exact similar URL the user is able to redirect to it ",async({page})=>{
-    const Urlsimilar="https://stackoverflow.com/questions/74980624/can-i-use-textsplit-with-find-formula"
-    const Minsilimar="14";
+    
     const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL()
     const recommendVideoLink=new RecommendTab(page)
@@ -129,8 +126,8 @@ test("Verify On entering an exact similar URL the user is able to redirect to it
     await linkoutercard.linkOuterCardClick();
     
     await recommendVideoLink.recommendButtonClick();
-    await recommendVideoLink.linkFill(Urlsimilar);
-    await recommendVideoLink.minFill(Minsilimar);
+    await recommendVideoLink.linkFill(urls.URLSIM3);
+    await recommendVideoLink.minFill(urls.MIN);
    await recommendVideoLink.saveLink();
    await similarRecommendation.navigateSimilarUrl();
    await similarRecommendation.navigatedSimilarUrlVerify();

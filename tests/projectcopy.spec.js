@@ -1,4 +1,4 @@
-// const { test, expect, request } = require("@playwright/test");
+ const { test, expect, request } = require("@playwright/test");
 
 // test(async ({ page }) => {
 //   // var context= await browser.newContext();
@@ -1267,3 +1267,25 @@
 //     await expect(page.locator(".done-status")).toContainText("Great, you have accumulated");
 
 //   })
+// test("verify on giving reasons in probldfgem in completion learning minutes are accumulated",async({page})=>{
+//       await page.goto("https://my.staging.adaptiveu.app/");
+//       await expect(page.locator(".university-name")).toBeVisible();
+//       await page.getByRole('button', { name: '+ Recommend' }).click();
+//      // await page.getByRole('button', { name: '+ Recommend' }).isVisible
+//       await page.getByPlaceholder('Share any video/article, which benefits your organization!').fill("https://stackoverflow.com/questions/74980624/can-i-use-textsplit-with-find-formula")
+//       await page.keyboard.press('Enter');
+//       await page.getByPlaceholder('Min').fill("14");
+//       await page.locator('#popup').getByRole('button', { name: 'Recommend' }).click();
+//       await page.waitForLoadState("networkidle")
+//       //const cardBodyContent=await page.locator(".name").allTextContents();
+//       const cardBody=await page.locator(".name")
+//       //console.log(cardBodyContent);
+//       const count=await cardBody.count();
+//       for(let i=0;i<count;i++){
+//         var text="excel - Can i use TextSplit with Find formula? - Stack Overflow"
+//         if(await page.locator(".name").nth(i).textContent()===text){
+//           await page.locator(".name").nth(i).click({clickCount:3,delay:70});
+//           break;
+//         }
+//       }
+//     })

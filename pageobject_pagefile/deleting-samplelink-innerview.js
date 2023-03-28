@@ -5,10 +5,11 @@ class DeletingSampleLink{
 constructor(page){
 
 this.page=page;
-this.MoreOptionsDropdown=page.locator(".link-dropdown");
-this.DeleteOptionLinkOuterCard=page.locator("[data-status='delete']");
+//this.MoreOptionsDropdown=page.locator(".link-dropdown");
+this.DeleteOptionLinkInnerview=page.locator("[data-status='delete']");
 this.DeleteLinkConfirmation=page.locator("button.btn-cta-danger");
 this.DeleteContainer=page.locator(".container");
+this.LinkInnerViewMoreOptions=page.locator(".dropdown-select");
 }
 async deletingSampleLinkFromInnerview(){
     

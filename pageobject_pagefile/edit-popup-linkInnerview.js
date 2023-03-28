@@ -53,7 +53,8 @@ class EditPopupLinkInnerview{
     
     }
     async validLinkMinConfirmation(){
-        await expect(this.LinkMinutes).toHaveText("14m");
+        await this.page.waitForLoadState()
+        await expect(this.LinkMinutes).toHaveText("10m");
     }
     async validLinkTitleInput(){
         await this.LinkTitleLinkInnerview.fill("");

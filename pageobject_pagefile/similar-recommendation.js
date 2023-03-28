@@ -36,7 +36,7 @@ class SimilarRecommendation{
         await this.ViewSimilarURL.click()
     }
     async navigatedSimilarUrlVerify(){
-        await expect(this.LinkName).toContainText("excel - Can i use TextSplit with");
+        await expect(this.LinkName).toContainText("Making Winners: The Coaching Explosion by Michael Lewis");
     }
 
 

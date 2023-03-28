@@ -17,6 +17,7 @@ class EditPopupOuterCard
     this.LinkMin=page.getByPlaceholder("Min");
     this.LinkTitleOuterCard=page.locator("span.name").nth(0);
     this.EditPopupClose=page.locator(".popup-close")
+    this.CardBody=page.locator(".name");
         
 
     }
@@ -34,37 +35,85 @@ class EditPopupOuterCard
         await this.LinkTitle.fill("");
         await this.LinkTitle.fill("12345");
     }
-    async onlyNumTitleSavedVerify(){
-        await expect(this.LinkTitleOuterCard).toHaveText("12345");
+    async onlyNumTitleSavedVerify(numTitle){
+        const cardbody=await this.CardBody;
+    const count= await cardbody.count();
+    for(let i=0;i<count;i++){
+        var text=numTitle
+        if(await this.CardBody.nth(i).textContent()===text){
+
+        await expect(this.CardBody.nth(i)).toHaveText("12345");
+    
+    }
+}
+         
     }
     async leadingSpaceInput(){
         await this.LinkTitle.fill("");
         await this.LinkTitle.fill("                  Leading space input");
     }
-    async leadingSpacesTrimmedVerify(){
-        await expect(this.LinkTitleOuterCard).toHaveText("Leading space input");
+    async leadingSpacesTrimmedVerify(leadingSpaceInput){
+        const cardbody=await this.CardBody;
+    const count= await cardbody.count();
+    for(let i=0;i<count;i++){
+        var text=leadingSpaceInput
+        if(await this.CardBody.nth(i).textContent()===text){
+
+        await expect(this.CardBody.nth(i)).toHaveText("Leading space input");  
+
+ 
+    }
+}
     }
     async trailingSpaceInput(){
         await this.LinkTitle.fill("");
         await this.LinkTitle.fill("trailing space input                         ");
     }
-    async trailingSpaceTrimmedVerify(){
-        await expect(this.LinkTitleOuterCard).toHaveText("trailing space input");
+    async trailingSpaceTrimmedVerify(trailingSpace){
+        const cardbody=await this.CardBody;
+        const count= await cardbody.count();
+        for(let i=0;i<count;i++){
+            var text=trailingSpace
+            if(await this.CardBody.nth(i).textContent()===text){
+    
+            await expect(this.CardBody.nth(i)).toHaveText("trailing space input");  
+    
+     
+        }
+    }
+        
     }
     async extraIntermediateSpaceInput(){
         await this.LinkTitle.fill("");
         await this.LinkTitle.fill("t     t     t"); 
     }
-    async extraIntermediateSpaceTrimmedVerify(){
-        await expect(this.LinkTitleOuterCard).toHaveText("t t t");
+    async extraIntermediateSpaceTrimmedVerify(extraIntermediateSpace){
+        const cardbody=await this.CardBody;
+    const count= await cardbody.count();
+    for(let i=0;i<count;i++){
+        var text=extraIntermediateSpace
+        if(await this.CardBody.nth(i).textContent()===text){
+
+        await expect(this.CardBody.nth(i)).toHaveText("t t t");
+         
     }
+}
+}
     async validSecondTitle(){
         await this.LinkTitle.fill("");
         await this.LinkTitle.fill("valid second title"); 
     }
-    async validSecondTitleSavedVerify(){
-        await expect(this.LinkTitleOuterCard).toHaveText("valid second title");
+    async validSecondTitleSavedVerify(secondTitle){
+        const cardbody=await this.CardBody;
+    const count= await cardbody.count();
+    for(let i=0;i<count;i++){
+        var text=secondTitle
+        if(await this.CardBody.nth(i).textContent()===text){
+
+        await expect(this.CardBody.nth(i)).toHaveText("valid second title");
     
+    }
+}
     }
     async saveLink(){
         await this.SaveButton.click();

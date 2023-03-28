@@ -101,7 +101,7 @@ class TakeawaysFormattingOptions{
     }
     async waitForNavigationAndVerify() {
         const page2 = await this.page.waitForEvent('popup');
-        await expect(page2.getByRole('navigation', { name: 'Main' })).toBeVisible();
+        await expect(page2.getByRole('heading', { name: 'Playwright Solutions' })).toBeVisible();
         return page2;
       }
 

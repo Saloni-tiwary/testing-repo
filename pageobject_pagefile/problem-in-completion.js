@@ -21,7 +21,7 @@ class ProblemInCompletion{
 
         await this.LinkName.waitFor();
         await this.UserName.waitFor();
-        await this.TakeawayDoneButton.click({delay:250});
+        await this.TakeawayDoneButton.click({delay:300});
         await this.ProblemSubmitURL.waitFor();
     }
     async problemInCompletionURLVisisbleVerify(){

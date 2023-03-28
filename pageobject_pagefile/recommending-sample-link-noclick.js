@@ -1,5 +1,5 @@
 const { expect } = require("@playwright/test");
-class RecommendingSampleLink{
+class RecommendSampleLinkWithOutClick{
 
 constructor(page){
 this.page=page
@@ -12,7 +12,7 @@ this.LinkOuterCardVerify=page.locator(".tippy").nth(0);
 this.CardBody=page.locator(".name");
 this.CloseHeader= page.locator("i#close-icon");
 }
-async recommendingSampleArticleLink(Url,Min,test){
+async recommendingSampleLinkWithoutClick(Url,Min,test){
      
     await expect(this.UnivNameVisible).toBeVisible()
     const header=await this.CloseHeader.isVisible()
@@ -31,7 +31,7 @@ async recommendingSampleArticleLink(Url,Min,test){
     for(let i=0;i<count;i++){
         var text=test
         if(await this.CardBody.nth(i).textContent()===text){
-            await this.CardBody.nth(i).click();
+            console.log("recommended sample link and not clicked ");
           break;
         }
     
@@ -41,6 +41,4 @@ async recommendingSampleArticleLink(Url,Min,test){
 
 }
 }
-module.exports={RecommendingSampleLink}
- 
- 
+module.exports={RecommendSampleLinkWithOutClick}

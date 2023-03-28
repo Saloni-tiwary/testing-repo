@@ -3,12 +3,12 @@ class TakeawaysAndRemoveProgress{
     constructor(page){
         this.page=page;
         this.UserImage=page.locator(".user-img");
-        this.TakeawayTextArea=page.locator("[contenteditable='true']").nth(0);
+        this.TakeawayTextArea=page.locator("div.ql-editor")
         this.TakeawayDoneButton=page.getByRole("button",{name:"Done"});
         this.EditedTakeawaySave=page.getByRole("button",{name:"Save"});
         this.WarningMessage=page.locator(".warning");
         this.UserName=page.locator(".user-name");
-        this.CardInnerview=page.locator(".card-innerview");
+        this.CardInnerview=page.locator(".link-name");
         this.InnerProgress=page.locator(".inner-progress");
         this.ProgressPercentage=page.locator(".progress-percentage");
         this.Dropdown=page.locator(".dropdown-select");
@@ -19,13 +19,13 @@ class TakeawaysAndRemoveProgress{
         this.PopupCloseButton=page.locator(".popup-close");
         this.MenuIcon=page.locator(".menu-icon");
         this.Homebutton=page.locator("[page='home']");
-        this.OuterCardProgressBar=page.locator(".bar").nth(0);
+        this.OuterCardProgressBar=page.locator("[data-semanticname='types-of-api'] .working-on");
         this.TakeawayDate=page.locator(".takeaway-date");
         this.PayitForwardPopupclose=page.locator(".popup-close");
         this.DoneStatus=page.locator(".done-status");
         this.TakeawayEditor=page.locator(".review-edit");
         this.EditedVisible=page.getByRole('main').getByRole('listitem').getByText('(edited)');
-        this.CancelButton=page.getByRole("button",{name:"Cancel"});
+        this.CancelButton=page.locator(".review-cancel")
         
     }
     async givingEmptyTakeaway(){
@@ -46,8 +46,8 @@ class TakeawaysAndRemoveProgress{
     }
     async givingFirstValidTakeaway(){
       await this.TakeawayTextArea.fill("test");
-      await this.CardInnerview.click();
-      await this.InnerProgress.waitFor();
+      await this.CardInnerview.click({clickCount:3,delay:2000});
+    // await this.InnerProgress.waitFor("visible");
     }
     async progressBarto45Verification(){
         await expect(this.ProgressPercentage).toContainText("45");
@@ -121,6 +121,7 @@ class TakeawaysAndRemoveProgress{
     async savingEditedTakeaway(){
         await this.EditedTakeawaySave.click()
     }
+
 }
  
   module.exports={TakeawaysAndRemoveProgress}
