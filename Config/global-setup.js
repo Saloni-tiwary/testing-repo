@@ -2,7 +2,7 @@ const { chromium,expect } = require('@playwright/test');
 
  
 module.exports=async config => {
-  const browser = await chromium.launch({headless: true});
+  const browser = await chromium.launch({headless: false});
   const page = await browser.newPage();
   await page.goto('https://my.staging.adaptiveu.app/');
   await page.locator("#email").type("shakti.choudhary@anywhere.co");
