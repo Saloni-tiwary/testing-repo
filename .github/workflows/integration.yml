@@ -23,14 +23,14 @@ jobs:
       continue-on-error: true
       run: npm run takeawayformatting 
 
-    - name: Run edit popup Outercard
-      continue-on-error: true
-      run: npm run editoutercard
-
 
     - name: Run Playwright content filter test 
       continue-on-error: true
       run: npm run content
+
+    - name: Run edit innerview
+      continue-on-error: true
+      run: npm run editinnerview
 
     - name: Run playwright Delete link outercard test 
       continue-on-error: true
@@ -40,11 +40,10 @@ jobs:
       continue-on-error: true
       run: npm run deleteinnerview
       
-    - name: Run edit innerview
-      continue-on-error: true
-      run: npm run editinnerview
 
-     
+    - name: Run edit popup Outercard
+      continue-on-error: true
+      run: npm run editoutercard
 
     - name: Run home page UI test
       continue-on-error: true
@@ -56,7 +55,9 @@ jobs:
       run: npm run linkinnerview
 
 
-    
+    - name: Run Link outercard Tests
+      continue-on-error: true
+      run: npm run linkoutercard
 
 
     - name: Run PayItforward outercard tests
@@ -67,10 +68,6 @@ jobs:
     - name: Run pay it forward Innerview tests 
       continue-on-error: true
       run: npm run payinnerview
-      
-     - name: Run Link outercard Tests
-      continue-on-error: true
-      run: npm run linkoutercard
 
 
     - name: Run Recommed link homepage test
