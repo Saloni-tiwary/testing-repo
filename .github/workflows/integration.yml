@@ -15,17 +15,23 @@ jobs:
         node-version: 16
     - name: Install dependencies
       run: npm ci
-    - name: Run Takeaways Formatting options test
-      continue-on-error: true
-      run: npm run takeawayformatting
+     
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
+
+    - name: Run Takeaways Formatting options test
+      continue-on-error: true
+      run: npm run takeawayformatting --workers 2
+
+
     - name: Run Playwright content filter test 
       continue-on-error: true
       run: npm run content
+
     - name: Run playwright Delete link outercard test 
       continue-on-error: true
       run: npm run delete
+
     - name: Run Delete link innerview test 
       continue-on-error: true
       run: npm run deleteinnerview

@@ -22,7 +22,7 @@ class  LinkOuterCard{
         var text=linkTitle
         if(await this.CardBody.nth(i).textContent()===text){
             await this.CardBody.nth(i).hover();
-            await this.MoreOptionsDropdown.waitFor({ state: "visible"} )
+           // await this.MoreOptionsDropdown.waitFor({ state: "visible"} )
     }
 }
     }
@@ -41,7 +41,7 @@ class  LinkOuterCard{
         var text=linkTitle
         if(await this.CardBody.nth(i).textContent()===text){
             await this.CardBody.nth(i).hover();
-            await this.MoreOptionsDropdown.waitFor({ state: "visible"} )
+            //await this.MoreOptionsDropdown.waitFor({ state: "visible"} )
             await this.MoreOptionsDropdown.nth(i).click();
             await this.EditOption.nth(i).click()
 
@@ -63,6 +63,9 @@ class  LinkOuterCard{
           await this.MoreOptionsDropdown.nth(0).click();
 
 
+     }
+     async editOptionClick(){
+        await this.EditOption.nth(0).click();
      }
    async editPopupVerify(){
          await expect(this.ContainerPopup).toBeVisible();

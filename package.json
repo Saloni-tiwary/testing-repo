@@ -18,7 +18,7 @@
     "recommendhomepage": "npx playwright test tests/RecommendLinkHomePage.spec.js",
     "recommendinnerview": "npx playwright test tests/RecommendLinkInnerView.spec.js",
     "takeawayformatting": "npx playwright test tests/TakawayFormattingOption.spec.js",
-    "takeawayremoveprogress": "npx playwright test tests/TakawayFormattingOption.spec.js"
+    "takeawayremoveprogress": "npx playwright test tests/TakeawayAndRemoveProgress.spec.js"
 
 
 
