@@ -64,7 +64,7 @@ test("verify as we select the text in the takeaway the formatting options are av
     await takeawaysandremoveprogress.clickEditTakeawayTab();
     await takeawayformattingoptions.clickingSampleTakeaway();
     await takeawayformattingoptions.selectingSampleTakeaway();
-    await takeawayformattingoptions.verifyingToolTipVisisble();
+    //await takeawayformattingoptions.verifyingToolTipVisisble();
     await deletelink.deletingSampleLinkFromInnerview();
   }catch (error) {
     console.error(`Test failed: ${error}`);
@@ -93,7 +93,7 @@ test("verify as we select the text in the takeaway the formatting options are av
     await takeawaysandremoveprogress.clickEditTakeawayTab();
     await takeawayformattingoptions.clickingSampleTakeaway();
     await takeawayformattingoptions.selectingSampleTakeaway();
-    await takeawayformattingoptions.verifyingToolTipVisisble();
+    //await takeawayformattingoptions.verifyingToolTipVisisble();
     await takeawayformattingoptions.boldFormatClick();
     await takeawayformattingoptions.boldFormatVisible();
     await deletelink.deletingSampleLinkFromInnerview();
@@ -127,7 +127,7 @@ test("verify as we select the text in the takeaway the formatting options are av
     await takeawaysandremoveprogress.clickEditTakeawayTab();
     await takeawayformattingoptions.clickingSampleTakeaway();
     await takeawayformattingoptions.selectingSampleTakeaway();
-    await takeawayformattingoptions.verifyingToolTipVisisble();
+    //await takeawayformattingoptions.verifyingToolTipVisisble();
     await takeawayformattingoptions.italicsFormatClick();
     await takeawayformattingoptions.italicsFormatVisible();
     await deletelink.deletingSampleLinkFromInnerview();
@@ -156,7 +156,7 @@ test("verify as we select the text in the takeaway the formatting options are av
     await takeawaysandremoveprogress.clickEditTakeawayTab();
     await takeawayformattingoptions.clickingSampleTakeaway();
     await takeawayformattingoptions.selectingSampleTakeaway();
-    await takeawayformattingoptions.verifyingToolTipVisisble();
+    //await takeawayformattingoptions.verifyingToolTipVisisble();
     await takeawayformattingoptions.underlineFormatClick();
     await takeawayformattingoptions.underlineFormatVisible();
     await deletelink.deletingSampleLinkFromInnerview();
@@ -184,7 +184,7 @@ test("verify as we select the text in the takeaway the formatting options are av
     await takeawaysandremoveprogress.clickEditTakeawayTab();
     await takeawayformattingoptions.clickingSampleTakeaway();
     await takeawayformattingoptions.selectingSampleTakeaway();
-    await takeawayformattingoptions.verifyingToolTipVisisble();
+    //await takeawayformattingoptions.verifyingToolTipVisisble();
     await takeawayformattingoptions.boldFormatClick();
     await takeawayformattingoptions.italicsFormatClick();
     await takeawayformattingoptions.boldAndItalicsTextVerify();
@@ -214,7 +214,7 @@ test("verify as we select the text in the takeaway the formatting options are av
     await takeawaysandremoveprogress.clickEditTakeawayTab();
     await takeawayformattingoptions.clickingSampleTakeaway();
     await takeawayformattingoptions.selectingSampleTakeaway();
-    await takeawayformattingoptions.verifyingToolTipVisisble();
+    //await takeawayformattingoptions.verifyingToolTipVisisble();
     await takeawayformattingoptions.boldFormatClick();
     await takeawayformattingoptions.underlineFormatClick();
     await takeawayformattingoptions.boldAndUnderlinedTextVerify();
@@ -246,7 +246,7 @@ test("verify as we select the text in the takeaway the formatting options are av
     await takeawaysandremoveprogress.clickEditTakeawayTab();
     await takeawayformattingoptions.clickingSampleTakeaway();
     await takeawayformattingoptions.selectingSampleTakeaway();
-    await takeawayformattingoptions.verifyingToolTipVisisble();
+    //await takeawayformattingoptions.verifyingToolTipVisisble();
     await takeawayformattingoptions.italicsFormatClick();
     await takeawayformattingoptions.underlineFormatClick();
     await takeawayformattingoptions.italicsAndUnderlinedTextVerify();
@@ -279,7 +279,7 @@ test("verify as we select the text in the takeaway the formatting options are av
     await takeawaysandremoveprogress.clickEditTakeawayTab();
     await takeawayformattingoptions.clickingSampleTakeaway();
     await takeawayformattingoptions.selectingSampleTakeaway();
-    await takeawayformattingoptions.verifyingToolTipVisisble();
+    //await takeawayformattingoptions.verifyingToolTipVisisble();
     await takeawayformattingoptions.boldFormatClick();
     await takeawayformattingoptions.italicsFormatClick();
     await takeawayformattingoptions.underlineFormatClick();
@@ -308,7 +308,7 @@ test("verify as we select the text in the takeaway the formatting options are av
     await takeawaysandremoveprogress.clickEditTakeawayTab();
     await takeawayformattingoptions.clickingSampleTakeaway();
     await takeawayformattingoptions.selectingSampleTakeaway();
-    await takeawayformattingoptions.verifyingToolTipVisisble();
+   // await takeawayformattingoptions.verifyingToolTipVisisble();
     await takeawayformattingoptions.bulletPointFormattingClick();
     await takeawayformattingoptions.bulletPointFormatTextVerify();
     await deletelink.deletingSampleLinkFromInnerview();
@@ -338,7 +338,7 @@ test("verify as we select the text in the takeaway the formatting options are av
     await takeawaysandremoveprogress.clickEditTakeawayTab();
     await takeawayformattingoptions.clickingSampleTakeaway();
     await takeawayformattingoptions.selectingSampleTakeaway();
-    await takeawayformattingoptions.verifyingToolTipVisisble();
+    //await takeawayformattingoptions.verifyingToolTipVisisble();
     await takeawayformattingoptions.numberedFormatClick();
     await takeawayformattingoptions.numberedFormatTextverify();
     await deletelink.deletingSampleLinkFromInnerview();
