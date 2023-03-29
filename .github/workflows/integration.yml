@@ -17,8 +17,8 @@ jobs:
       run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
-    - name: Run Playwright content filter test 
-      run: npm run content
+    - name: Run Playwright tests
+      run: npx playwright test
     
     - uses: actions/upload-artifact@v3
       if: always()
@@ -31,7 +31,7 @@ jobs:
    # "recommendinnerview": "tests/RecommendLinkInnerView.spec.js",
    # "takeawayformatting": "tests/TakawayFormattingOption.spec.js",
    # "takeawayremoveprogress": "tests/TakawayFormattingOption.spec.js"
-   
+
 
 
          

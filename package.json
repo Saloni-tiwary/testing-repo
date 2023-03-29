@@ -4,6 +4,7 @@
   "description": "",
   "main": "login.spec.js",
   "scripts":{
+    
     "content": "npx playwright test tests/ContentFilter.spec.js",
     "delete": "tests/DeleteLinkOuterCard.spec.js",
     "deleteinnerview": "tests/DeleteOptionLinkInnerView.spec.js",
@@ -24,6 +25,13 @@
 
 
   },
+  "testMatch": [
+    "**/ContentFilter.spec.js",
+    "**/DeleteLinkOuterCard.spec.js",
+    "**/DeleteOptionLinkInnerView.spec.js",
+    "**/EditPopupLinkInnerview.spec.js"
+  ],
+   
   
   "keywords": [
     "npm",
