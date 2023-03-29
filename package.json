@@ -4,20 +4,20 @@
   "description": "",
   "main": "login.spec.js",
   "scripts":{
-    "content filter test": "npx playwright test tests/ContentFilter.spec.js",
-    "delete link outercard": "tests/DeleteLinkOuterCard.spec.js",
-    "delete link innerview": "tests/DeleteOptionLinkInnerView.spec.js",
-    "edit popup innerview": "tests/EditPopupLinkInnerview.spec.js",
-    "edit popup outercard": "tests/EditPopupOuterCard.spec.js",
-    "home page": "tests/HomePage.spec.js",
-    "link innerview": "tests/LinkInnerViewUI.spec.js",
-    "link outercard": "tests/LinkOuterCard.spec.js",
-    "pay it forward ourtcard": "tests/PayItForwardLinkInnerview.spec.js",
-    "pay it forward innerview": "tests/PayItForwardLinkInnerview.spec.js",
-    "recommend link home page": "tests/RecommendLinkHomePage.spec.js",
-    "recommend clink innerview": "tests/RecommendLinkInnerView.spec.js",
-    "takeaway formatting": "tests/TakawayFormattingOption.spec.js",
-    "takeaway remove progress": "tests/TakawayFormattingOption.spec.js"
+    "content": "npx playwright test tests/ContentFilter.spec.js",
+    "delete": "tests/DeleteLinkOuterCard.spec.js",
+    "deleteinnerview": "tests/DeleteOptionLinkInnerView.spec.js",
+    "editinnerview": "tests/EditPopupLinkInnerview.spec.js",
+    "editoutercard": "tests/EditPopupOuterCard.spec.js",
+    "homepage": "tests/HomePage.spec.js",
+    "linkinnerview": "tests/LinkInnerViewUI.spec.js",
+    "linkoutercard": "tests/LinkOuterCard.spec.js",
+    "payourtercard": "tests/PayItForwardLinkInnerview.spec.js",
+    "payinnerview": "tests/PayItForwardLinkInnerview.spec.js",
+    "recommendhomepage": "tests/RecommendLinkHomePage.spec.js",
+    "recommendinnerview": "tests/RecommendLinkInnerView.spec.js",
+    "takeawayformatting": "tests/TakawayFormattingOption.spec.js",
+    "takeawayremoveprogress": "tests/TakawayFormattingOption.spec.js"
 
 
 
