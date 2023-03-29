@@ -10,7 +10,8 @@ const{urls}=require('../constant/urls');
 test('Verify that a Video can be recommended', async({page})=>{
      
     
-    const navigationurl= new NavigationURL(page)
+    try{
+        const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL()
      
     const recommendVideoLink=new RecommendTab(page)
@@ -29,6 +30,10 @@ test('Verify that a Video can be recommended', async({page})=>{
     await deletelinkoutercard.deleteOptionClick();
     await deletelinkoutercard.deleteLinkButtonClick();
     await deletelinkoutercard.deleteContainerNotVisible();
+}catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
      
 
     
@@ -36,7 +41,8 @@ test('Verify that a Video can be recommended', async({page})=>{
 test("verify that a article link can be recommended",async({page})=>{
      
 
-    const navigationurl= new NavigationURL(page)
+    try{
+        const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL()
     const recommendVideoLink=new RecommendTab(page)
     const linkoutercard= new LinkOuterCard(page);
@@ -54,12 +60,17 @@ test("verify that a article link can be recommended",async({page})=>{
     await deletelinkoutercard.deleteOptionClick();
     await deletelinkoutercard.deleteLinkButtonClick();
     await deletelinkoutercard.deleteContainerNotVisible();
+}catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
 
 })
 test("verify that a user can recommend a book",async({page})=>{
      
      
-    const navigationurl= new NavigationURL(page)
+    try{
+        const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL()
     const recommendVideoLink=new RecommendTab(page)
     const linkoutercard= new LinkOuterCard(page);
@@ -77,11 +88,16 @@ test("verify that a user can recommend a book",async({page})=>{
     await deletelinkoutercard.deleteOptionClick();
     await deletelinkoutercard.deleteLinkButtonClick();
     await deletelinkoutercard.deleteContainerNotVisible();
+}catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
 
 })
 test("verify that an audio can be recommended",async({page})=>{
      
-    const navigationurl= new NavigationURL(page)
+    try{
+        const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL()
     const recommendVideoLink=new RecommendTab(page)
     const linkoutercard= new LinkOuterCard(page);
@@ -99,10 +115,15 @@ test("verify that an audio can be recommended",async({page})=>{
     await deletelinkoutercard.deleteOptionClick();
     await deletelinkoutercard.deleteLinkButtonClick();
     await deletelinkoutercard.deleteContainerNotVisible();
+}catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
 
 })
 test("verify same link cannot be recommended again",async({page})=>{
-    const navigationurl= new NavigationURL(page)
+    try{
+        const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL()
     
     const similarRecommendation=new SimilarRecommendation(page)
@@ -113,11 +134,16 @@ test("verify same link cannot be recommended again",async({page})=>{
    await similarRecommendation.enterMin(urls.MIN);
    await similarRecommendation.saveUrl();
    await similarRecommendation.similarURLWarning();
+}catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
      
   })
 test("Verify On entering an exact similar URL the user is able to redirect to it ",async({page})=>{
     
-    const navigationurl= new NavigationURL(page)
+    try{
+        const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL()
     const recommendVideoLink=new RecommendTab(page)
     const linkoutercard= new LinkOuterCard(page);
@@ -131,4 +157,8 @@ test("Verify On entering an exact similar URL the user is able to redirect to it
    await recommendVideoLink.saveLink();
    await similarRecommendation.navigateSimilarUrl();
    await similarRecommendation.navigatedSimilarUrlVerify();
+}catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
   })

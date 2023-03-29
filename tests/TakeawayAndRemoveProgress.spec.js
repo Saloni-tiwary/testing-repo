@@ -23,7 +23,8 @@ const{DeletingSampleLink}=require('../pageobject_pagefile/deleting-samplelink-in
 
 
 test("verify that a user cannot give an empty takeaway",async({page})=>{
-  const samplelink=new RecommendingSampleLink(page);
+  try{
+    const samplelink=new RecommendingSampleLink(page);
   const deletelink=new DeletingSampleLink(page);
     const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL();
@@ -35,10 +36,14 @@ test("verify that a user cannot give an empty takeaway",async({page})=>{
     await takeawaysandremoveprogress.savingTakeaway();
     await takeawaysandremoveprogress.completeTakeawayWarning();
     await deletelink.deletingSampleLinkFromInnerview();
- 
+  }catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
   })
   test("verify the takeaway text area has user's profile pic",async({page})=>{
-    const samplelink=new RecommendingSampleLink(page);
+    try{
+      const samplelink=new RecommendingSampleLink(page);
   const deletelink=new DeletingSampleLink(page);
     const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL();
@@ -48,9 +53,14 @@ test("verify that a user cannot give an empty takeaway",async({page})=>{
    // await linkoutercard.linkOuterCardClick();
     await takeawaysandremoveprogress.userImageVisible();
     await deletelink.deletingSampleLinkFromInnerview();
+  }catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
   })
   test("verify that the takeaway text area has user's name",async({page})=>{
-    const samplelink=new RecommendingSampleLink(page);
+    try{
+      const samplelink=new RecommendingSampleLink(page);
   const deletelink=new DeletingSampleLink(page);
     const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL();
@@ -60,12 +70,17 @@ test("verify that a user cannot give an empty takeaway",async({page})=>{
     //await linkoutercard.linkOuterCardClick();
     await takeawaysandremoveprogress.userNameVisible();
     await deletelink.deletingSampleLinkFromInnerview();
+  }catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
   })
  
  
    
   test("verify on giving a takeaway (apart from video link) the progress percentage goes to 45%",async({page})=>{
-    const samplelink=new RecommendingSampleLink(page);
+    try{
+      const samplelink=new RecommendingSampleLink(page);
     const deletelink=new DeletingSampleLink(page);
     const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL();
@@ -76,12 +91,16 @@ test("verify that a user cannot give an empty takeaway",async({page})=>{
     await takeawaysandremoveprogress.givingFirstValidTakeaway();
     await takeawaysandremoveprogress.progressBarto45Verification();
     await deletelink.deletingSampleLinkFromInnerview();
-
+  }catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
  
   })
    
   test("verify on clicking remove progress the progress is removed",async({page})=>{
-    const samplelink=new RecommendingSampleLink(page);
+    try{
+      const samplelink=new RecommendingSampleLink(page);
     const deletelink=new DeletingSampleLink(page);
     
     const navigationurl= new NavigationURL(page)
@@ -96,10 +115,14 @@ test("verify that a user cannot give an empty takeaway",async({page})=>{
     await takeawaysandremoveprogress.removingProgressClick();
     await takeawaysandremoveprogress.progressRemovedConfirmation();
     await deletelink.deletingSampleLinkFromInnerview();
- 
+  }catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
   })
   test("verify on clicking no on the remove progress popup, popup goes away",async({page})=>{
-    const samplelink=new RecommendingSampleLink(page);
+    try{
+      const samplelink=new RecommendingSampleLink(page);
     const deletelink=new DeletingSampleLink(page);
     
     const navigationurl= new NavigationURL(page)
@@ -115,10 +138,14 @@ test("verify that a user cannot give an empty takeaway",async({page})=>{
     await takeawaysandremoveprogress.noButtonRemovePopupClick();
     await takeawaysandremoveprogress.popupGoneConfirmation();
     await deletelink.deletingSampleLinkFromInnerview();
- 
+  }catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
   })
   test("verify on clicking cancel on remove progress popup,popup goes away",async({page})=>{
-    const samplelink=new RecommendingSampleLink(page);
+    try{
+      const samplelink=new RecommendingSampleLink(page);
     const deletelink=new DeletingSampleLink(page);
     
     
@@ -135,11 +162,15 @@ test("verify that a user cannot give an empty takeaway",async({page})=>{
     await takeawaysandremoveprogress.popupCloseByClickCancel();
     await takeawaysandremoveprogress.popupGoneConfirmation();
     await deletelink.deletingSampleLinkFromInnerview();
- 
+  }catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
   
   })
   test("verify that the progress bar is reflected in the link outercard ",async({page})=>{
-    const samplelink=new RecommendingSampleLink(page);
+    try{
+      const samplelink=new RecommendingSampleLink(page);
     const deletelink=new DeletingSampleLink(page);
     
     
@@ -155,11 +186,15 @@ test("verify that a user cannot give an empty takeaway",async({page})=>{
     await takeawaysandremoveprogress.homeIconClick();
     await takeawaysandremoveprogress.progressBarVisibleonOuterCard();
     await deletelink.deletingSampleLinkFromInnerview();
- 
+  }catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
  
   })
   test("verify that takeaways have the date visible",async({page})=>{
-    const samplelink=new RecommendingSampleLink(page);
+    try{
+      const samplelink=new RecommendingSampleLink(page);
     const deletelink=new DeletingSampleLink(page);
     
     const navigationurl= new NavigationURL(page)
@@ -172,12 +207,16 @@ test("verify that a user cannot give an empty takeaway",async({page})=>{
     await takeawaysandremoveprogress.progressBarto45Verification();
     await takeawaysandremoveprogress.takeawayDateVisible();
     await deletelink.deletingSampleLinkFromInnerview();
- 
+  }catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
  
   })
     
   test("verify that on completing the takeaway step learning minutes are accumulated ",async({page})=>{
-    const samplelink=new RecommendingSampleLink(page);
+    try{
+      const samplelink=new RecommendingSampleLink(page);
     const deletelink=new DeletingSampleLink(page);
     
     const navigationurl= new NavigationURL(page)
@@ -191,10 +230,14 @@ test("verify that a user cannot give an empty takeaway",async({page})=>{
     await takeawaysandremoveprogress.closingPayItForwardPopup();
     await takeawaysandremoveprogress.learningDoneMessage();  
     await deletelink.deletingSampleLinkFromInnerview();
-  
+  }catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
   })
   test("verify that the takeaways can be edited",async({page})=>{
-    const samplelink=new RecommendingSampleLink(page);
+    try{
+      const samplelink=new RecommendingSampleLink(page);
     const deletelink=new DeletingSampleLink(page);
     
     const navigationurl= new NavigationURL(page)
@@ -211,12 +254,16 @@ test("verify that a user cannot give an empty takeaway",async({page})=>{
     await takeawaysandremoveprogress.savingEditedTakeaway();
     await takeawaysandremoveprogress.secondTakeawaySavedConfirmation();
     await deletelink.deletingSampleLinkFromInnerview();
-  
+  }catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
  
   
   })
   test("verify that the edited takeaway has edited visible in the takeaway text area",async({page})=>{
-    const samplelink=new RecommendingSampleLink(page);
+    try{
+      const samplelink=new RecommendingSampleLink(page);
     const deletelink=new DeletingSampleLink(page);
     
     const navigationurl= new NavigationURL(page)
@@ -233,9 +280,14 @@ test("verify that a user cannot give an empty takeaway",async({page})=>{
     await takeawaysandremoveprogress.savingEditedTakeaway();
      await takeawaysandremoveprogress.editedTextVisible();
      await deletelink.deletingSampleLinkFromInnerview();
+    }catch (error) {
+      console.error(`Test failed: ${error}`);
+      throw error;
+    }
   })
   test("verify that the given takeaway cannot be edited to null takeaway",async({page})=>{
-    const samplelink=new RecommendingSampleLink(page);
+    try{
+      const samplelink=new RecommendingSampleLink(page);
     const deletelink=new DeletingSampleLink(page);
    
     const navigationurl= new NavigationURL(page)
@@ -252,12 +304,16 @@ test("verify that a user cannot give an empty takeaway",async({page})=>{
     await takeawaysandremoveprogress.savingEditedTakeaway();
     await takeawaysandremoveprogress.emptyEditedTakeawayWarning();
     await deletelink.deletingSampleLinkFromInnerview();
-  
+  }catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
  
   })
    
   test("verify on clicking cancel after giving edited takeaway, the previous takeaway remains entact",async({page})=>{
-    const samplelink=new RecommendingSampleLink(page);
+    try{
+      const samplelink=new RecommendingSampleLink(page);
     const deletelink=new DeletingSampleLink(page);
     
     const navigationurl= new NavigationURL(page)
@@ -274,7 +330,10 @@ test("verify that a user cannot give an empty takeaway",async({page})=>{
     await takeawaysandremoveprogress.clickTakeawayEditCancelButton()
     await takeawaysandremoveprogress.prevTakeawayEntactConfirmation();
     await deletelink.deletingSampleLinkFromInnerview();
-  
+  }catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
   })
   
   

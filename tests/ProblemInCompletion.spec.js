@@ -12,7 +12,8 @@ const{urls}=require('../constant/urls');
 
  
   test("Verify if the video is not watched and done button is clicked then problem in completion URL is visible",async({page})=>{
-    const samplelink=new RecommendingSampleLink(page);
+    try{
+      const samplelink=new RecommendingSampleLink(page);
     const samplelinkdeletion=new DeletingSampleLink(page);
       const navigationurl= new NavigationURL(page)
       await navigationurl.navigationURL();
@@ -26,11 +27,16 @@ const{urls}=require('../constant/urls');
     await problemincompletion.takeawayDoneButtonClick();
     await problemincompletion.problemInCompletionURLVisisbleVerify();
     await samplelinkdeletion.deletingSampleLinkFromInnerview();
+  }catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
 
   })
 
   test("verify problem in completion cannot be used without giving the takeaways",async({page})=>{
-    const samplelink=new RecommendingSampleLink(page);
+    try{
+      const samplelink=new RecommendingSampleLink(page);
     const samplelinkdeletion=new DeletingSampleLink(page);   
    
     const navigationurl= new NavigationURL(page)
@@ -43,9 +49,14 @@ const{urls}=require('../constant/urls');
     await problemincompletion.clickProblemInCompletionURL();
     await problemincompletion.emptyTakeawayWarningVerify();
     await samplelinkdeletion.deletingSampleLinkFromInnerview();
+  }catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
   })
   test("verify on clicking the problem in completion URL a popup opens asking reasons for using the feature",async({page})=>{ 
-    const samplelink=new RecommendingSampleLink(page);
+    try{
+      const samplelink=new RecommendingSampleLink(page);
     const samplelinkdeletion=new DeletingSampleLink(page);   
     
     const navigationurl= new NavigationURL(page)
@@ -60,12 +71,17 @@ const{urls}=require('../constant/urls');
     await problemincompletion.problemInCompletionPopupVisibleVerify();
     await problemincompletion.closeProbInCompletionPopup();
     await samplelinkdeletion.deletingSampleLinkFromInnerview();
+  }catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
 
  
      
   })
   test("verify on not giving any reason in the popup and clicking done button an error message is thrown",async({page})=>{
-    const samplelink=new RecommendingSampleLink(page);
+    try{
+      const samplelink=new RecommendingSampleLink(page);
     const samplelinkdeletion=new DeletingSampleLink(page);   
     const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL();
@@ -80,9 +96,14 @@ const{urls}=require('../constant/urls');
     await problemincompletion.giveValidReasonErrorMessageVerify();
     await problemincompletion.closeProbInCompletionPopup();
     await samplelinkdeletion.deletingSampleLinkFromInnerview();
+  }catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
   })
   test("verify on giving reasons in problem in completion learning minutes are accumulated",async({page})=>{
-    const samplelink=new RecommendingSampleLink(page);
+    try{
+      const samplelink=new RecommendingSampleLink(page);
     const samplelinkdeletion=new DeletingSampleLink(page);   
     
     const navigationurl= new NavigationURL(page)
@@ -99,7 +120,10 @@ const{urls}=require('../constant/urls');
     await problemincompletion.closePayItForwardPopup();
     await problemincompletion.learningMinutesAccumulatedVerify();    
     await samplelinkdeletion.deletingSampleLinkFromInnerview();
- 
+  }catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
   })
   
    

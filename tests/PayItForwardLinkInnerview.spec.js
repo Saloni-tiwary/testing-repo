@@ -11,7 +11,8 @@ const{PayItforwardLinkInnerview}=require('../pageobject_pagefile/pay-it-forward-
 
 
 test("verify when a user clicks on pay it forward option pay it forward popup opens",async({page})=>{
-    const navigationurl= new NavigationURL(page)
+    try{
+      const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL();
     const linkoutercard= new LinkOuterCard(page);
     const payitforwardlinkinnerview=new PayItforwardLinkInnerview(page);
@@ -20,9 +21,14 @@ test("verify when a user clicks on pay it forward option pay it forward popup op
     await linkinnerviewui.moreOptionsClick();
     await payitforwardlinkinnerview.payItForwardOptionClick();
     await payitforwardlinkinnerview.payItForwardPopupConfirmation();
+  }catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
 })
 test("verify that a link cannot be paid forwarded without recepients",async({page})=>{
-    const navigationurl= new NavigationURL(page)
+    try{
+      const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL();
     const linkoutercard= new LinkOuterCard(page);
     const payitforwardlinkinnerview=new PayItforwardLinkInnerview(page);
@@ -31,11 +37,15 @@ test("verify that a link cannot be paid forwarded without recepients",async({pag
     await linkinnerviewui.moreOptionsClick();
     await payitforwardlinkinnerview.payItForwardOptionClick();
     await payitforwardlinkinnerview.shareButtonDisabled();
-
+  }catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
      
   })
   test("verify that a user cannot choose oneself while paying forward a link",async({page})=>{
-    const navigationurl= new NavigationURL(page)
+    try{
+      const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL();
     const linkoutercard= new LinkOuterCard(page);
     const payitforwardlinkinnerview=new PayItforwardLinkInnerview(page);
@@ -45,9 +55,14 @@ test("verify that a link cannot be paid forwarded without recepients",async({pag
     await payitforwardlinkinnerview.payItForwardOptionClick();
     await payitforwardlinkinnerview.typeSelfAsRecipient();
     await payitforwardlinkinnerview.shareButtonDisabled();
+  }catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
   })
   test("verify that on giving just two characters search dropdown should not open",async({page})=>{
-    const navigationurl= new NavigationURL(page)
+    try{
+      const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL();
     const linkoutercard= new LinkOuterCard(page);
     const payitforwardlinkinnerview=new PayItforwardLinkInnerview(page);
@@ -57,9 +72,14 @@ test("verify that a link cannot be paid forwarded without recepients",async({pag
     await payitforwardlinkinnerview.payItForwardOptionClick();
     await payitforwardlinkinnerview.typeTwoCharacterAsInput();
     await payitforwardlinkinnerview.recepientDropdownNotVisisbleConfirmation();
+  }catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
   })
   test("verify that a link is forwarded to multiple people",async({page})=>{
-    const navigationurl= new NavigationURL(page)
+    try{
+      const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL();
     const linkoutercard= new LinkOuterCard(page);
     const payitforwardlinkinnerview=new PayItforwardLinkInnerview(page);
@@ -73,9 +93,14 @@ test("verify that a link cannot be paid forwarded without recepients",async({pag
     await payitforwardlinkinnerview.secondOtherRecipientClick();
     await payitforwardlinkinnerview.shareButtonClick();
     await payitforwardlinkinnerview.sucessMessageConfirmation();
+  }catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
   })
   test("verify that link is forwarded with notes",async({page})=>{
-    const navigationurl= new NavigationURL(page)
+    try{
+      const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL();
     const linkoutercard= new LinkOuterCard(page);
     const payitforwardlinkinnerview=new PayItforwardLinkInnerview(page);
@@ -88,6 +113,10 @@ test("verify that a link cannot be paid forwarded without recepients",async({pag
     await payitforwardlinkinnerview.typeNotes();
     await payitforwardlinkinnerview.shareButtonClick();
     await payitforwardlinkinnerview.sucessMessageConfirmation();
+  }catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
   })
 
 

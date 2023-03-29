@@ -51,7 +51,9 @@ const{DeleteSampleLinkOuterCard}=require('../pageobject_pagefile/delete-sampleli
 
 test("verify that link edited to no title cannot be saved", async({page})=>{
 
-  const samplelink=new RecommendSampleLinkWithOutClick(page)
+  try{
+    test.setTimeout(130000)
+    const samplelink=new RecommendSampleLinkWithOutClick(page)
   const deletelinkoutercard=new DeleteSampleLinkOuterCard(page);
 
   
@@ -69,10 +71,15 @@ test("verify that link edited to no title cannot be saved", async({page})=>{
     await editpopup.editPopupCloseOutercard();
     await deletelinkoutercard.deletingSampleLinkOutercard("Extensibility | Playwright")
 
-
+  }catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
 })
 test("verify that the link title can be edited to other valid title ",async({page})=>{
-  const samplelink=new RecommendSampleLinkWithOutClick(page)
+  try{
+    test.setTimeout(130000)
+    const samplelink=new RecommendSampleLinkWithOutClick(page)
   const deletelinkoutercard=new DeleteSampleLinkOuterCard(page);
   const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL();
@@ -86,10 +93,15 @@ test("verify that the link title can be edited to other valid title ",async({pag
     await editpopup.saveLink();
     await editpopup.validSecondTitleSavedVerify("valid second title");
     await deletelinkoutercard.deletingSampleLinkOutercard("valid second title")
-
+  }catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
 })
 test("verify that link title having only special characters cannot be saved",async({page})=>{
-  const samplelink=new RecommendSampleLinkWithOutClick(page)
+  try{
+    test.setTimeout(130000)
+    const samplelink=new RecommendSampleLinkWithOutClick(page)
   const deletelinkoutercard=new DeleteSampleLinkOuterCard(page);
   const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL();
@@ -104,10 +116,15 @@ test("verify that link title having only special characters cannot be saved",asy
     await editpopup.linkError();
     await editpopup.editPopupCloseOutercard();
     await deletelinkoutercard.deletingSampleLinkOutercard("Introduction to Matplotlib in Python")
-
+  }catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
 })
 test("verify that a link title containing only numbers can be saved",async({page})=>{
-  const samplelink=new RecommendSampleLinkWithOutClick(page)
+  try{
+    test.setTimeout(130000)
+    const samplelink=new RecommendSampleLinkWithOutClick(page)
   const deletelinkoutercard=new DeleteSampleLinkOuterCard(page);
   const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL();
@@ -121,11 +138,16 @@ test("verify that a link title containing only numbers can be saved",async({page
     await editpopup.saveLink();
     await editpopup.onlyNumTitleSavedVerify("12345");
     await deletelinkoutercard.deletingSampleLinkOutercard("12345")
-
+  }catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
 })
  test("verify that leading spaces in the link title can be trimmed",async({page})=>{
   
-  const samplelink=new RecommendSampleLinkWithOutClick(page)
+  try{
+    test.setTimeout(130000)
+    const samplelink=new RecommendSampleLinkWithOutClick(page)
   const deletelinkoutercard=new DeleteSampleLinkOuterCard(page);
   const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL();
@@ -139,12 +161,17 @@ test("verify that a link title containing only numbers can be saved",async({page
     await editpopup.saveLink();
     await editpopup.leadingSpacesTrimmedVerify("Leading space input");
     await deletelinkoutercard.deletingSampleLinkOutercard("Leading space input")
-
+  }catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
 
 
  })
  test("verify that trailing spaces can be trimmed",async({page})=>{
-  const samplelink=new RecommendSampleLinkWithOutClick(page)
+  try{
+    test.setTimeout(130000)
+    const samplelink=new RecommendSampleLinkWithOutClick(page)
   const deletelinkoutercard=new DeleteSampleLinkOuterCard(page);
 
   const navigationurl= new NavigationURL(page)
@@ -159,10 +186,15 @@ test("verify that a link title containing only numbers can be saved",async({page
     await editpopup.saveLink();
     await editpopup.trailingSpaceTrimmedVerify("trailing space input");
     await deletelinkoutercard.deletingSampleLinkOutercard("trailing space input")
-
+  }catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
  })
  test("verify that extra intermediate spaces can be trimmed",async({page})=>{
-  const samplelink=new RecommendSampleLinkWithOutClick(page)
+  try{
+    test.setTimeout(130000)
+    const samplelink=new RecommendSampleLinkWithOutClick(page)
   const deletelinkoutercard=new DeleteSampleLinkOuterCard(page);
   const navigationurl= new NavigationURL(page)
   await navigationurl.navigationURL();
@@ -176,10 +208,16 @@ test("verify that a link title containing only numbers can be saved",async({page
   await editpopup.saveLink();
   await editpopup.extraIntermediateSpaceTrimmedVerify("t t t");
   await deletelinkoutercard.deletingSampleLinkOutercard("t t t")
+}catch (error) {
+  console.error(`Test failed: ${error}`);
+  throw error;
+}
  })
 
 test("verify that the link edited to only special characters in title cannot be saved",async({page})=>{
-  const samplelink=new RecommendSampleLinkWithOutClick(page)
+  try{
+    test.setTimeout(130000)
+    const samplelink=new RecommendSampleLinkWithOutClick(page)
   const deletelinkoutercard=new DeleteSampleLinkOuterCard(page);
   const navigationurl= new NavigationURL(page)
   await navigationurl.navigationURL();
@@ -195,11 +233,16 @@ test("verify that the link edited to only special characters in title cannot be 
     await editpopup.linkError();
     await editpopup.editPopupCloseOutercard();
     await deletelinkoutercard.deletingSampleLinkOutercard("Matplotlib: Line Plot")
-
+  }catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
 
 })
 test("verify that the title can have max 200 characters",async({page})=>{
-  const samplelink=new RecommendSampleLinkWithOutClick(page)
+  try{
+    test.setTimeout(130000)
+    const samplelink=new RecommendSampleLinkWithOutClick(page)
   const deletelinkoutercard=new DeleteSampleLinkOuterCard(page);
    
   const navigationurl= new NavigationURL(page)
@@ -216,10 +259,15 @@ test("verify that the title can have max 200 characters",async({page})=>{
   await editpopup.linkError();
   await editpopup.editPopupCloseOutercard();
     await deletelinkoutercard.deletingSampleLinkOutercard("Matplotlib: Subplots() Function")
-
+  }catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
 })
 test("verify when more settings is clicked the edit popup expands unvieling more options", async({page})=>{
-  const samplelink=new RecommendSampleLinkWithOutClick(page)
+  try{
+    test.setTimeout(130000)
+    const samplelink=new RecommendSampleLinkWithOutClick(page)
   const deletelinkoutercard=new DeleteSampleLinkOuterCard(page);
   const navigationurl= new NavigationURL(page)
   await navigationurl.navigationURL();
@@ -233,10 +281,15 @@ test("verify when more settings is clicked the edit popup expands unvieling more
   await editpopup.moreSettingVisible();
   await editpopup.editPopupCloseOutercard();
   await deletelinkoutercard.deletingSampleLinkOutercard("Matplotlib: Scatter Plot")
-
+}catch (error) {
+  console.error(`Test failed: ${error}`);
+  throw error;
+}
 })
 test("verify that only 5 tags can be added at max in a link", async({page})=>{
-  const samplelink=new RecommendSampleLinkWithOutClick(page)
+  try{
+    test.setTimeout(130000)
+    const samplelink=new RecommendSampleLinkWithOutClick(page)
   const deletelinkoutercard=new DeleteSampleLinkOuterCard(page);
   const navigationurl= new NavigationURL(page)
   await navigationurl.navigationURL();
@@ -256,11 +309,16 @@ test("verify that only 5 tags can be added at max in a link", async({page})=>{
   await editpopup.errorMessageVisible();
   await editpopup.editPopupCloseOutercard();
   await deletelinkoutercard.deletingSampleLinkOutercard("Matplotlib: Bar Plot")
-   
+}catch (error) {
+  console.error(`Test failed: ${error}`);
+  throw error;
+} 
   
 })
 test("verify that a user cannot add duplicate tags",async({page})=>{
-  const samplelink=new RecommendSampleLinkWithOutClick(page)
+  try{
+    test.setTimeout(130000)
+    const samplelink=new RecommendSampleLinkWithOutClick(page)
   const deletelinkoutercard=new DeleteSampleLinkOuterCard(page);
   const navigationurl= new NavigationURL(page)
   await navigationurl.navigationURL();
@@ -276,10 +334,15 @@ test("verify that a user cannot add duplicate tags",async({page})=>{
   await editpopup.duplicateTagErrorMessage();
   await editpopup.editPopupCloseOutercard();
   await deletelinkoutercard.deletingSampleLinkOutercard("Medium - Where good ideas find you ")
-
+}catch (error) {
+  console.error(`Test failed: ${error}`);
+  throw error;
+}
 })
 test("verify that a tag can contain max 25 characters",async({page})=>{
-  const samplelink=new RecommendSampleLinkWithOutClick(page)
+  try{
+    test.setTimeout(130000)
+    const samplelink=new RecommendSampleLinkWithOutClick(page)
   const deletelinkoutercard=new DeleteSampleLinkOuterCard(page);
   const navigationurl= new NavigationURL(page)
   await navigationurl.navigationURL();
@@ -294,9 +357,14 @@ test("verify that a tag can contain max 25 characters",async({page})=>{
   await editpopup.maxCharInTagErrorMessage();
   await editpopup.editPopupCloseOutercard();
   await deletelinkoutercard.deletingSampleLinkOutercard("Matplotlib: Pie Charts")
-
+}catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
 })
 test("verify on clicking cancel button a tag is deleted",async({page})=>{
+  try{
+    test.setTimeout(130000)
   const samplelink=new RecommendSampleLinkWithOutClick(page)
   const deletelinkoutercard=new DeleteSampleLinkOuterCard(page);
   const navigationurl= new NavigationURL(page)
@@ -313,10 +381,15 @@ test("verify on clicking cancel button a tag is deleted",async({page})=>{
   await editpopup.tagClosedVerify();
   await editpopup.editPopupCloseOutercard();
   await deletelinkoutercard.deletingSampleLinkOutercard("playwright-core - npm")
-
+}catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
 })
 
 test("Verify only one content type can be choosen", async({page})=>{
+  try{
+    test.setTimeout(130000)
   const samplelink=new RecommendSampleLinkWithOutClick(page)
   const deletelinkoutercard=new DeleteSampleLinkOuterCard(page);
   const navigationurl= new NavigationURL(page)
@@ -333,9 +406,14 @@ test("Verify only one content type can be choosen", async({page})=>{
   await editpopup.oneRadioButtonEnabled();
   await editpopup.editPopupCloseOutercard();
   await deletelinkoutercard.deletingSampleLinkOutercard("Matplotlib: Three-dimensional Plotting")
-
+}catch (error) {
+  console.error(`Test failed: ${error}`);
+  throw error;
+}
 })
 test("verify that link cannot be edited 0/null minutes minutes",async({page})=>{
+  try{
+    test.setTimeout(130000)
   const samplelink=new RecommendSampleLinkWithOutClick(page)
   const deletelinkoutercard=new DeleteSampleLinkOuterCard(page);
   const navigationurl= new NavigationURL(page)
@@ -351,9 +429,15 @@ test("verify that link cannot be edited 0/null minutes minutes",async({page})=>{
   await editpopup.linkMinError();
   await editpopup.editPopupCloseOutercard();
   await deletelinkoutercard.deletingSampleLinkOutercard("Matplotlib Pyplot: Introduction")
+}catch (error) {
+  console.error(`Test failed: ${error}`);
+  throw error;
+}
 })
 
 test("verify that link cannot be edited to minutes in special characters", async({page})=>{
+  try{
+    test.setTimeout(130000)
   const samplelink=new RecommendSampleLinkWithOutClick(page)
   const deletelinkoutercard=new DeleteSampleLinkOuterCard(page);
 
@@ -371,9 +455,14 @@ test("verify that link cannot be edited to minutes in special characters", async
   await editpopup.linkMinError();
   await editpopup.editPopupCloseOutercard();
   await deletelinkoutercard.deletingSampleLinkOutercard("Matplotlib: Figure Class")
-
+}catch (error) {
+  console.error(`Test failed: ${error}`);
+  throw error;
+}
 })
 test("verify that link cannot be edited to minutes in alphabets",async({page})=>{
+  try{
+    test.setTimeout(130000)
   const samplelink=new RecommendSampleLinkWithOutClick(page)
   const deletelinkoutercard=new DeleteSampleLinkOuterCard(page);
   const navigationurl= new NavigationURL(page)
@@ -390,9 +479,14 @@ test("verify that link cannot be edited to minutes in alphabets",async({page})=>
   await editpopup.linkMinError();
   await editpopup.editPopupCloseOutercard();
   await deletelinkoutercard.deletingSampleLinkOutercard("Matplotlib: Multiplots with subplots() Function")
-
+}catch (error) {
+  console.error(`Test failed: ${error}`);
+  throw error;
+}
 })
 test("verify that the max minutes a link can have is 10000",async({page})=>{
+  try{
+    test.setTimeout(130000)
   const samplelink=new RecommendSampleLinkWithOutClick(page)
   const deletelinkoutercard=new DeleteSampleLinkOuterCard(page);
   const navigationurl= new NavigationURL(page)
@@ -408,6 +502,10 @@ test("verify that the max minutes a link can have is 10000",async({page})=>{
   await editpopup.maxMinRedirection();
   await editpopup.editPopupCloseOutercard();
   await deletelinkoutercard.deletingSampleLinkOutercard("Matplotlib: Quiver Plot")
+}catch (error) {
+  console.error(`Test failed: ${error}`);
+  throw error;
+}
 })
  
 

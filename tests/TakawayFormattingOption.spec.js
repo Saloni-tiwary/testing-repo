@@ -45,7 +45,8 @@ const{DeletingSampleLink}=require('../pageobject_pagefile/deleting-samplelink-in
 test("verify as we select the text in the takeaway the formatting options are available", async ({
     page,
   }) => {
-    const samplelink=new RecommendingSampleLink(page);
+    try{
+      const samplelink=new RecommendingSampleLink(page);
   const deletelink=new DeletingSampleLink(page);
     const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL();
@@ -65,13 +66,17 @@ test("verify as we select the text in the takeaway the formatting options are av
     await takeawayformattingoptions.selectingSampleTakeaway();
     await takeawayformattingoptions.verifyingToolTipVisisble();
     await deletelink.deletingSampleLinkFromInnerview();
-
+  }catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
   })
 
   test("verify when the bold option is clicked the takeaway turns bold", async ({
     page,
   }) => {
-    const samplelink=new RecommendingSampleLink(page);
+    try{
+      const samplelink=new RecommendingSampleLink(page);
   const deletelink=new DeletingSampleLink(page);
 
     const navigationurl= new NavigationURL(page)
@@ -92,7 +97,10 @@ test("verify as we select the text in the takeaway the formatting options are av
     await takeawayformattingoptions.boldFormatClick();
     await takeawayformattingoptions.boldFormatVisible();
     await deletelink.deletingSampleLinkFromInnerview();
-
+  }catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
   })
 
 
@@ -101,7 +109,8 @@ test("verify as we select the text in the takeaway the formatting options are av
   test("verify when italics option is clicked the takeaway text turn italics", async ({
     page,
   }) => {
-    const samplelink=new RecommendingSampleLink(page);
+    try{
+      const samplelink=new RecommendingSampleLink(page);
   const deletelink=new DeletingSampleLink(page);
 
     const navigationurl= new NavigationURL(page)
@@ -122,12 +131,16 @@ test("verify as we select the text in the takeaway the formatting options are av
     await takeawayformattingoptions.italicsFormatClick();
     await takeawayformattingoptions.italicsFormatVisible();
     await deletelink.deletingSampleLinkFromInnerview();
-
+  }catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
   });
   test("verify when underlined is clicked the takeaway text is underlined", async ({
     page,
   }) => {
-    const samplelink=new RecommendingSampleLink(page);
+    try{
+      const samplelink=new RecommendingSampleLink(page);
   const deletelink=new DeletingSampleLink(page);
     const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL();
@@ -147,11 +160,15 @@ test("verify as we select the text in the takeaway the formatting options are av
     await takeawayformattingoptions.underlineFormatClick();
     await takeawayformattingoptions.underlineFormatVisible();
     await deletelink.deletingSampleLinkFromInnerview();
-
+  }catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
  
   });
   test("verify a text can be both bold and italics", async ({ page }) => {
-    const samplelink=new RecommendingSampleLink(page);
+    try{
+      const samplelink=new RecommendingSampleLink(page);
   const deletelink=new DeletingSampleLink(page);
     const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL();
@@ -172,12 +189,16 @@ test("verify as we select the text in the takeaway the formatting options are av
     await takeawayformattingoptions.italicsFormatClick();
     await takeawayformattingoptions.boldAndItalicsTextVerify();
     await deletelink.deletingSampleLinkFromInnerview();
-
+  }catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
  
   });
 
   test("verify a text can be both bold and underlined", async ({ page }) => {
-    const samplelink=new RecommendingSampleLink(page);
+    try{
+      const samplelink=new RecommendingSampleLink(page);
   const deletelink=new DeletingSampleLink(page);
     const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL();
@@ -198,13 +219,17 @@ test("verify as we select the text in the takeaway the formatting options are av
     await takeawayformattingoptions.underlineFormatClick();
     await takeawayformattingoptions.boldAndUnderlinedTextVerify();
     await deletelink.deletingSampleLinkFromInnerview();
-
+  }catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
  
   });
   test("verify whether the text can be italics and underlined", async ({
     page,
   }) => {
-    const samplelink=new RecommendingSampleLink(page);
+    try{
+      const samplelink=new RecommendingSampleLink(page);
   const deletelink=new DeletingSampleLink(page);
 
     const navigationurl= new NavigationURL(page)
@@ -226,12 +251,16 @@ test("verify as we select the text in the takeaway the formatting options are av
     await takeawayformattingoptions.underlineFormatClick();
     await takeawayformattingoptions.italicsAndUnderlinedTextVerify();
     await deletelink.deletingSampleLinkFromInnerview();
- 
+  }catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
   });
   test("verify that a text can be bold italics and underlined", async ({
     page,
   }) => {
-    const samplelink=new RecommendingSampleLink(page);
+    try{
+      const samplelink=new RecommendingSampleLink(page);
   const deletelink=new DeletingSampleLink(page);
 
 
@@ -256,10 +285,14 @@ test("verify as we select the text in the takeaway the formatting options are av
     await takeawayformattingoptions.underlineFormatClick();
     await takeawayformattingoptions.boldItalicsAndUnderlinedTextVerify();
     await deletelink.deletingSampleLinkFromInnerview();
- 
+  }catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
   });
   test("verify that a takeaway can be consolidated into bullet points", async ({page}) => {
-    const samplelink=new RecommendingSampleLink(page);
+    try{
+      const samplelink=new RecommendingSampleLink(page);
   const deletelink=new DeletingSampleLink(page);
     const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL();
@@ -279,12 +312,16 @@ test("verify as we select the text in the takeaway the formatting options are av
     await takeawayformattingoptions.bulletPointFormattingClick();
     await takeawayformattingoptions.bulletPointFormatTextVerify();
     await deletelink.deletingSampleLinkFromInnerview();
-
+  }catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
   });
   test("verify that a text can be consolidated in numbered points", async ({
     page,
   }) => {
-    const samplelink=new RecommendingSampleLink(page);
+    try{
+      const samplelink=new RecommendingSampleLink(page);
     const deletelink=new DeletingSampleLink(page);
    
     const navigationurl= new NavigationURL(page)
@@ -305,12 +342,16 @@ test("verify as we select the text in the takeaway the formatting options are av
     await takeawayformattingoptions.numberedFormatClick();
     await takeawayformattingoptions.numberedFormatTextverify();
     await deletelink.deletingSampleLinkFromInnerview();
-
+  }catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
 
   });
     
   test("verify if we click on the embed link the page is redirecting to the embedded link",async({page})=>{
-    const samplelink=new RecommendingSampleLink(page);
+    try{
+      const samplelink=new RecommendingSampleLink(page);
     const deletelink=new DeletingSampleLink(page);
     const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL();
@@ -320,12 +361,16 @@ test("verify as we select the text in the takeaway the formatting options are av
     //await linkoutercard.linkOuterCardClick();
     await takeawayformattingoptions.embedLinkClick();
     await takeawayformattingoptions.waitForNavigationAndVerify();
-   
+  }catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
  
  
 })
 test("verify that hyperlink embedded in takeaway using formatting options is clickable",async({page})=>{
-  const samplelink=new RecommendingSampleLink(page);
+  try{
+    const samplelink=new RecommendingSampleLink(page);
     const deletelink=new DeletingSampleLink(page);
     const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL();
@@ -347,7 +392,10 @@ test("verify that hyperlink embedded in takeaway using formatting options is cli
     await takeawayformattingoptions.saveButtonNotVisibleVerify(); 
     await takeawayformattingoptions.hyperLinkClickAndwaitForRedirectionAndVerify();
     await deletelink.deletingSampleLinkFromInnerview();
-
+  }catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
   
 })
  

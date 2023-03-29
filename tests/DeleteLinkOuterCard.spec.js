@@ -12,7 +12,8 @@ const{urls}=require('../constant/urls');
 
 
 test("verify that on clicking the delete from more options delete popup is opened", async({page})=>{
-    const navigationurl= new NavigationURL(page)
+    try{
+      const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL();
     const linkoutercard= new LinkOuterCard(page);
     const deletelinkoutercard= new DeleteLinkOutercard(page);
@@ -20,10 +21,14 @@ test("verify that on clicking the delete from more options delete popup is opene
     await linkoutercard.linkMoreOptionsClick();
     await deletelinkoutercard.deleteOptionClick();
     await deletelinkoutercard.deletePopupConfirmation();
- 
+    }catch (error) {
+      console.error(`Test failed: ${error}`);
+      throw error;
+    }
   })
   test("verify on clicking cancel button of the delete popup the popup goes away", async({page})=>{
-    const navigationurl= new NavigationURL(page)
+    try{
+      const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL();
     const linkoutercard= new LinkOuterCard(page);
     const deletelinkoutercard= new DeleteLinkOutercard(page);
@@ -33,9 +38,14 @@ test("verify that on clicking the delete from more options delete popup is opene
     await deletelinkoutercard.deleteOptionClick();
     await deletelinkoutercard.deletePopupCancelclick();
     await deletelinkoutercard.deletePopupCancelledVerify();
+    }catch (error) {
+      console.error(`Test failed: ${error}`);
+      throw error;
+    }
   })
   test("verify on clicking no on the delete popup, popup closes",async({page})=>{
-    const navigationurl= new NavigationURL(page)
+   try{
+     const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL();
     const linkoutercard= new LinkOuterCard(page);
     const deletelinkoutercard= new DeleteLinkOutercard(page);
@@ -44,11 +54,14 @@ test("verify that on clicking the delete from more options delete popup is opene
     await deletelinkoutercard.deleteOptionClick();
     await deletelinkoutercard.deletePopupNoButtonClick();
     await deletelinkoutercard.deletePopupCancelledVerify();
-     
+  }catch (error) {
+      console.error(`Test failed: ${error}`);
+      throw error;
+    }
 
   })
   test('Verify that a link can be deleted', async({page})=>{
-     
+     try{
      
     const deletelinkoutercard=new DeleteSampleLinkOuterCard(page)
     const navigationurl= new NavigationURL(page)
@@ -65,7 +78,10 @@ test("verify that on clicking the delete from more options delete popup is opene
    await recommendVideoLink.videoFirstLinkOuterCardVerify("Evaluating JavaScript | Playwright");
    await deletelinkoutercard.deletingSampleLinkOutercard("Evaluating JavaScript | Playwright")
 
-
+     }catch (error) {
+      console.error(`Test failed: ${error}`);
+      throw error;
+    }
     
 })
 

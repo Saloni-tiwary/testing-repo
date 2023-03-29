@@ -15,7 +15,9 @@ const {urls}=require('../constant/urls');
 test("verify on clicking the edit option edit popup is visible",async({page})=>{
   
 
-  const samplelink=new RecommendingSampleLink(page);
+  try{
+    test.setTimeout(130000)
+    const samplelink=new RecommendingSampleLink(page);
   const deletelink=new DeletingSampleLink(page);
     const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL();
@@ -29,14 +31,19 @@ test("verify on clicking the edit option edit popup is visible",async({page})=>{
     await editpopupinnerview.editPopupConfirmation();
     await editpopupinnerview.closeEditPopupInnerview();
     await deletelink.deletingSampleLinkFromInnerview();
-
+}catch (error) {
+      console.error(`Test failed: ${error}`);
+      throw error;
+    }
      
   })
   test("verify on giving null minutes from edit the link is not saved",async({page})=>{
 
      
    
-     const samplelink=new RecommendingSampleLink(page);
+     try{
+      test.setTimeout(130000)
+      const samplelink=new RecommendingSampleLink(page);
      const deletelink=new DeletingSampleLink(page);
 
 
@@ -54,14 +61,19 @@ test("verify on clicking the edit option edit popup is visible",async({page})=>{
     await editpopupinnerview.linkMinError();
     await editpopupinnerview.closeEditPopupInnerview();
     await deletelink.deletingSampleLinkFromInnerview();
-
+  }catch (error) {
+      console.error(`Test failed: ${error}`);
+      throw error;
+    }
 
 
 })
 test("verify that min field is not accepting special characters as input",async({page})=>{
    
  
-   const samplelink=new RecommendingSampleLink(page);
+   try{
+    test.setTimeout(130000)
+    const samplelink=new RecommendingSampleLink(page);
    const deletelink=new DeletingSampleLink(page);
     const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL();
@@ -77,13 +89,18 @@ test("verify that min field is not accepting special characters as input",async(
     await editpopupinnerview.linkMinError();
     await editpopupinnerview.closeEditPopupInnerview();
     await deletelink.deletingSampleLinkFromInnerview();
-
+}catch (error) {
+      console.error(`Test failed: ${error}`);
+      throw error;
+    }
 
 })
 test("verify that min field is not accepting 0/null value",async({page})=>{
   
    
-     const samplelink=new RecommendingSampleLink(page);
+     try{
+      test.setTimeout(130000)
+      const samplelink=new RecommendingSampleLink(page);
      const deletelink=new DeletingSampleLink(page);
     const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL();
@@ -99,14 +116,19 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
     await editpopupinnerview.linkMinError();
     await editpopupinnerview.closeEditPopupInnerview();
     await deletelink.deletingSampleLinkFromInnerview();
-
+}catch (error) {
+      console.error(`Test failed: ${error}`);
+      throw error;
+    }
 
 
   })
   test("verify that min field is not accepting only alphabets ",async({page})=>{
      
    
-     const samplelink=new RecommendingSampleLink(page);
+     try{
+      test.setTimeout(130000)
+      const samplelink=new RecommendingSampleLink(page);
      const deletelink=new DeletingSampleLink(page);
     const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL();
@@ -122,7 +144,10 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
     await editpopupinnerview.linkMinError();
     await editpopupinnerview.closeEditPopupInnerview();
     await deletelink.deletingSampleLinkFromInnerview();
-
+  }catch (error) {
+      console.error(`Test failed: ${error}`);
+      throw error;
+    }
   })
   // test.only("verify that on updating the minutes, the same is reflected in the link innerview",async({page})=>{
     
@@ -148,7 +173,9 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
   test("verify if the link title is edited, the updated title is reflected in the linkinnerview",async({page})=>{
      
    
-     const samplelink=new RecommendingSampleLink(page);
+     try{
+      test.setTimeout(130000)
+      const samplelink=new RecommendingSampleLink(page);
      const deletelink=new DeletingSampleLink(page);
    
     const navigationurl= new NavigationURL(page)
@@ -164,12 +191,17 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
     await editpopupinnerview.clickSaveButton();
     await editpopupinnerview.validLinkTitleConfirm();
     await deletelink.deletingSampleLinkFromInnerview();
-
+  }catch (error) {
+      console.error(`Test failed: ${error}`);
+      throw error;
+    }
   })
   test("verify that the title should not contain only special characters",async({page})=>{
      
    
-     const samplelink=new RecommendingSampleLink(page);
+     try{
+      test.setTimeout(130000)
+      const samplelink=new RecommendingSampleLink(page);
      const deletelink=new DeletingSampleLink(page);
     
     const navigationurl= new NavigationURL(page)
@@ -186,14 +218,19 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
     await editpopupinnerview.invalidTitleWarning();
     await editpopupinnerview.closeEditPopupInnerview();
     await deletelink.deletingSampleLinkFromInnerview();
-
+  }catch (error) {
+      console.error(`Test failed: ${error}`);
+      throw error;
+    }
 
   })
 
   test("verify that a linkname can be edited to only numbers",async({page})=>{
      
    
-     const samplelink=new RecommendingSampleLink(page);
+     try{
+      test.setTimeout(130000)
+      const samplelink=new RecommendingSampleLink(page);
      const deletelink=new DeletingSampleLink(page);
     
     const navigationurl= new NavigationURL(page)
@@ -209,14 +246,19 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
     await editpopupinnerview.clickSaveButton();
     await editpopupinnerview.verifyNumTitleInput();
     await deletelink.deletingSampleLinkFromInnerview();
-     
+  }catch (error) {
+      console.error(`Test failed: ${error}`);
+      throw error;
+    }
   })
   
 
   test("verify that the link should not have an empty title",async({page})=>{
     
    
-     const samplelink=new RecommendingSampleLink(page);
+     try{
+      test.setTimeout(130000)
+      const samplelink=new RecommendingSampleLink(page);
      const deletelink=new DeletingSampleLink(page);
     
     const navigationurl= new NavigationURL(page)
@@ -234,11 +276,15 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
     await editpopupinnerview.linkTitleError();
     await editpopupinnerview.closeEditPopupInnerview();
     await deletelink.deletingSampleLinkFromInnerview();
-
+  }catch (error) {
+      console.error(`Test failed: ${error}`);
+      throw error;
+    }
   })
   test("verify that Leading spaces are trimmed",async({page})=>{
      
-   
+   try{
+    test.setTimeout(130000)
      const samplelink=new RecommendingSampleLink(page);
      const deletelink=new DeletingSampleLink(page);
     
@@ -255,11 +301,17 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
     await editpopupinnerview.clickSaveButton();
     await editpopupinnerview.leadingSpaceTrimmedVerify();
     await deletelink.deletingSampleLinkFromInnerview();
+  }catch (error) {
+      console.error(`Test failed: ${error}`);
+      throw error;
+    }
   })
   test("verify that Trailing spaces are trimmed",async({page})=>{
      
    
-     const samplelink=new RecommendingSampleLink(page);
+     try{
+      test.setTimeout(130000)
+      const samplelink=new RecommendingSampleLink(page);
      const deletelink=new DeletingSampleLink(page);
     const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL();
@@ -274,11 +326,17 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
     await editpopupinnerview.clickSaveButton();
     await editpopupinnerview.trailingSpaceTrimmedVerify();
     await deletelink.deletingSampleLinkFromInnerview();
+  }catch (error) {
+      console.error(`Test failed: ${error}`);
+      throw error;
+    }
   })
   test("verify that extra intermediate spaces are trimmed",async({page})=>{
      
    
-     const samplelink=new RecommendingSampleLink(page);
+     try{
+      test.setTimeout(130000)
+      const samplelink=new RecommendingSampleLink(page);
      const deletelink=new DeletingSampleLink(page);
     const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL();
@@ -293,12 +351,19 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
     await editpopupinnerview.clickSaveButton();
     await editpopupinnerview.extraIntermediateSpaceTrimmedVerify();
     await deletelink.deletingSampleLinkFromInnerview();
+
+  }catch (error) {
+      console.error(`Test failed: ${error}`);
+      throw error;
+    }
   })
   //leading and trailing spaces 
   test("verify that a link title should not accept more than 200 characters",async({page})=>{
      
    
-     const samplelink=new RecommendingSampleLink(page);
+     try{
+      test.setTimeout(130000)
+      const samplelink=new RecommendingSampleLink(page);
      const deletelink=new DeletingSampleLink(page);
     
     const navigationurl= new NavigationURL(page)
@@ -315,12 +380,17 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
     await editpopupinnerview.linkTitleError();
     await editpopupinnerview.closeEditPopupInnerview();
     await deletelink.deletingSampleLinkFromInnerview();
- 
+  }catch (error) {
+      console.error(`Test failed: ${error}`);
+      throw error;
+    }
   
   })
   test("verify if the link field is empty  it should not be saved",async({page})=>{
      
-     const samplelink=new RecommendingSampleLink(page);
+     try{
+      test.setTimeout(130000)
+      const samplelink=new RecommendingSampleLink(page);
      const deletelink=new DeletingSampleLink(page);
     
     const navigationurl= new NavigationURL(page)
@@ -337,13 +407,18 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
     await editpopupinnerview.linkURLError();
     await editpopupinnerview.closeEditPopupInnerview();
     await deletelink.deletingSampleLinkFromInnerview();
- 
+  }catch (error) {
+      console.error(`Test failed: ${error}`);
+      throw error;
+    }
   })
    
   test("verify if the link field contains only alphabets it should not be saved",async({page})=>{
      
    
-     const samplelink=new RecommendingSampleLink(page);
+     try{
+      test.setTimeout(130000)
+      const samplelink=new RecommendingSampleLink(page);
      const deletelink=new DeletingSampleLink(page);
    
     const navigationurl= new NavigationURL(page)
@@ -360,12 +435,17 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
     await editpopupinnerview.linkURLError();
     await editpopupinnerview.closeEditPopupInnerview();
     await deletelink.deletingSampleLinkFromInnerview();
- 
+  }catch (error) {
+      console.error(`Test failed: ${error}`);
+      throw error;
+    }
   })
   test("verify if the link field contains only numbers it should not be saved",async({page})=>{
      
    
-     const samplelink=new RecommendingSampleLink(page);
+     try{
+      test.setTimeout(130000)
+      const samplelink=new RecommendingSampleLink(page);
      const deletelink=new DeletingSampleLink(page);
    
     const navigationurl= new NavigationURL(page)
@@ -382,12 +462,17 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
     await editpopupinnerview.linkURLError();
     await editpopupinnerview.closeEditPopupInnerview();
     await deletelink.deletingSampleLinkFromInnerview();
- 
+  }catch (error) {
+      console.error(`Test failed: ${error}`);
+      throw error;
+    }
   })
   test("verify if the link field contains only special charcters should not be saved",async({page})=>{
      
    
-     const samplelink=new RecommendingSampleLink(page);
+     try{
+      test.setTimeout(130000)
+      const samplelink=new RecommendingSampleLink(page);
      const deletelink=new DeletingSampleLink(page);
     
     const navigationurl= new NavigationURL(page)
@@ -404,13 +489,18 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
     await editpopupinnerview.linkURLError();
     await editpopupinnerview.closeEditPopupInnerview();
     await deletelink.deletingSampleLinkFromInnerview();
- 
+  }catch (error) {
+      console.error(`Test failed: ${error}`);
+      throw error;
+    }
   })
    
   test("verify if invalid link is added an error message is thrown",async({page})=>{
     
    
-     const samplelink=new RecommendingSampleLink(page);
+     try{
+      test.setTimeout(130000)
+      const samplelink=new RecommendingSampleLink(page);
      const deletelink=new DeletingSampleLink(page);
     
     const navigationurl= new NavigationURL(page)
@@ -427,6 +517,10 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
     await editpopupinnerview.linkURLwarning();
     await editpopupinnerview.closeEditPopupInnerview();
     await deletelink.deletingSampleLinkFromInnerview();
+  }catch (error) {
+      console.error(`Test failed: ${error}`);
+      throw error;
+    }
   })
 //   test('Verify that a link reccommended can be deleted', async({page})=>{
      

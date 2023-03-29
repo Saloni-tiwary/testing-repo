@@ -13,7 +13,8 @@ const{urls}=require('../constant/urls');
 
 
 test("verify that on clicking the delete from more options innerview delete popup is opened", async({page})=>{
-    const navigationurl= new NavigationURL(page)
+    try{
+        const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL();
     const linkoutercard= new LinkOuterCard(page);
     const deletelinkinnerview=new DeleteLinkInnerView(page)
@@ -22,10 +23,14 @@ test("verify that on clicking the delete from more options innerview delete popu
     await linkinnerviewui.moreOptionsClick();
     await deletelinkinnerview.deleteOptionClick();
     await deletelinkinnerview.deletePopupConfirmation();
- 
+    }catch (error) {
+        console.error(`Test failed: ${error}`);
+        throw error;
+      }
  
   })
   test("verify on clicking cancel button of the delete popup from the innerview the popup goes away", async({page})=>{
+   try {
     const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL();
     const linkoutercard= new LinkOuterCard(page);
@@ -36,9 +41,15 @@ test("verify that on clicking the delete from more options innerview delete popu
     await deletelinkinnerview.deleteOptionClick();
     await  deletelinkinnerview.deletePopupCancelclick();
     await  deletelinkinnerview.deletePopupCancelledVerify();
+  }
+  catch (error) {
+        console.error(`Test failed: ${error}`);
+        throw error;
+      }
   })
   test("verify on clicking no from the innerview on the delete popup, popup closes",async({page})=>{
-    const navigationurl= new NavigationURL(page)
+    try{
+        const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL();
     const linkoutercard= new LinkOuterCard(page);
     const deletelinkinnerview=new DeleteLinkInnerView(page)
@@ -48,10 +59,15 @@ test("verify that on clicking the delete from more options innerview delete popu
     await deletelinkinnerview.deleteOptionClick();
     await  deletelinkinnerview.deletePopupNoButtonClick();
     await deletelinkinnerview.deletePopupCancelledVerify();
-
+  }
+  catch (error) {
+        console.error(`Test failed: ${error}`);
+        throw error;
+      }
   })
   test('Verify that a link can be deleted from innerview', async({page})=>{
-    const samplelink=new RecommendingSampleLink(page);
+    try{
+        const samplelink=new RecommendingSampleLink(page);
      const deletelink=new DeletingSampleLink(page);
     const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL();
@@ -59,7 +75,10 @@ test("verify that on clicking the delete from more options innerview delete popu
     await samplelink.recommendingSampleArticleLink(urls.URL52,urls.MIN,"Emulation | Playwright");
     await deletelink.deletingSampleLinkFromInnerview();
 
-
+  }catch (error) {
+        console.error(`Test failed: ${error}`);
+        throw error;
+      }
    
 
 

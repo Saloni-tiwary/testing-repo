@@ -11,16 +11,22 @@ const{urls}=require('../constant/urls');
  
  
 test('recommend tab UI', async({page})=>{
-    const navigationurl= new NavigationURL(page)
+    try{
+        const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL()
     const recommendLink=new RecommendTab(page)
-   await recommendLink.recommendTabVisible()
+   await recommendLink.recommendTabVisible();
+}catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
     
 })
 test('Verify that a Video can be recommended', async({page})=>{
      
     
-    const navigationurl= new NavigationURL(page)
+    try{
+        const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL()
     const recommendVideoLink=new RecommendTab(page)
     const linkoutercard= new LinkOuterCard(page);
@@ -33,11 +39,15 @@ test('Verify that a Video can be recommended', async({page})=>{
     await recommendVideoLink.minFill(urls.MIN);
    await recommendVideoLink.saveLink();
    await recommendVideoLink.videoFirstLinkOuterCardVerify("Playwright Installation - 2022");
-   await linkoutercard.linkOuterCardHover();
+   await linkoutercard.linkOuterCardHover("Playwright Installation - 2022");
     await linkoutercard.linkMoreOptionsClick();
     await deletelinkoutercard.deleteOptionClick();
     await deletelinkoutercard.deleteLinkButtonClick();
     await deletelinkoutercard.deleteContainerNotVisible();
+}catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
      
 
     
@@ -45,7 +55,8 @@ test('Verify that a Video can be recommended', async({page})=>{
 test("verify that a article link can be recommended",async({page})=>{
     
     
-    const navigationurl= new NavigationURL(page)
+    try{
+        const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL()
     const recommendVideoLink=new RecommendTab(page)
     const linkoutercard= new LinkOuterCard(page);
@@ -57,16 +68,21 @@ test("verify that a article link can be recommended",async({page})=>{
     await recommendVideoLink.minFill(urls.MIN);
    await recommendVideoLink.saveLink();
    await recommendVideoLink.articleFirstLinkOuterCardVerify("Navigations | Playwright");
-   await linkoutercard.linkOuterCardHover();
+   await linkoutercard.linkOuterCardHover("Navigations | Playwright");
     await linkoutercard.linkMoreOptionsClick();
     await deletelinkoutercard.deleteOptionClick();
     await deletelinkoutercard.deleteLinkButtonClick();
     await deletelinkoutercard.deleteContainerNotVisible();
+}catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
 
 })
 test("verify that a user can recommend a book",async({page})=>{
      
-    const navigationurl= new NavigationURL(page)
+    try{
+        const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL()
     const recommendVideoLink=new RecommendTab(page)
     const linkoutercard= new LinkOuterCard(page);
@@ -78,16 +94,21 @@ test("verify that a user can recommend a book",async({page})=>{
     await recommendVideoLink.minFill(urls.MIN);
    await recommendVideoLink.saveLink();
    await recommendVideoLink.bookFirstLinkOuterCardVerify("Audible com | Try Audible Free Today");
-   await linkoutercard.linkOuterCardHover();
+   await linkoutercard.linkOuterCardHover("Audible com | Try Audible Free Today");
     await linkoutercard.linkMoreOptionsClick();
     await deletelinkoutercard.deleteOptionClick();
     await deletelinkoutercard.deleteLinkButtonClick();
     await deletelinkoutercard.deleteContainerNotVisible();
+}catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
 
 })
 test("verify that an audio can be recommended",async({page})=>{
     
-    const navigationurl= new NavigationURL(page)
+    try{
+        const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL()
     const recommendVideoLink=new RecommendTab(page)
     const linkoutercard= new LinkOuterCard(page);
@@ -99,15 +120,20 @@ test("verify that an audio can be recommended",async({page})=>{
     await recommendVideoLink.minFill(urls.MIN);
    await recommendVideoLink.saveLink();
    await recommendVideoLink.audioFirstLinkOuterCardVerify("प्राक्कथन - Bhagavad Gita (Hindi) | Podcast on Spotify");
-   await linkoutercard.linkOuterCardHover();
+   await linkoutercard.linkOuterCardHover("प्राक्कथन - Bhagavad Gita (Hindi) | Podcast on Spotify");
     await linkoutercard.linkMoreOptionsClick();
     await deletelinkoutercard.deleteOptionClick();
     await deletelinkoutercard.deleteLinkButtonClick();
     await deletelinkoutercard.deleteContainerNotVisible();
+}catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
 
 })
 test("verify same link cannot be recommended again",async({page})=>{
-    const navigationurl= new NavigationURL(page)
+    try{
+        const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL()
     const recommendLink=new RecommendTab(page)
      
@@ -118,11 +144,16 @@ test("verify same link cannot be recommended again",async({page})=>{
     await recommendLink.minFill(urls.MIN);
    await recommendLink.saveLink();
    await similarRecommendation.similarURLWarning();
+}catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
      
   })
 test("Verify On entering an exact similar URL the user is able to redirect to it ",async({page})=>{
      
-    const navigationurl= new NavigationURL(page)
+    try{
+        const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL()
     const recommendVideoLink=new RecommendTab(page)
     const linkoutercard= new LinkOuterCard(page);
@@ -136,6 +167,10 @@ test("Verify On entering an exact similar URL the user is able to redirect to it
    await recommendVideoLink.saveLink();
    await similarRecommendation.navigateSimilarUrl();
    await similarRecommendation.navigatedSimilarUrlVerify();
+}catch (error) {
+    console.error(`Test failed: ${error}`);
+    throw error;
+  }
   })
 
 
