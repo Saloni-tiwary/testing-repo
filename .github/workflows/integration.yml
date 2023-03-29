@@ -15,36 +15,50 @@ jobs:
         node-version: 16
     - name: Install dependencies
       run: npm ci
+      if: always()
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
+      if: always()
     - name: Run Playwright content filter test 
       run: npm run content
+      if: always()
     - name: Run playwright Delete link outercard test 
       run: npm run delete
+      if: always()
     - name: Run Delete link innerview test 
       run: npm run deleteinnerview
+      if: always()
     - name: Run edit innerview
       run: npm run editinnerview
+      if: always()
     - name: Run edit popup Outercard
       run: npm run editoutercard
+      if: always()
     - name: Run home page UI test
       run: npm run homepage
     - name: Run Link innerview test
       run: npm run linkinnerview
+      if: always()
     - name: Run Link outercard Tests
       run: npm run linkoutercard
+      if: always()
     - name: Run PayItforward outercard tests
       run: npm run payourtercard
     - name: Run pay it forward Innerview tests 
       run: npm run payinnerview
+      if: always()
     - name: Run Recommed link homepage test
       run: npm run recommendhomepage
+      if: always()
     - name: Run Recommend link innerview test
       run: npm run recommendinnerview
+      if: always()
     - name: Run Takeaways Formatting options test
       run: npm run takeawayformatting
+      if: always()
     - name: Run Takeaways and remove progress test
       run: npm run takeawayremoveprogress
+      if: always()
     - uses: actions/upload-artifact@v3
       if: always()
       with:
