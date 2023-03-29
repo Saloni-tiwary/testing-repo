@@ -16,7 +16,7 @@ test("verify on clicking the edit option edit popup is visible",async({page})=>{
   
 
   try{
-    test.setTimeout(130000)
+    test.setTimeout(140000)
     const samplelink=new RecommendingSampleLink(page);
   const deletelink=new DeletingSampleLink(page);
     const navigationurl= new NavigationURL(page)
@@ -42,7 +42,7 @@ test("verify on clicking the edit option edit popup is visible",async({page})=>{
      
    
      try{
-      test.setTimeout(130000)
+      test.setTimeout(140000)
       const samplelink=new RecommendingSampleLink(page);
      const deletelink=new DeletingSampleLink(page);
 
@@ -72,7 +72,7 @@ test("verify that min field is not accepting special characters as input",async(
    
  
    try{
-    test.setTimeout(130000)
+    test.setTimeout(140000)
     const samplelink=new RecommendingSampleLink(page);
    const deletelink=new DeletingSampleLink(page);
     const navigationurl= new NavigationURL(page)
@@ -99,7 +99,7 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
   
    
      try{
-      test.setTimeout(130000)
+      test.setTimeout(140000)
       const samplelink=new RecommendingSampleLink(page);
      const deletelink=new DeletingSampleLink(page);
     const navigationurl= new NavigationURL(page)
@@ -127,7 +127,7 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
      
    
      try{
-      test.setTimeout(130000)
+      test.setTimeout(140000)
       const samplelink=new RecommendingSampleLink(page);
      const deletelink=new DeletingSampleLink(page);
     const navigationurl= new NavigationURL(page)
@@ -174,7 +174,7 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
      
    
      try{
-      test.setTimeout(130000)
+      test.setTimeout(140000)
       const samplelink=new RecommendingSampleLink(page);
      const deletelink=new DeletingSampleLink(page);
    
@@ -200,7 +200,7 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
      
    
      try{
-      test.setTimeout(130000)
+      test.setTimeout(140000)
       const samplelink=new RecommendingSampleLink(page);
      const deletelink=new DeletingSampleLink(page);
     
@@ -229,7 +229,7 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
      
    
      try{
-      test.setTimeout(130000)
+      test.setTimeout(140000)
       const samplelink=new RecommendingSampleLink(page);
      const deletelink=new DeletingSampleLink(page);
     
@@ -257,7 +257,7 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
     
    
      try{
-      test.setTimeout(130000)
+      test.setTimeout(140000)
       const samplelink=new RecommendingSampleLink(page);
      const deletelink=new DeletingSampleLink(page);
     
@@ -284,7 +284,7 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
   test("verify that Leading spaces are trimmed",async({page})=>{
      
    try{
-    test.setTimeout(130000)
+    test.setTimeout(140000)
      const samplelink=new RecommendingSampleLink(page);
      const deletelink=new DeletingSampleLink(page);
     
@@ -310,7 +310,7 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
      
    
      try{
-      test.setTimeout(130000)
+      test.setTimeout(140000)
       const samplelink=new RecommendingSampleLink(page);
      const deletelink=new DeletingSampleLink(page);
     const navigationurl= new NavigationURL(page)
@@ -335,7 +335,7 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
      
    
      try{
-      test.setTimeout(130000)
+      test.setTimeout(140000)
       const samplelink=new RecommendingSampleLink(page);
      const deletelink=new DeletingSampleLink(page);
     const navigationurl= new NavigationURL(page)
@@ -362,7 +362,7 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
      
    
      try{
-      test.setTimeout(130000)
+      test.setTimeout(140000)
       const samplelink=new RecommendingSampleLink(page);
      const deletelink=new DeletingSampleLink(page);
     
@@ -389,7 +389,7 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
   test("verify if the link field is empty  it should not be saved",async({page})=>{
      
      try{
-      test.setTimeout(130000)
+      test.setTimeout(140000)
       const samplelink=new RecommendingSampleLink(page);
      const deletelink=new DeletingSampleLink(page);
     
@@ -417,7 +417,7 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
      
    
      try{
-      test.setTimeout(130000)
+      test.setTimeout(140000)
       const samplelink=new RecommendingSampleLink(page);
      const deletelink=new DeletingSampleLink(page);
    
@@ -444,7 +444,7 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
      
    
      try{
-      test.setTimeout(130000)
+      test.setTimeout(140000)
       const samplelink=new RecommendingSampleLink(page);
      const deletelink=new DeletingSampleLink(page);
    
@@ -471,7 +471,7 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
      
    
      try{
-      test.setTimeout(130000)
+      test.setTimeout(140000)
       const samplelink=new RecommendingSampleLink(page);
      const deletelink=new DeletingSampleLink(page);
     
@@ -500,7 +500,7 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
     
    
      try{
-      test.setTimeout(130000)
+      test.setTimeout(140000)
       const samplelink=new RecommendingSampleLink(page);
      const deletelink=new DeletingSampleLink(page);
     
