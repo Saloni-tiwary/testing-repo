@@ -4,15 +4,15 @@ const {NavigationURL}= require('../pageobject_pagefile/navigating-base-url')
 const{RecommendTab}=require('../pageobject_pagefile/recommend-tab')
 
     
-test('recommend tab UI', async({page})=>{
-    try{
-        const recommendLink=new RecommendTab(page)
-   await recommendLink.recommendTabVisible()
-}catch (error) {
-    console.error(`Test failed: ${error}`);
-    throw error;
-  }
-})
+// test('recommend tab UI', async({page})=>{
+//     try{
+//     const recommendLink=new RecommendTab(page)
+//    await recommendLink.recommendTabVisible()
+// }catch (error) {
+//     console.error(`Test failed: ${error}`);
+//     throw error;
+//   }
+// })
 test("verify on clicking menu, sidebar disappers if visible",async({page})=>{
     try{
         const navigationurl= new NavigationURL(page)

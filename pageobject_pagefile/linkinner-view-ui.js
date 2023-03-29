@@ -9,7 +9,7 @@ class LinkInnerViewUI{
         this.UniversityName=page.locator("div a#anywhereworks");
         this.RecommendationDate=page.locator(".creation-date");
         this.LinkInnerViewLearningMin=page.locator(".link-min");
-        this.LinkInnerViewMoreOptions=page.locator(".dropdown-select");
+        this.LinkInnerViewMoreOptions=page.locator("div.dropdown.link-dropdown ");
         this.MoreOptionsVerify=page.locator("div .dropdown-menu");
         this.LinkOuterCardAddedToLearn=page.locator("figcaption",{has: page.locator("[data-tippy-content='Added to Learn']")}).nth(0);
         this.LinkInnerViewAddedToLearn=page.locator(".add-myq.active")
@@ -39,9 +39,11 @@ class LinkInnerViewUI{
     await expect(this.LinkInnerViewLearningMin).toBeVisible();
    }
    async moreOptionsClick(){
+
     await this.LinkInnerViewMoreOptions.click();
    }
  async moreOptionsVisible(){
+    
     await expect(this.MoreOptionsVerify.first()).toBeVisible();
  }
  async selectAddedToLearnLinkFromOuterCard(){

@@ -482,6 +482,7 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
     const linkinnerviewui=new LinkInnerViewUI(page);
     await samplelink.recommendingSampleArticleLink(urls.URL18,urls.MIN,"ElementHandle | Playwright");
    // await linkoutercard.linkOuterCardClick();
+    await linkinnerviewui.moreOptionsVisible()
     await linkinnerviewui.moreOptionsClick();
     await editpopupinnerview.editOptionClick();
     await editpopupinnerview.linkURLonlySpecialcharInput();

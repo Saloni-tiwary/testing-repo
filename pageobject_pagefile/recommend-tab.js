@@ -28,15 +28,23 @@ async recommendTabVisible(){
 async univNameVisible(){
 await expect(this.UnivNameVisible).toBeVisible();
 const header=await this.CloseHeader.isVisible()
-    console.log(header);
+    
     if(header===true){
         await this.CloseHeader.click()
     }
 
 }
 async recommendButtonClick(){
+    const header=await this.CloseHeader.isVisible()
+    
+    if(header===true){
+        await this.CloseHeader.click()
+        await this.Recommendbutton.click();
+    }
+    else{
     
     await this.Recommendbutton.click();
+    }
      
 }
 async linkFill(Url){

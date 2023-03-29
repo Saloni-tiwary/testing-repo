@@ -15,6 +15,9 @@ jobs:
         node-version: 16
     - name: Install dependencies
       run: npm ci
+    - name: Run Takeaways Formatting options test
+      continue-on-error: true
+      run: npm run takeawayformatting
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright content filter test 
@@ -70,13 +73,12 @@ jobs:
       run: npm run recommendinnerview
 
 
-    - name: Run Takeaways Formatting options test
-      continue-on-error: true
-      run: npm run takeawayformatting
+     
 
     - name: Run Takeaways and remove progress test
       continue-on-error: true
       run: npm run takeawayremoveprogress
+    
     - uses: actions/upload-artifact@v3
       if: always()
       with:
