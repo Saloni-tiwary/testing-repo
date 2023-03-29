@@ -7,7 +7,7 @@ const{RecommendTab}=require('../pageobject_pagefile/recommend-tab')
 test('recommend tab UI', async({page})=>{
     try{
         const recommendLink=new RecommendTab(page)
-    recommendLink.recommendTabVisible()
+   await recommendLink.recommendTabVisible()
 }catch (error) {
     console.error(`Test failed: ${error}`);
     throw error;

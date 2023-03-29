@@ -26,6 +26,7 @@ test('Verify that a Video can be recommended', async({page})=>{
      
     
     try{
+        test.setTimeout(120000)
         const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL()
     const recommendVideoLink=new RecommendTab(page)
@@ -56,6 +57,7 @@ test("verify that a article link can be recommended",async({page})=>{
     
     
     try{
+        test.setTimeout(120000)
         const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL()
     const recommendVideoLink=new RecommendTab(page)
@@ -82,6 +84,7 @@ test("verify that a article link can be recommended",async({page})=>{
 test("verify that a user can recommend a book",async({page})=>{
      
     try{
+        test.setTimeout(120000)
         const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL()
     const recommendVideoLink=new RecommendTab(page)
@@ -108,6 +111,7 @@ test("verify that a user can recommend a book",async({page})=>{
 test("verify that an audio can be recommended",async({page})=>{
     
     try{
+        test.setTimeout(120000)
         const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL()
     const recommendVideoLink=new RecommendTab(page)
@@ -133,6 +137,7 @@ test("verify that an audio can be recommended",async({page})=>{
 })
 test("verify same link cannot be recommended again",async({page})=>{
     try{
+        test.setTimeout(120000)
         const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL()
     const recommendLink=new RecommendTab(page)
@@ -153,6 +158,7 @@ test("verify same link cannot be recommended again",async({page})=>{
 test("Verify On entering an exact similar URL the user is able to redirect to it ",async({page})=>{
      
     try{
+        test.setTimeout(120000)
         const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL()
     const recommendVideoLink=new RecommendTab(page)

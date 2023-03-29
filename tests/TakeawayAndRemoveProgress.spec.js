@@ -7,6 +7,7 @@ const{TakeawaysAndRemoveProgress}=require('../pageobject_pagefile/takeaways-and-
 const{RecommendingSampleLink}=require('../pageobject_pagefile/recommending-sample-link');
 const{urls}=require('../constant/urls');
 const{DeletingSampleLink}=require('../pageobject_pagefile/deleting-samplelink-innerview');
+const{DeleteSampleLinkOuterCard}=require('../pageobject_pagefile/delete-samplelink-outercard')
 
  
  
@@ -171,7 +172,7 @@ test("verify that a user cannot give an empty takeaway",async({page})=>{
   test("verify that the progress bar is reflected in the link outercard ",async({page})=>{
     try{
       const samplelink=new RecommendingSampleLink(page);
-    const deletelink=new DeletingSampleLink(page);
+    const deletelinkfromoutercard=new DeleteSampleLinkOuterCard(page);
     
     
     const navigationurl= new NavigationURL(page)
@@ -185,7 +186,7 @@ test("verify that a user cannot give an empty takeaway",async({page})=>{
     await takeawaysandremoveprogress.menuIconClick();
     await takeawaysandremoveprogress.homeIconClick();
     await takeawaysandremoveprogress.progressBarVisibleonOuterCard();
-    await deletelink.deletingSampleLinkFromInnerview();
+    await deletelinkfromoutercard.deletingSampleLinkOutercard("Types of API");
   }catch (error) {
     console.error(`Test failed: ${error}`);
     throw error;

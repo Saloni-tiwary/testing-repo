@@ -11,6 +11,7 @@ this.RecommendingSaveButton= page.locator('#popup').getByRole('button', { name: 
 this.LinkOuterCardVerify=page.locator(".tippy").nth(0);
 this.CardBody=page.locator(".name");
 this.CloseHeader= page.locator("i#close-icon");
+this.LinkSource=page.locator("span.source-type");
 }
 async recommendingSampleArticleLink(Url,Min,test){
      
@@ -32,6 +33,7 @@ async recommendingSampleArticleLink(Url,Min,test){
         var text=test
         if(await this.CardBody.nth(i).textContent()===text){
             await this.CardBody.nth(i).click();
+            await this.LinkSource.waitFor();
           break;
         }
     
