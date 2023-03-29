@@ -1,4 +1,4 @@
-const { test, expect, request} = require('@playwright/test');
+const { test, expect} = require('@playwright/test');
 const { HomePage } = require('../pageobject_pagefile/ home-page');
 const {NavigationURL}= require('../pageobject_pagefile/navigating-base-url')
 const{RecommendTab}=require('../pageobject_pagefile/recommend-tab')

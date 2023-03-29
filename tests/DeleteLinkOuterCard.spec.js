@@ -1,10 +1,10 @@
-const{test,expect}=require('@playwright/test')
-const{LinkOuterCard}=require('../pageobject_pagefile/link-outercard');
-const{NavigationURL}=require('../pageobject_pagefile/navigating-base-url');
-const{DeleteLinkOutercard}=require('../pageobject_pagefile/delete-link-outercard');
-const {RecommendTab} = require('../pageobject_pagefile/recommend-tab.js');
-const{RecommendingSampleLink}=require('../pageobject_pagefile/recommending-sample-link');
-const{DeleteSampleLinkOuterCard}=require('../pageobject_pagefile/delete-samplelink-outercard')
+const {test,expect}=require("@playwright/test");
+const {LinkOuterCard}=require('../pageobject_pagefile/link-outercard');
+const {NavigationURL}=require('../pageobject_pagefile/navigating-base-url');
+const {DeleteLinkOutercard}=require('../pageobject_pagefile/delete-link-outercard');
+const  {RecommendTab} = require('../pageobject_pagefile/recommend-tab.js');
+const {RecommendingSampleLink}=require('../pageobject_pagefile/recommending-sample-link');
+const {DeleteSampleLinkOuterCard}=require('../pageobject_pagefile/delete-samplelink-outercard');
  
 const{urls}=require('../constant/urls');
 
@@ -16,7 +16,7 @@ test("verify that on clicking the delete from more options delete popup is opene
     await navigationurl.navigationURL();
     const linkoutercard= new LinkOuterCard(page);
     const deletelinkoutercard= new DeleteLinkOutercard(page);
-    await linkoutercard.linkOuterCardHover();
+    await linkoutercard.linkOuterCardHovertoFirstCard();
     await linkoutercard.linkMoreOptionsClick();
     await deletelinkoutercard.deleteOptionClick();
     await deletelinkoutercard.deletePopupConfirmation();
@@ -28,7 +28,7 @@ test("verify that on clicking the delete from more options delete popup is opene
     const linkoutercard= new LinkOuterCard(page);
     const deletelinkoutercard= new DeleteLinkOutercard(page);
      
-    await linkoutercard.linkOuterCardHover();
+    await linkoutercard.linkOuterCardHovertoFirstCard();
     await linkoutercard.linkMoreOptionsClick();
     await deletelinkoutercard.deleteOptionClick();
     await deletelinkoutercard.deletePopupCancelclick();
@@ -39,7 +39,7 @@ test("verify that on clicking the delete from more options delete popup is opene
     await navigationurl.navigationURL();
     const linkoutercard= new LinkOuterCard(page);
     const deletelinkoutercard= new DeleteLinkOutercard(page);
-    await linkoutercard.linkOuterCardHover();
+    await linkoutercard.linkOuterCardHovertoFirstCard();
     await linkoutercard.linkMoreOptionsClick();
     await deletelinkoutercard.deleteOptionClick();
     await deletelinkoutercard.deletePopupNoButtonClick();

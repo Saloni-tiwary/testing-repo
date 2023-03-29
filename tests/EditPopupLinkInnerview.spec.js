@@ -1,13 +1,13 @@
-const{test,expect}=require('@playwright/test');
-const{LinkOuterCard}=require('../pageobject_pagefile/link-outercard');
+const { test, expect } = require('@playwright/test');
+const {LinkOuterCard}=require('../pageobject_pagefile/link-outercard');
 //const {RecommendTab} = require('../pageobject_pagefile/recommend-tab.js');
-const{NavigationURL}=require('../pageobject_pagefile/navigating-base-url');
-const{EditPopupLinkInnerview}=require('../pageobject_pagefile/edit-popup-linkInnerview');
-const{LinkInnerViewUI}=require('../pageobject_pagefile/linkinner-view-ui');
+const {NavigationURL}=require('../pageobject_pagefile/navigating-base-url');
+const {EditPopupLinkInnerview}=require('../pageobject_pagefile/edit-popup-linkInnerview');
+const {LinkInnerViewUI}=require('../pageobject_pagefile/linkinner-view-ui');
 //const{DeleteLinkOutercard}=require('../pageobject_pagefile/delete-link-outercard');
-const{RecommendingSampleLink}=require('../pageobject_pagefile/recommending-sample-link')
-const{DeletingSampleLink}=require('../pageobject_pagefile/deleting-samplelink-innerview');
-const{urls}=require('../constant/urls');
+const {RecommendingSampleLink}=require('../pageobject_pagefile/recommending-sample-link')
+const {DeletingSampleLink}=require('../pageobject_pagefile/deleting-samplelink-innerview');
+const {urls}=require('../constant/urls');
  
 
 

@@ -6,31 +6,26 @@
   "scripts":{
     
     "content": "npx playwright test tests/ContentFilter.spec.js",
-    "delete": "tests/DeleteLinkOuterCard.spec.js",
-    "deleteinnerview": "tests/DeleteOptionLinkInnerView.spec.js",
-    "editinnerview": "tests/EditPopupLinkInnerview.spec.js",
-    "editoutercard": "tests/EditPopupOuterCard.spec.js",
-    "homepage": "tests/HomePage.spec.js",
-    "linkinnerview": "tests/LinkInnerViewUI.spec.js",
-    "linkoutercard": "tests/LinkOuterCard.spec.js",
-    "payourtercard": "tests/PayItForwardLinkInnerview.spec.js",
-    "payinnerview": "tests/PayItForwardLinkInnerview.spec.js",
-    "recommendhomepage": "tests/RecommendLinkHomePage.spec.js",
-    "recommendinnerview": "tests/RecommendLinkInnerView.spec.js",
-    "takeawayformatting": "tests/TakawayFormattingOption.spec.js",
-    "takeawayremoveprogress": "tests/TakawayFormattingOption.spec.js"
+    "delete": "npx playwright test tests/DeleteLinkOuterCard.spec.js",
+    "deleteinnerview": "npx playwright test tests/DeleteOptionLinkInnerView.spec.js",
+    "editinnerview": "npx playwright test tests/EditPopupLinkInnerview.spec.js",
+    "editoutercard": "npx playwright test tests/EditPopupOuterCard.spec.js",
+    "homepage": "npx playwright test tests/HomePage.spec.js",
+    "linkinnerview": "npx playwright test tests/LinkInnerViewUI.spec.js",
+    "linkoutercard": "npx playwright test tests/LinkOuterCard.spec.js",
+    "payourtercard": "npx playwright test tests/PayItForwardLinkInnerview.spec.js",
+    "payinnerview": "npx playwright test tests/PayItForwardLinkInnerview.spec.js",
+    "recommendhomepage": "npx playwright test tests/RecommendLinkHomePage.spec.js",
+    "recommendinnerview": "npx playwright test tests/RecommendLinkInnerView.spec.js",
+    "takeawayformatting": "npx playwright test tests/TakawayFormattingOption.spec.js",
+    "takeawayremoveprogress": "npx playwright test tests/TakawayFormattingOption.spec.js"
 
 
 
 
 
   },
-  "testMatch": [
-    "**/ContentFilter.spec.js",
-    "**/DeleteLinkOuterCard.spec.js",
-    "**/DeleteOptionLinkInnerView.spec.js",
-    "**/EditPopupLinkInnerview.spec.js"
-  ],
+  
    
   
   "keywords": [

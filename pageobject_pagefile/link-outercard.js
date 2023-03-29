@@ -25,6 +25,9 @@ class  LinkOuterCard{
     }
 }
     }
+    async linkOuterCardHovertoFirstCard(){
+        await this.LinkOuterCard.nth(0).hover();
+    }
 
 
   async  linkOuterCardClick(){
