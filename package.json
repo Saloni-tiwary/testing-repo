@@ -4,7 +4,24 @@
   "description": "",
   "main": "login.spec.js",
   "scripts":{
-    "main": "node tests/main.js"
+    "content filter test": "npx playwright test tests/ContentFilter.spec.js",
+    "delete link outercard": "tests/DeleteLinkOuterCard.spec.js",
+    "delete link innerview": "tests/DeleteOptionLinkInnerView.spec.js",
+    "edit popup innerview": "tests/EditPopupLinkInnerview.spec.js",
+    "edit popup outercard": "tests/EditPopupOuterCard.spec.js",
+    "home page": "tests/HomePage.spec.js",
+    "link innerview": "tests/LinkInnerViewUI.spec.js",
+    "link outercard": "tests/LinkOuterCard.spec.js",
+    "pay it forward ourtcard": "tests/PayItForwardLinkInnerview.spec.js",
+    "pay it forward innerview": "tests/PayItForwardLinkInnerview.spec.js",
+    "recommend link home page": "tests/RecommendLinkHomePage.spec.js",
+    "recommend clink innerview": "tests/RecommendLinkInnerView.spec.js",
+    "takeaway formatting": "tests/TakawayFormattingOption.spec.js",
+    "takeaway remove progress": "tests/TakawayFormattingOption.spec.js"
+
+
+
+
 
   },
   

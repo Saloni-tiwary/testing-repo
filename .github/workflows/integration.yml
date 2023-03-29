@@ -17,12 +17,22 @@ jobs:
       run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
-    - name: Run Playwright tests
-      run: npx playwright test 
+    - name: Run Playwright content filter test 
+      run: npm run content filter test
+    - name: Run playwright Delete link outercard test 
+      run: npm run delete link outercard
+    - name: Run Delete link innerview test 
+      run: npm run delete link innerview
+    - name: Run edit popup innerview
+      run: npm run edit popup innerview
+    - name: Run edit popup Outercard
+      run: npm run edit popup outercard
+    - name: Run Edit popup outercard test 
+      run: npm run edit popup outercard
     - uses: actions/upload-artifact@v3
       if: always()
       with:
         name: playwright-report
         path: playwright-report/
         retention-days: 30
- 
+         
