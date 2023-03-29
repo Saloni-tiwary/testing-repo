@@ -49,7 +49,7 @@ const { devices,expect} = require('@playwright/test');
     
    storageState: 'storage-state.json',
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
-    actionTimeout: 10000,
+    actionTimeout: 0,
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://localhost:3000',
 
