@@ -1,4 +1,5 @@
  const { test, expect, request } = require("@playwright/test");
+const { Agent } = require("http");
 
 // test(async ({ page }) => {
 //   // var context= await browser.newContext();
@@ -1276,16 +1277,39 @@
 //       await page.keyboard.press('Enter');
 //       await page.getByPlaceholder('Min').fill("14");
 //       await page.locator('#popup').getByRole('button', { name: 'Recommend' }).click();
-//       await page.waitForLoadState("networkidle")
-//       //const cardBodyContent=await page.locator(".name").allTextContents();
-//       const cardBody=await page.locator(".name")
-//       //console.log(cardBodyContent);
-//       const count=await cardBody.count();
-//       for(let i=0;i<count;i++){
-//         var text="excel - Can i use TextSplit with Find formula? - Stack Overflow"
-//         if(await page.locator(".name").nth(i).textContent()===text){
-//           await page.locator(".name").nth(i).click({clickCount:3,delay:70});
-//           break;
-//         }
-//       }
-//     })
+//       await page.wait
+
+
+
+
+
+// - name: Run playwright Delete link outercard test 
+// run: npm run delete
+// - name: Run Delete link innerview test 
+// run: npm run deleteinnerview
+// - name: Run edit innerview
+// run: npm run editinnerview
+// - name: Run edit popup Outercard
+// run: npm run editoutercard
+// - name: Run home page UI test
+// run: npm run homepage
+// - name: Run Link innerview test
+// run: npm run linkinnerview
+// - name: Run Link outercard Tests
+// run: npm run linkoutercard
+// - name: Run PayItforward outercard tests
+// run: npm run payourtercard
+// - name: Run pay it forward Innerview tests 
+// run: npm run payinnerviewForLoadState("networkidle")
+// //       //const cardBodyContent=await page.locator(".name").allTextContents();
+// //       const cardBody=await page.locator(".name")
+// //       //console.log(cardBodyContent);
+// //       const count=await cardBody.count();
+// //       for(let i=0;i<count;i++){
+// //         var text="excel - Can i use TextSplit with Find formula? - Stack Overflow"
+// //         if(await page.locator(".name").nth(i).textContent()===text){
+// //           await page.locator(".name").nth(i).click({clickCount:3,delay:70});
+// //           break;
+// //         }
+// //       }
+// //     })

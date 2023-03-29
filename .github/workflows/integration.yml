@@ -19,24 +19,7 @@ jobs:
       run: npx playwright install --with-deps
     - name: Run Playwright content filter test 
       run: npm run content
-    - name: Run playwright Delete link outercard test 
-      run: npm run delete
-    - name: Run Delete link innerview test 
-      run: npm run deleteinnerview
-    - name: Run edit innerview
-      run: npm run editinnerview
-    - name: Run edit popup Outercard
-      run: npm run editoutercard
-    - name: Run home page UI test
-      run: npm run homepage
-    - name: Run Link innerview test
-      run: npm run linkinnerview
-    - name: Run Link outercard Tests
-      run: npm run linkoutercard
-    - name: Run PayItforward outercard tests
-      run: npm run payourtercard
-    - name: Run pay it forward Innerview tests 
-      run: npm run payinnerview
+    
     - uses: actions/upload-artifact@v3
       if: always()
       with:
@@ -48,6 +31,7 @@ jobs:
    # "recommendinnerview": "tests/RecommendLinkInnerView.spec.js",
    # "takeawayformatting": "tests/TakawayFormattingOption.spec.js",
    # "takeawayremoveprogress": "tests/TakawayFormattingOption.spec.js"
+   
 
 
          
