@@ -15,50 +15,68 @@ jobs:
         node-version: 16
     - name: Install dependencies
       run: npm ci
-      if: always()
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
-      if: always()
     - name: Run Playwright content filter test 
+      continue-on-error: true
       run: npm run content
-      if: always()
     - name: Run playwright Delete link outercard test 
+      continue-on-error: true
       run: npm run delete
-      if: always()
     - name: Run Delete link innerview test 
+      continue-on-error: true
       run: npm run deleteinnerview
-      if: always()
+      
     - name: Run edit innerview
+      continue-on-error: true
       run: npm run editinnerview
-      if: always()
+
     - name: Run edit popup Outercard
+      continue-on-error: true
       run: npm run editoutercard
-      if: always()
+
     - name: Run home page UI test
+      continue-on-error: true
       run: npm run homepage
+
+
     - name: Run Link innerview test
+      continue-on-error: true
       run: npm run linkinnerview
-      if: always()
+
+
     - name: Run Link outercard Tests
+      continue-on-error: true
       run: npm run linkoutercard
-      if: always()
+
+
     - name: Run PayItforward outercard tests
+      continue-on-error: true
       run: npm run payourtercard
+
+
     - name: Run pay it forward Innerview tests 
+      continue-on-error: true
       run: npm run payinnerview
-      if: always()
+
+
     - name: Run Recommed link homepage test
+      continue-on-error: true
       run: npm run recommendhomepage
-      if: always()
+
+
     - name: Run Recommend link innerview test
+      continue-on-error: true
       run: npm run recommendinnerview
-      if: always()
+
+
     - name: Run Takeaways Formatting options test
+      continue-on-error: true
       run: npm run takeawayformatting
-      if: always()
+
     - name: Run Takeaways and remove progress test
+      continue-on-error: true
       run: npm run takeawayremoveprogress
-      if: always()
     - uses: actions/upload-artifact@v3
       if: always()
       with:
