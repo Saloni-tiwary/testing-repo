@@ -43,11 +43,12 @@ class  LinkOuterCard{
             await this.CardBody.nth(i).hover();
             //await this.MoreOptionsDropdown.waitFor({ state: "visible"} )
             await this.MoreOptionsDropdown.nth(i).click();
-            await this.EditOption.nth(i).click()
+            await this.EditOption.nth(i).click();
+            break;
 
     }
 }
-        await this.MoreOptionsDropdown.nth(0).click();
+        
     }
     async payItForwardClick(){
         await this.PayItForward.nth(0).click()
