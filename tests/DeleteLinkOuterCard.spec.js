@@ -4,7 +4,7 @@ const {NavigationURL}=require('../pageobject_pagefile/navigating-base-url');
 const {DeleteLinkOutercard}=require('../pageobject_pagefile/delete-link-outercard');
 const  {RecommendTab} = require('../pageobject_pagefile/recommend-tab.js');
 const {RecommendingSampleLink}=require('../pageobject_pagefile/recommending-sample-link');
-const {DeleteSampleLinkOuterCard}=require('../pageobject_pagefile/delete-samplelink-outercard');
+const {DeleteSampleLinkAPI}=require('../pageobject_pagefile/delete-samplelink-api');
  
 const{urls}=require('../constant/urls');
 
@@ -63,7 +63,7 @@ test("verify that on clicking the delete from more options delete popup is opene
   test('Verify that a link can be deleted', async({page})=>{
      try{
      
-    const deletelinkoutercard=new DeleteSampleLinkOuterCard(page)
+    const deletelinkoutercard=new DeleteSampleLinkAPI(page)
     const navigationurl= new NavigationURL(page)
     await navigationurl.navigationURL()
     const recommendVideoLink=new RecommendTab(page)
@@ -76,7 +76,7 @@ test("verify that on clicking the delete from more options delete popup is opene
     await recommendVideoLink.minFill(urls.MIN);
    await recommendVideoLink.saveLink();
    await recommendVideoLink.videoFirstLinkOuterCardVerify("Evaluating JavaScript | Playwright");
-   await deletelinkoutercard.deletingSampleLinkOutercard("Evaluating JavaScript | Playwright")
+   await deletelinkoutercard.deletingSampleLinkapi("Evaluating JavaScript | Playwright")
 
      }catch (error) {
       console.error(`Test failed: ${error}`);

@@ -19,7 +19,7 @@ test("verify that on clicking the delete from more options innerview delete popu
     const linkoutercard= new LinkOuterCard(page);
     const deletelinkinnerview=new DeleteLinkInnerView(page)
     const linkinnerviewui= new LinkInnerViewUI(page);
-    await linkoutercard.linkOuterCardClick();
+    await linkoutercard.linkFirstOuterCardClick();
     await linkinnerviewui.moreOptionsClick();
     await deletelinkinnerview.deleteOptionClick();
     await deletelinkinnerview.deletePopupConfirmation();
@@ -36,7 +36,7 @@ test("verify that on clicking the delete from more options innerview delete popu
     const linkoutercard= new LinkOuterCard(page);
     const deletelinkinnerview=new DeleteLinkInnerView(page)
     const linkinnerviewui= new LinkInnerViewUI(page);
-    await linkoutercard.linkOuterCardClick();
+    await linkoutercard.linkFirstOuterCardClick();
     await linkinnerviewui.moreOptionsClick();
     await deletelinkinnerview.deleteOptionClick();
     await  deletelinkinnerview.deletePopupCancelclick();
@@ -54,7 +54,7 @@ test("verify that on clicking the delete from more options innerview delete popu
     const linkoutercard= new LinkOuterCard(page);
     const deletelinkinnerview=new DeleteLinkInnerView(page)
     const linkinnerviewui= new LinkInnerViewUI(page);
-    await linkoutercard.linkOuterCardClick();
+    await linkoutercard.linkFirstOuterCardClick();
     await linkinnerviewui.moreOptionsClick();
     await deletelinkinnerview.deleteOptionClick();
     await  deletelinkinnerview.deletePopupNoButtonClick();

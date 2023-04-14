@@ -1,4 +1,5 @@
 const { expect } = require("@playwright/test");
+ 
 
 class  LinkOuterCard{
     constructor(page){
@@ -12,30 +13,60 @@ class  LinkOuterCard{
         this.ContainerPopup=page.locator(".container");
         this.EditOption=page.locator("[data-status='edit']")
         this.CardBody=page.locator(".name");
+        this.LinkSource=page.locator("span.source-type");
 
 
     }
     async linkOuterCardHover(linkTitle){
-        const cardbody=await this.CardBody;
+    const cardbody=await this.CardBody;
+     
     const count= await cardbody.count();
+    console.log(count)
     for(let i=0;i<count;i++){
         var text=linkTitle
         if(await this.CardBody.nth(i).textContent()===text){
             await this.CardBody.nth(i).hover();
            // await this.MoreOptionsDropdown.waitFor({ state: "visible"} )
     }
+    if(i > 10) { // check if i is greater than 10
+        i = 0; // set i back to 0
+    }
 }
     }
     async linkOuterCardHovertoFirstCard(){
         await this.LinkOuterCard.nth(0).hover();
     }
-
-
-  async  linkOuterCardClick(){
-        await this.LinkOuterCard.nth(0).click();
+    async  linkFirstOuterCardClick(){
+        await this.LinkOuterCard.nth(0).click()
     }
+
+  async  linkOuterCardClick(linkTitle){
+    //await this.LinkOuterCard.nth(0).click()
+    
+    const cardbody=await this.CardBody;
+    await this.CardBody.nth(5).waitFor({state:"visible"})
+    const count= await cardbody.count();
+    for(let i=0;i<count;i++){
+        var text=linkTitle
+        if(await this.CardBody.nth(i).textContent()===text){
+            await this.CardBody.nth(i).click();
+            await this.LinkSource.waitFor();
+             
+            break;
+            
+
+    }
+    if(i > 10) { // check if i is greater than 10
+        i = 0; // set i back to 0
+    }
+    
+}
+
+
+}
     async link_More_and_Edit_OptionsClick(linkTitle){
         const cardbody=await this.CardBody;
+        await this.CardBody.nth(5).waitFor({state:"visible"})
     const count= await cardbody.count();
     for(let i=0;i<count;i++){
         var text=linkTitle
@@ -46,6 +77,9 @@ class  LinkOuterCard{
             await this.EditOption.nth(i).click();
             break;
 
+    }
+    if(i > 15) { // check if i is greater than 10
+        i = 0; // set i back to 0
     }
 }
         

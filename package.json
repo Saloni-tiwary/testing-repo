@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "login.spec.js",
-  "scripts":{
-    
+  "scripts": {
     "content": "npx playwright test tests/ContentFilter.spec.js",
     "delete": "npx playwright test tests/DeleteLinkOuterCard.spec.js",
     "deleteinnerview": "npx playwright test tests/DeleteOptionLinkInnerView.spec.js",
@@ -19,15 +18,7 @@
     "recommendinnerview": "npx playwright test tests/RecommendLinkInnerView.spec.js",
     "takeawayformatting": "npx playwright test tests/TakawayFormattingOption.spec.js",
     "takeawayremoveprogress": "npx playwright test tests/TakeawayAndRemoveProgress.spec.js"
-
-
-
-
-
   },
-  
-   
-  
   "keywords": [
     "npm",
     "scripts"
@@ -38,6 +29,8 @@
     "@playwright/test": "^1.30.0"
   },
   "dependencies": {
-    "node": "^19.6.0"
+    "axios": "^1.3.5",
+    "node": "^19.6.0",
+    "node-fetch": "^3.3.1"
   }
 }

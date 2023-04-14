@@ -17,7 +17,7 @@ test("verify when a user clicks on pay it forward option pay it forward popup op
     const linkoutercard= new LinkOuterCard(page);
     const payitforwardlinkinnerview=new PayItforwardLinkInnerview(page);
     const linkinnerviewui=new LinkInnerViewUI(page);
-    await linkoutercard.linkOuterCardClick();
+    await linkoutercard.linkFirstOuterCardClick();
     await linkinnerviewui.moreOptionsClick();
     await payitforwardlinkinnerview.payItForwardOptionClick();
     await payitforwardlinkinnerview.payItForwardPopupConfirmation();
@@ -33,7 +33,7 @@ test("verify that a link cannot be paid forwarded without recepients",async({pag
     const linkoutercard= new LinkOuterCard(page);
     const payitforwardlinkinnerview=new PayItforwardLinkInnerview(page);
     const linkinnerviewui=new LinkInnerViewUI(page);
-    await linkoutercard.linkOuterCardClick();
+    await linkoutercard.linkFirstOuterCardClick();
     await linkinnerviewui.moreOptionsClick();
     await payitforwardlinkinnerview.payItForwardOptionClick();
     await payitforwardlinkinnerview.shareButtonDisabled();
@@ -50,7 +50,7 @@ test("verify that a link cannot be paid forwarded without recepients",async({pag
     const linkoutercard= new LinkOuterCard(page);
     const payitforwardlinkinnerview=new PayItforwardLinkInnerview(page);
     const linkinnerviewui=new LinkInnerViewUI(page);
-    await linkoutercard.linkOuterCardClick();
+    await linkoutercard.linkFirstOuterCardClick();
     await linkinnerviewui.moreOptionsClick();
     await payitforwardlinkinnerview.payItForwardOptionClick();
     await payitforwardlinkinnerview.typeSelfAsRecipient();
@@ -67,7 +67,7 @@ test("verify that a link cannot be paid forwarded without recepients",async({pag
     const linkoutercard= new LinkOuterCard(page);
     const payitforwardlinkinnerview=new PayItforwardLinkInnerview(page);
     const linkinnerviewui=new LinkInnerViewUI(page);
-    await linkoutercard.linkOuterCardClick();
+    await linkoutercard.linkFirstOuterCardClick();
     await linkinnerviewui.moreOptionsClick();
     await payitforwardlinkinnerview.payItForwardOptionClick();
     await payitforwardlinkinnerview.typeTwoCharacterAsInput();
@@ -84,7 +84,7 @@ test("verify that a link cannot be paid forwarded without recepients",async({pag
     const linkoutercard= new LinkOuterCard(page);
     const payitforwardlinkinnerview=new PayItforwardLinkInnerview(page);
     const linkinnerviewui=new LinkInnerViewUI(page);
-    await linkoutercard.linkOuterCardClick();
+    await linkoutercard.linkFirstOuterCardClick();
     await linkinnerviewui.moreOptionsClick();
     await payitforwardlinkinnerview.payItForwardOptionClick();
     await payitforwardlinkinnerview.typefirstOtherrecipient();
@@ -105,7 +105,7 @@ test("verify that a link cannot be paid forwarded without recepients",async({pag
     const linkoutercard= new LinkOuterCard(page);
     const payitforwardlinkinnerview=new PayItforwardLinkInnerview(page);
     const linkinnerviewui=new LinkInnerViewUI(page);
-    await linkoutercard.linkOuterCardClick();
+    await linkoutercard.linkFirstOuterCardClick();
     await linkinnerviewui.moreOptionsClick();
     await payitforwardlinkinnerview.payItForwardOptionClick();
     await payitforwardlinkinnerview.typeSecondOtherRecipient();

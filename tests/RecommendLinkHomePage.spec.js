@@ -5,7 +5,7 @@ const {NavigationURL}= require('../pageobject_pagefile/navigating-base-url');
 ////const{LinkOuterCard}=require('../pageobject_pagefile/link-outercard');
 const{DeleteLinkOutercard}=require('../pageobject_pagefile/delete-link-outercard');
 const{urls}=require('../constant/urls');
-const{DeleteSampleLinkOuterCard}=require('../pageobject_pagefile/delete-samplelink-outercard')
+const{DeleteSampleLinkAPI}=require('../pageobject_pagefile/delete-samplelink-outercard')
  
     
 
@@ -32,7 +32,7 @@ test('Verify that a Video can be recommended', async({page})=>{
     await navigationurl.navigationURL()
     const recommendVideoLink=new RecommendTab(page)
     
-    const deletelinkoutercard= new  DeleteSampleLinkOuterCard(page);
+    const deletelinkoutercard= new  DeleteSampleLinkAPI(page);
     await recommendVideoLink.univNameVisible();
     
     await recommendVideoLink.recommendButtonClick();
@@ -61,7 +61,7 @@ test("verify that a article link can be recommended",async({page})=>{
     await navigationurl.navigationURL()
     const recommendVideoLink=new RecommendTab(page)
     
-    const deletelinkoutercard= new DeleteSampleLinkOuterCard(page);
+    const deletelinkoutercard= new DeleteSampleLinkAPI(page);
     await recommendVideoLink.univNameVisible();
     
     await recommendVideoLink.recommendButtonClick();
@@ -85,7 +85,7 @@ test("verify that a user can recommend a book",async({page})=>{
     await navigationurl.navigationURL()
     const recommendVideoLink=new RecommendTab(page)
      
-    const deletelinkoutercard= new DeleteSampleLinkOuterCard(page);
+    const deletelinkoutercard= new DeleteSampleLinkAPI(page);
     await recommendVideoLink.univNameVisible();
     
     await recommendVideoLink.recommendButtonClick();
@@ -109,7 +109,7 @@ test("verify that an audio can be recommended",async({page})=>{
     await navigationurl.navigationURL()
     const recommendVideoLink=new RecommendTab(page)
      
-    const deletelinkoutercard= new DeleteSampleLinkOuterCard(page);
+    const deletelinkoutercard= new DeleteSampleLinkAPI(page);
     await recommendVideoLink.univNameVisible();
     
     await recommendVideoLink.recommendButtonClick();

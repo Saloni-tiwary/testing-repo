@@ -18,6 +18,7 @@ const { devices,expect} = require('@playwright/test');
  */
  const config = {
   globalSetup: require.resolve('./Config/global-setup'),
+ 
 
    
    

@@ -63,6 +63,7 @@ async saveLink(){
     await this.page.waitForLoadState("networkidle");
 }
 async videoFirstLinkOuterCardVerify(test1){
+    await this.CardBody.nth(3).waitFor({state:"visible"})
      
     const cardbody=await this.CardBody;
     const count= await cardbody.count();
@@ -80,6 +81,7 @@ async videoFirstLinkOuterCardVerify(test1){
     
 }
 async articleFirstLinkOuterCardVerify(test2){
+    await this.CardBody.nth(3).waitFor({state:"visible"})
     const cardbody=await this.CardBody;
     const count= await cardbody.count();
     for(let i=0;i<count;i++){
@@ -91,6 +93,7 @@ async articleFirstLinkOuterCardVerify(test2){
     }
 }
 async bookFirstLinkOuterCardVerify(test3){
+    await this.CardBody.nth(3).waitFor({state:"visible"})
     const cardbody=await this.CardBody;
     const count= await cardbody.count();
     for(let i=0;i<count;i++){
@@ -102,6 +105,7 @@ async bookFirstLinkOuterCardVerify(test3){
     }
 }
 async audioFirstLinkOuterCardVerify(test4){
+    await this.CardBody.nth(3).waitFor({state:"visible"})
     const cardbody=await this.CardBody;
     const count= await cardbody.count();
     for(let i=0;i<count;i++){

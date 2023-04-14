@@ -51,7 +51,15 @@ class TakeawaysFormattingOptions{
         await this.TextEditor.press('Shift+ArrowLeft');
     }
     async verifyingToolTipVisisble(){
-        await expect(this.FormattingToolTip).toBeVisible();
+       const tooltip= await this.FormattingToolTip.isVisible()
+        if(tooltip===true){
+            console.log("tooltip is visible")
+        }
+        else{
+            await this.TextEditor.press('Shift+ArrowLeft');
+            await expect(this.FormattingToolTip).toBeVisible()
+        }  
+
     }
     async boldFormatClick(){
         await this.BoldFormat.click();
