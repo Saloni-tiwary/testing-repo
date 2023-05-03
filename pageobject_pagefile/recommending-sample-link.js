@@ -47,7 +47,7 @@ async recommendingSampleArticleLink(Url,Min,linkname){
   .setIsAllowDuplicate(false)
   .setSourceType("university")
   .build();
-  const response = await fetch(process.env.URL_RECOMMEND , {
+  const response = await fetch(process.env.URL_RECOMMEND, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
