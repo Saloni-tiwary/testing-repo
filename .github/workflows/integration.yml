@@ -70,11 +70,11 @@ jobs:
       #run: npm run payinnerview
 
 
-    - name: print secrets
+    - name: recommend link
       
       env:
-        TEST_SECRET: ${{ secrets.TEST_SECRET }}
-      run: node tests/access.js
+        URL_RECOMMEND: ${{ secrets.URL_RECOMMEND }}
+      run: npm run editinnerview
       #continue-on-error: true
       #run: node tests/access.js
 
