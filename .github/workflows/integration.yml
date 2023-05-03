@@ -70,9 +70,13 @@ jobs:
       #run: npm run payinnerview
 
 
-    - name: Run Recommed link homepage test
-      continue-on-error: true
+    - name: print secrets
+      
+      env:
+        TEST_SECRET: ${{ secrets.TEST_SECRET }}
       run: node tests/access.js
+      #continue-on-error: true
+      #run: node tests/access.js
 
 
     #- name: Run Recommend link innerview test
