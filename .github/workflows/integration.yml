@@ -1,97 +1,22 @@
-name: Playwright Tests
-on:
-  push:
-    branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
+ name: Run Playwright tests
+
+on: [push]
+
 jobs:
   test:
-    timeout-minutes: 60
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-node@v3
-      with:
-        node-version: 16
-    - name: Install dependencies
-      run: npm ci
-     
-    - name: Install Playwright Browsers
-      run: npx playwright install --with-deps
-
-    - name: Run Takeaways Formatting options test
-      continue-on-error: true
-      run: npm run takeawayformatting 
-
-
-    - name: Run Playwright content filter test 
-      continue-on-error: true
-      run: npm run content
-
-    - name: Run edit innerview
-      continue-on-error: true
-      run: npm run editinnerview
-
-    - name: Run playwright Delete link outercard test 
-      continue-on-error: true
-      run: npm run delete
-
-    - name: Run Delete link innerview test 
-      continue-on-error: true
-      run: npm run deleteinnerview
+    - uses: actions/checkout@v2
       
+    - name: Install dependencies
+      run: npm install
 
-    - name: Run edit popup Outercard
-      continue-on-error: true
-      run: npm run editoutercard
+    - name: Run Playwright script
+      env:
+        MY_SECRET: ${{ secrets.TEST_SECRET }}
+      run: node tests/access.js
 
-    - name: Run home page UI test
-      continue-on-error: true
-      run: npm run homepage
-
-
-    - name: Run Link innerview test
-      continue-on-error: true
-      run: npm run linkinnerview
-
-
-    - name: Run Link outercard Tests
-      continue-on-error: true
-      run: npm run linkoutercard
-
-
-    - name: Run PayItforward outercard tests
-      continue-on-error: true
-      run: npm run payourtercard
-
-
-    - name: Run pay it forward Innerview tests 
-      continue-on-error: true
-      run: npm run payinnerview
-
-
-    - name: Run Recommed link homepage test
-      continue-on-error: true
-      run: npm run recommendhomepage
-
-
-    - name: Run Recommend link innerview test
-      continue-on-error: true
-      run: npm run recommendinnerview
-
-
-     
-
-    - name: Run Takeaways and remove progress test
-      continue-on-error: true
-      run: npm run takeawayremoveprogress
-    
-    - uses: actions/upload-artifact@v3
-      if: always()
-      with:
-        name: playwright-report
-        path: playwright-report/
-        retention-days: 30
          
     #"recommendhomepage": "tests/RecommendLinkHomePage.spec.js",
    # "recommendinnerview": "tests/RecommendLinkInnerView.spec.js",
