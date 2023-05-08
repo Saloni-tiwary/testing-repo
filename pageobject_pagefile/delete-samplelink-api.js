@@ -1,4 +1,5 @@
 const { test,expect } = require("@playwright/test");
+const authorizedFetch=require ('../Config/global-setup2')
 class DeleteSampleLinkAPI
 {
     constructor(page){
@@ -17,17 +18,13 @@ class DeleteSampleLinkAPI
          console.log(str);
 
 
-        const accessToken="eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6ImQxNzJhY2MxMDJjMGRhYWQzNThiZmM5ZDYwZWEyMWJhOWVjY2I2ZWUifQ.eyJpc3MiOiJodHRwczovL2FueXdoZXJlLnN0YWdpbmcuYW55d2hlcmVhdXRoLmNvbSIsImlhdCI6MTY4MzEwMDExOCwicHJval9pZCI6ImFueXdoZXJld29ya3MiLCJ0eXBlIjoidXNlciIsInN1YiI6IjBjZWY5MDExLTM4YTItNDVjOC1hNjdmLTRmNjQ2OWM0MDlmYyIsImV4cCI6MTY4MzEwNzMxOCwianRpIjoiZTc5ZGE4VkxQbjZPcTZFRiJ9.YuZ7BcMrEl19xDlIwvMXq7BgiKdpdw0x9Ylz_4bDsTcKSdLAzuG6b3nfltWdCSBuLCPQqacJmStilhelRAPhSM6STbDRK24TY9vW-GAiNYvIXZV7rjKZiDaa4fSw742fy3b8ldTDzT_oxm5bglIc3AtIN7_TiI1zzJEpT58T6xu-jG5hseVlLPJtKM9h2rJGAPd88my7hU_AWe6ofiK7uEWf6NJPLMBeZjFbuZsjl1o501yAbpuXoz6lgb5vEsUjzS3T7h82WQYioEU1MNq2cc9BiT7sGL2mHsXqLLsbg-uTX1p9pKdXwprKpLMEl6di5VHKu0lgtNY1D7OLehGDPA"
- 
- 
-                            
-  
-    
-  const result = await fetch(`https://stag.adaptiveu.info/api/v1/university/anywhereworks/link/${str}`, {
+       
+
+  const result = await authorizedFetch(`https://stag.adaptiveu.info/api/v1/university/anywhereworks/link/${str}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${accessToken}` // Use the access token obtained during authentication
+        //Authorization: `Bearer ${accessToken}` // Use the access token obtained during authentication
       }
     })
     const response= {

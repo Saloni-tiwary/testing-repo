@@ -66,7 +66,7 @@ class  LinkOuterCard{
 }
     async link_More_and_Edit_OptionsClick(linkTitle){
         const cardbody=await this.CardBody;
-        await this.CardBody.nth(5).waitFor({state:"visible"})
+        await this.CardBody.nth(3).waitFor({state:"visible"})
     const count= await cardbody.count();
     for(let i=0;i<count;i++){
         var text=linkTitle

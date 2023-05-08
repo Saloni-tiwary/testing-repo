@@ -1,6 +1,12 @@
-const { expect } = require("@playwright/test");
-const { url } = require("inspector");
+//const { expect } = require("@playwright/test");
+//const { url } = require("inspector");
+
+
 const{LinkBuilder} = require('./linkdetails')
+
+const authorizedFetch=require ('../Config/global-setup2')
+
+
 class RecommendingSampleLink{
 
 constructor(page){
@@ -17,8 +23,10 @@ this.LinkSource=page.locator("span.source-type");
 }
 async recommendingSampleArticleLink(Url,Min,linkname){
  
-    const accessToken="eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6ImQxNzJhY2MxMDJjMGRhYWQzNThiZmM5ZDYwZWEyMWJhOWVjY2I2ZWUifQ.eyJpc3MiOiJodHRwczovL2FueXdoZXJlLnN0YWdpbmcuYW55d2hlcmVhdXRoLmNvbSIsImlhdCI6MTY4MzEwMDExOCwicHJval9pZCI6ImFueXdoZXJld29ya3MiLCJ0eXBlIjoidXNlciIsInN1YiI6IjBjZWY5MDExLTM4YTItNDVjOC1hNjdmLTRmNjQ2OWM0MDlmYyIsImV4cCI6MTY4MzEwNzMxOCwianRpIjoiZTc5ZGE4VkxQbjZPcTZFRiJ9.YuZ7BcMrEl19xDlIwvMXq7BgiKdpdw0x9Ylz_4bDsTcKSdLAzuG6b3nfltWdCSBuLCPQqacJmStilhelRAPhSM6STbDRK24TY9vW-GAiNYvIXZV7rjKZiDaa4fSw742fy3b8ldTDzT_oxm5bglIc3AtIN7_TiI1zzJEpT58T6xu-jG5hseVlLPJtKM9h2rJGAPd88my7hU_AWe6ofiK7uEWf6NJPLMBeZjFbuZsjl1o501yAbpuXoz6lgb5vEsUjzS3T7h82WQYioEU1MNq2cc9BiT7sGL2mHsXqLLsbg-uTX1p9pKdXwprKpLMEl6di5VHKu0lgtNY1D7OLehGDPA"
-
+    
+  
+  
+  
     const link = new LinkBuilder()
   .setName(linkname)
   .setMinutes(Min)
@@ -47,34 +55,37 @@ async recommendingSampleArticleLink(Url,Min,linkname){
   .setIsAllowDuplicate(false)
   .setSourceType("university")
   .build();
-  const response = await fetch(process.env.URL_RECOMMEND, {
+  const response = await authorizedFetch('https://stag.adaptiveu.info/api/v1/university/anywhereworks/link', {
       method: 'POST',
-      headers: {
+       headers: 
+       {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${accessToken}` // Use the access token obtained during authentication
-      },
+      //   //Authorization': `Bearer ${accessToken}`
+      //   Authorization: `Bearer ${accessToken}` // Use the access token obtained during authentication
+     },
       body: JSON.stringify(link)
         
       
     });
 
-//   const response1 = await page.evaluate(async ({accessToken,link}) => {
-     
-
-//     return {
-//       ok: response.ok,
-//       status: response.status,
-//       statusText: response.statusText,
-//       body: await response.json()
-//     };
-//   }, {accessToken,link});
+ 
    console.log(response);
-//   console.log(JSON.stringify(link))
+  console.log(JSON.stringify(link))
   
 
 
 
-     
+    
+}
+}
+module.exports={RecommendingSampleLink}
+
+
+
+
+
+
+  
     // await expect(this.UnivNameVisible).toBeVisible()
     // const header=await this.CloseHeader.isVisible()
     // console.log(header);
@@ -101,9 +112,6 @@ async recommendingSampleArticleLink(Url,Min,linkname){
 
 // }
 
-}
-}
-module.exports={RecommendingSampleLink}
  
 
 

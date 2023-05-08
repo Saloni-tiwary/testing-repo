@@ -2,12 +2,13 @@ const { test, expect } = require('@playwright/test');
 const {LinkOuterCard}=require('../pageobject_pagefile/link-outercard');
 //const {RecommendTab} = require('../pageobject_pagefile/recommend-tab.js');
 const {NavigationURL}=require('../pageobject_pagefile/navigating-base-url');
-const {EditPopupLinkInnerview}=require('../pageobject_pagefile/edit-popup-linkInnerview');
 const {LinkInnerViewUI}=require('../pageobject_pagefile/linkinner-view-ui');
 //const{DeleteLinkOutercard}=require('../pageobject_pagefile/delete-link-outercard');
 const {RecommendingSampleLink}=require('../pageobject_pagefile/recommending-sample-link')
 const {DeleteSampleLinkAPI}=require('../pageobject_pagefile/delete-samplelink-api');
+const{EditPopupLinkInnerview}=require('../pageobject_pagefile/edit-popup-linkInnerview')
 const {urls}=require('../constant/urls');
+
  
 
 
@@ -190,7 +191,7 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
     await editpopupinnerview.validLinkTitleInput();
     await editpopupinnerview.clickSaveButton();
     await editpopupinnerview.validLinkTitleConfirm();
-    await deletelink.deletingSampleLinkapi("APIResponse | Playwright");
+    await deletelink.deletingSampleLinkapi("testing edit name");
   }catch (error) {
       console.error(`Test failed: ${error}`);
       throw error;
@@ -245,7 +246,7 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
     await editpopupinnerview.onlyNumInput();
     await editpopupinnerview.clickSaveButton();
     await editpopupinnerview.verifyNumTitleInput();
-    await deletelink.deletingSampleLinkapi("Browser | Playwright");
+    await deletelink.deletingSampleLinkapi("123");
   }catch (error) {
       console.error(`Test failed: ${error}`);
       throw error;
@@ -300,7 +301,7 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
     await editpopupinnerview.leadingSpaceInput();
     await editpopupinnerview.clickSaveButton();
     await editpopupinnerview.leadingSpaceTrimmedVerify();
-    await deletelink.deletingSampleLinkapi("BrowserServer | Playwright");
+    await deletelink.deletingSampleLinkapi("leading space test");
   }catch (error) {
       console.error(`Test failed: ${error}`);
       throw error;
@@ -325,7 +326,7 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
     await editpopupinnerview.trailingSpacesInput();
     await editpopupinnerview.clickSaveButton();
     await editpopupinnerview.trailingSpaceTrimmedVerify();
-    await deletelink.deletingSampleLinkapi("BrowserType | Playwright");
+    await deletelink.deletingSampleLinkapi("trailing space test");
   }catch (error) {
       console.error(`Test failed: ${error}`);
       throw error;
@@ -350,7 +351,7 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
     await editpopupinnerview.extraIntermediateSpaceInput();
     await editpopupinnerview.clickSaveButton();
     await editpopupinnerview.extraIntermediateSpaceTrimmedVerify();
-    await deletelink.deletingSampleLinkapi("CDPSession | Playwright");
+    await deletelink.deletingSampleLinkapi("i i i");
 
   }catch (error) {
       console.error(`Test failed: ${error}`);
