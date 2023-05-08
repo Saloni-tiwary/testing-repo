@@ -73,7 +73,11 @@ jobs:
     - name: recommend link
       
       env:
-        URL_RECOMMEND: ${{ secrets.URL_RECOMMEND }}
+        CLIENT_ID: ${{ secrets.CLIENT_ID }}
+        CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+        PASSWORD: ${{ secrets.PASSWORD }}
+        USERNAME: ${{ secrets.USERNAME }}
+         
       run: npm run editinnerview
       #continue-on-error: true
       #run: node tests/access.js
