@@ -17,7 +17,7 @@ const { devices,expect} = require('@playwright/test');
  * @type {import('@playwright/test').PlaywrightTestConfig}
  */
  const config = {
-globalSetup: require.resolve('./Config/global-setup2'),
+globalSetup: require.resolve('./Config/global-setup'),
  
 
    
