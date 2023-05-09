@@ -24,7 +24,7 @@ test("verify on clicking the link outercard the link innerview of the same link 
     await navigationurl.navigationURL();
     const linkoutercard= new LinkOuterCard(page);
     const linkinnerviewui=new LinkInnerViewUI(page);
-    await linkoutercard.linkOuterCardClick();
+    await linkoutercard.linkFirstOuterCardClick();
     await linkinnerviewui.recommenderNameVisible();
   }catch (error) {
     console.error(`Test failed: ${error}`);
@@ -38,7 +38,7 @@ test("verify on clicking the link outercard the link innerview of the same link 
     await navigationurl.navigationURL();
     const linkoutercard= new LinkOuterCard(page);
     const linkinnerviewui=new LinkInnerViewUI(page);
-    await linkoutercard.linkOuterCardClick();
+    await linkoutercard.linkFirstOuterCardClick();
     await linkinnerviewui.universityNameVisible();
   }catch (error) {
     console.error(`Test failed: ${error}`);
@@ -52,7 +52,7 @@ test("verify on clicking the link outercard the link innerview of the same link 
     await navigationurl.navigationURL();
     const linkoutercard= new LinkOuterCard(page);
     const linkinnerviewui=new LinkInnerViewUI(page);
-    await linkoutercard.linkOuterCardClick();
+    await linkoutercard.linkFirstOuterCardClick();
     await linkinnerviewui.recommendationDateVisible();
   }catch (error) {
     console.error(`Test failed: ${error}`);
@@ -65,7 +65,7 @@ try{
     await navigationurl.navigationURL();
     const linkoutercard= new LinkOuterCard(page);
     const linkinnerviewui=new LinkInnerViewUI(page);
-    await linkoutercard.linkOuterCardClick();
+    await linkoutercard.linkFirstOuterCardClick();
     await linkinnerviewui.learningMinutesVisible();
   }catch (error) {
     console.error(`Test failed: ${error}`);
@@ -79,7 +79,7 @@ try{
         await navigationurl.navigationURL();
         const linkoutercard= new LinkOuterCard(page);
         const linkinnerviewui=new LinkInnerViewUI(page);
-        await linkoutercard.linkOuterCardClick();
+        await linkoutercard.linkFirstOuterCardClick();
         await linkinnerviewui.moreOptionsClick();
         await linkinnerviewui.moreOptionsVisible();
       }catch (error) {

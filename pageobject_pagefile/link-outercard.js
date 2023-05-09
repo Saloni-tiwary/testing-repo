@@ -14,9 +14,23 @@ class  LinkOuterCard{
         this.EditOption=page.locator("[data-status='edit']")
         this.CardBody=page.locator(".name");
         this.LinkSource=page.locator("span.source-type");
+        this.MyLearningTab=page.locator("a.page-url.page.myq-btn");
+        this.HomePageTab=page.locator("a.page-url.page.home-btn");
+        this.UniversityName=page.locator("a.university-name.home-redirect");
 
 
     }
+    async universityNameVisible(){
+        await expect(this.UniversityName).toContainText("AnywhereWorks");
+        await this.CardBody.nth(3).waitFor({state:"visible"})
+
+    }
+    async refreshPage(){
+    await this.MyLearningTab.click();
+    await this.page.waitForTimeout(1000);
+     await this.HomePageTab.click();
+    }
+
     async linkOuterCardHover(linkTitle){
     const cardbody=await this.CardBody;
      
@@ -26,10 +40,12 @@ class  LinkOuterCard{
         var text=linkTitle
         if(await this.CardBody.nth(i).textContent()===text){
             await this.CardBody.nth(i).hover();
+            break;
            // await this.MoreOptionsDropdown.waitFor({ state: "visible"} )
     }
-    if(i > 10) { // check if i is greater than 10
-        i = 0; // set i back to 0
+ if(i >= 20) { // check if i is greater than 10
+        i = 0;
+        // set i back to 0
     }
 }
     }
@@ -44,20 +60,24 @@ class  LinkOuterCard{
     //await this.LinkOuterCard.nth(0).click()
     
     const cardbody=await this.CardBody;
-    await this.CardBody.nth(5).waitFor({state:"visible"})
+    await this.CardBody.nth(3).waitFor({state:"attached"})
+     
     const count= await cardbody.count();
     for(let i=0;i<count;i++){
-        var text=linkTitle
-        if(await this.CardBody.nth(i).textContent()===text){
+        var text1=linkTitle
+        if(await this.CardBody.nth(i).textContent()===text1){
             await this.CardBody.nth(i).click();
             await this.LinkSource.waitFor();
              
             break;
+            }
             
-
-    }
-    if(i > 10) { // check if i is greater than 10
-        i = 0; // set i back to 0
+    if(i >= 20) { // check if i is greater than 10
+        i=0
+        //  await this.MyLearningTab.click();
+        //  await this.HomePageTab.click();
+       break;
+        
     }
     
 }
@@ -66,11 +86,12 @@ class  LinkOuterCard{
 }
     async link_More_and_Edit_OptionsClick(linkTitle){
         const cardbody=await this.CardBody;
-        await this.CardBody.nth(3).waitFor({state:"visible"})
+       await this.CardBody.nth(3).waitFor({state:"attached"})
+         
     const count= await cardbody.count();
     for(let i=0;i<count;i++){
-        var text=linkTitle
-        if(await this.CardBody.nth(i).textContent()===text){
+        var text2=linkTitle
+        if(await this.CardBody.nth(i).textContent()===text2){
             await this.CardBody.nth(i).hover();
             //await this.MoreOptionsDropdown.waitFor({ state: "visible"} )
             await this.MoreOptionsDropdown.nth(i).click();
@@ -78,8 +99,12 @@ class  LinkOuterCard{
             break;
 
     }
-    if(i > 15) { // check if i is greater than 10
+    
+   if(i >= 20) { // check if i is greater than 10
+        // await this.MyLearningTab.click();
+        //  await this.HomePageTab.click();
         i = 0; // set i back to 0
+        break;
     }
 }
         

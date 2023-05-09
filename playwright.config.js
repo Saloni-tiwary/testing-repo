@@ -26,7 +26,7 @@ globalSetup: require.resolve('./Config/global-setup'),
   
 
   /* Maximum time one test can run for. */
-  timeout: 100*1000,
+  timeout: 60*1000,
   expect: {
     /**
      * Maximum time expect() should wait for the condition to be met.
@@ -41,7 +41,7 @@ globalSetup: require.resolve('./Config/global-setup'),
   /* Retry on CI only */
   retries: process.env.CI ? 0 : 0,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 3 : undefined,
+  workers: process.env.CI ? 4 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
    

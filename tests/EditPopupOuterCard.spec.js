@@ -63,6 +63,7 @@ test("verify that link edited to no title cannot be saved", async({page})=>{
     const editpopup=new EditPopupOuterCard(page);
     await samplelink.recommendingSampleArticleLink(urls.URL54,urls.MIN,"Extensibility | Playwright")
     //await linkoutercard.linkOuterCardHover("Extensibility | Playwright");
+    await linkoutercard.refreshPage();
     await linkoutercard.link_More_and_Edit_OptionsClick("Extensibility | Playwright");
     //await linkoutercard.editOptionClick();
     await editpopup.enterEmptyTitle();
@@ -87,6 +88,7 @@ test("verify that the link title can be edited to other valid title ",async({pag
     const editpopup=new EditPopupOuterCard(page);
     await samplelink.recommendingSampleArticleLink(urls.URL55,urls.MIN,"Frames | Playwright")
     //await linkoutercard.linkOuterCardHover("Frames | Playwright");
+    await linkoutercard.refreshPage();
     await linkoutercard.link_More_and_Edit_OptionsClick("Frames | Playwright");
    // await linkoutercard.editOptionClick();
     await editpopup.validSecondTitle();
@@ -109,7 +111,8 @@ test("verify that link title having only special characters cannot be saved",asy
     const editpopup=new EditPopupOuterCard(page);
     await samplelink.recommendingSampleArticleLink(urls.URL56,urls.MIN,"Introduction to Matplotlib in Python")
    // await linkoutercard.linkOuterCardHover("Introduction to Matplotlib in Python");
-    await linkoutercard.link_More_and_Edit_OptionsClick("Introduction to Matplotlib in Python");
+   await linkoutercard.refreshPage(); 
+   await linkoutercard.link_More_and_Edit_OptionsClick("Introduction to Matplotlib in Python");
     //await linkoutercard.editOptionClick();
     await editpopup.enterSpecialCharAsTitle();
     await editpopup.saveLink();
@@ -132,7 +135,8 @@ test("verify that a link title containing only numbers can be saved",async({page
     const editpopup=new EditPopupOuterCard(page);
     await samplelink.recommendingSampleArticleLink(urls.URL57,urls.MIN,"Install matplotlib in Python using pip")
    // await linkoutercard.linkOuterCardHover("Install matplotlib in Python using pip");
-    await linkoutercard.link_More_and_Edit_OptionsClick("Install matplotlib in Python using pip");
+   await linkoutercard.refreshPage(); 
+   await linkoutercard.link_More_and_Edit_OptionsClick("Install matplotlib in Python using pip");
     //await linkoutercard.editOptionClick();
     await editpopup.enterOnlyNumbersAsTitle();
     await editpopup.saveLink();
@@ -155,6 +159,7 @@ test("verify that a link title containing only numbers can be saved",async({page
     const editpopup=new EditPopupOuterCard(page);
     await samplelink.recommendingSampleArticleLink(urls.URL58,urls.MIN,"Matplotlib: Object-oriented Interface")
     //await linkoutercard.linkOuterCardHover("Matplotlib: Object-oriented Interface");
+    await linkoutercard.refreshPage();
     await linkoutercard.link_More_and_Edit_OptionsClick("Matplotlib: Object-oriented Interface");
     //await linkoutercard.editOptionClick();
     await editpopup.leadingSpaceInput();
@@ -180,6 +185,7 @@ test("verify that a link title containing only numbers can be saved",async({page
     const editpopup=new EditPopupOuterCard(page);
     await samplelink.recommendingSampleArticleLink(urls.URL59,urls.MIN,"Matplotlib: Mathematical Expressions")
     //await linkoutercard.linkOuterCardHover("Matplotlib: Mathematical Expressions");
+    await linkoutercard.refreshPage();
     await linkoutercard.link_More_and_Edit_OptionsClick("Matplotlib: Mathematical Expressions");
     //await linkoutercard.editOptionClick();
     await editpopup.trailingSpaceInput();
@@ -201,7 +207,9 @@ test("verify that a link title containing only numbers can be saved",async({page
   const linkoutercard= new LinkOuterCard(page);
   const editpopup=new EditPopupOuterCard(page);
   await samplelink.recommendingSampleArticleLink(urls.URL60,urls.MIN,"Matplotlib: Create a simple plot")
+  await linkoutercard.refreshPage();
   //await linkoutercard.linkOuterCardHover("Matplotlib: Create a simple plot");
+   
   await linkoutercard.link_More_and_Edit_OptionsClick("Matplotlib: Create a simple plot");
   //await linkoutercard.editOptionClick();
   await editpopup.extraIntermediateSpaceInput();
@@ -224,8 +232,9 @@ test("verify that the link edited to only special characters in title cannot be 
   const linkoutercard= new LinkOuterCard(page);
   const editpopup=new EditPopupOuterCard(page);
   await samplelink.recommendingSampleArticleLink(urls.URL61,urls.MIN,"Matplotlib: Line Plot")
-  //await linkoutercard.linkOuterCardHover("Matplotlib: Line Plot");
-    await linkoutercard.link_More_and_Edit_OptionsClick("Matplotlib: Line Plot");
+  await linkoutercard.refreshPage();
+ //await linkoutercard.linkOuterCardHover("Matplotlib: Line Plot");
+   await linkoutercard.link_More_and_Edit_OptionsClick("Matplotlib: Line Plot");
    // await linkoutercard.editOptionClick();
     await editpopup.enterEmptyTitle();
     await editpopup.enterSpecialCharacterTitle();
@@ -251,6 +260,7 @@ test("verify that the title can have max 200 characters",async({page})=>{
   const editpopup=new EditPopupOuterCard(page);
   await samplelink.recommendingSampleArticleLink(urls.URL62,urls.MIN,"Matplotlib: Subplots() Function")
   //await linkoutercard.linkOuterCardHover("Matplotlib: Subplots() Function");
+  await linkoutercard.refreshPage();
   await linkoutercard.link_More_and_Edit_OptionsClick("Matplotlib: Subplots() Function");
   //await linkoutercard.editOptionClick();
   await editpopup.enterEmptyTitle();
@@ -275,6 +285,7 @@ test("verify when more settings is clicked the edit popup expands unvieling more
   const editpopup=new EditPopupOuterCard(page);
   await samplelink.recommendingSampleArticleLink(urls.URL63,urls.MIN,"Matplotlib: Scatter Plot")
   //await linkoutercard.linkOuterCardHover("Matplotlib: Scatter Plot");
+  await linkoutercard.refreshPage();
   await linkoutercard.link_More_and_Edit_OptionsClick("Matplotlib: Scatter Plot");
   //await linkoutercard.editOptionClick();
   await editpopup.moreSettingsClick();
@@ -297,6 +308,7 @@ test("verify that only 5 tags can be added at max in a link", async({page})=>{
   const editpopup=new EditPopupOuterCard(page);
   await samplelink.recommendingSampleArticleLink(urls.URL64,urls.MIN,"Matplotlib: Bar Plot")
   //await linkoutercard.linkOuterCardHover("Matplotlib: Bar Plot");
+  await linkoutercard.refreshPage();
   await linkoutercard.link_More_and_Edit_OptionsClick("Matplotlib: Bar Plot");
   //await linkoutercard.editOptionClick();
   await editpopup.moreSettingsClick();
@@ -315,7 +327,7 @@ test("verify that only 5 tags can be added at max in a link", async({page})=>{
 } 
   
 })
-test("verify that a user cannot add duplicate tags",async({page})=>{
+test.only("verify that a user cannot add duplicate tags",async({page})=>{
   try{
    // test.setTimeout(130000)
     const samplelink=new RecommendingSampleLink(page)
@@ -325,7 +337,8 @@ test("verify that a user cannot add duplicate tags",async({page})=>{
   const linkoutercard= new LinkOuterCard(page);
   const editpopup=new EditPopupOuterCard(page);
   await samplelink.recommendingSampleArticleLink(urls.URL65,urls.MIN,"Medium - Where good ideas find you ")
-  //await linkoutercard.linkOuterCardHover("Medium - Where good ideas find you ");
+  await linkoutercard.refreshPage();
+  await linkoutercard.linkOuterCardHover("Medium - Where good ideas find you ");
   await linkoutercard.link_More_and_Edit_OptionsClick("Medium - Where good ideas find you ");
  // await linkoutercard.editOptionClick();
   await editpopup.moreSettingsClick();
@@ -349,6 +362,7 @@ test("verify that a tag can contain max 25 characters",async({page})=>{
   const linkoutercard= new LinkOuterCard(page);
   const editpopup=new EditPopupOuterCard(page);
   await samplelink.recommendingSampleArticleLink(urls.URL66,urls.MIN,"Matplotlib: Pie Charts")
+  await linkoutercard.refreshPage();
   //await linkoutercard.linkOuterCardHover("Matplotlib: Pie Charts");
   await linkoutercard.link_More_and_Edit_OptionsClick("Matplotlib: Pie Charts");
   //await linkoutercard.editOptionClick();
@@ -372,6 +386,7 @@ test("verify on clicking cancel button a tag is deleted",async({page})=>{
   const linkoutercard= new LinkOuterCard(page);
   const editpopup=new EditPopupOuterCard(page);
   await samplelink.recommendingSampleArticleLink(urls.URL67,urls.MIN,"playwright-core - npm")
+  await linkoutercard.refreshPage();
   //await linkoutercard.linkOuterCardHover("playwright-core - npm");
   await linkoutercard.link_More_and_Edit_OptionsClick("playwright-core - npm");
   //await linkoutercard.editOptionClick();
@@ -397,6 +412,7 @@ test("Verify only one content type can be choosen", async({page})=>{
   const linkoutercard= new LinkOuterCard(page);
   const editpopup=new EditPopupOuterCard(page);
   await samplelink.recommendingSampleArticleLink(urls.URL68,urls.MIN,"Matplotlib: Three-dimensional Plotting")
+  await linkoutercard.refreshPage(); 
   //await linkoutercard.linkOuterCardHover("Matplotlib: Three-dimensional Plotting");
   await linkoutercard.link_More_and_Edit_OptionsClick("Matplotlib: Three-dimensional Plotting");
   //await linkoutercard.editOptionClick();
@@ -420,9 +436,12 @@ test("verify that link cannot be edited 0/null minutes minutes",async({page})=>{
   await navigationurl.navigationURL();
   const linkoutercard= new LinkOuterCard(page);
   const editpopup=new EditPopupOuterCard(page);
+  
   await samplelink.recommendingSampleArticleLink(urls.URL69,urls.MIN,"Matplotlib Pyplot: Introduction")
-  //await linkoutercard.linkOuterCardHover("Matplotlib Pyplot: Introduction");
+  
+  await linkoutercard.refreshPage();//await linkoutercard.linkOuterCardHover("Matplotlib Pyplot: Introduction");
   await linkoutercard.link_More_and_Edit_OptionsClick("Matplotlib Pyplot: Introduction");
+ 
   //await linkoutercard.editOptionClick();
   await editpopup.emptyMinFill();
   await editpopup.saveLink();
@@ -446,7 +465,8 @@ test("verify that link cannot be edited to minutes in special characters", async
   const linkoutercard= new LinkOuterCard(page);
   const editpopup=new EditPopupOuterCard(page);
   await samplelink.recommendingSampleArticleLink(urls.URL70,urls.MIN,"Matplotlib: Figure Class")
-  //await linkoutercard.linkOuterCardHover("Matplotlib: Figure Class");
+  
+  await linkoutercard.refreshPage();//await linkoutercard.linkOuterCardHover("Matplotlib: Figure Class");
   await linkoutercard.link_More_and_Edit_OptionsClick("Matplotlib: Figure Class");
  // await linkoutercard.editOptionClick();
   await editpopup.emptyMinFill();
@@ -470,7 +490,8 @@ test("verify that link cannot be edited to minutes in alphabets",async({page})=>
   const linkoutercard= new LinkOuterCard(page);
   const editpopup=new EditPopupOuterCard(page);
   await samplelink.recommendingSampleArticleLink(urls.URL71,urls.MIN,"Matplotlib: Multiplots with subplots() Function")
-  //await linkoutercard.linkOuterCardHover("Matplotlib: Multiplots with subplots() Function");
+  
+  await linkoutercard.refreshPage();//await linkoutercard.linkOuterCardHover("Matplotlib: Multiplots with subplots() Function");
   await linkoutercard.link_More_and_Edit_OptionsClick("Matplotlib: Multiplots with subplots() Function");
   //await linkoutercard.editOptionClick();
   await editpopup.emptyMinFill();
@@ -494,7 +515,8 @@ test("verify that the max minutes a link can have is 10000",async({page})=>{
   const linkoutercard= new LinkOuterCard(page);
   const editpopup=new EditPopupOuterCard(page);
   await samplelink.recommendingSampleArticleLink(urls.URL72,urls.MIN,"Matplotlib: Quiver Plot")
-  //await linkoutercard.linkOuterCardHover("Matplotlib: Quiver Plot");
+ 
+  await linkoutercard.refreshPage(); //await linkoutercard.linkOuterCardHover("Matplotlib: Quiver Plot");
   await linkoutercard.link_More_and_Edit_OptionsClick("Matplotlib: Quiver Plot");
   //await linkoutercard.editOptionClick();
   await editpopup.emptyMinFill();

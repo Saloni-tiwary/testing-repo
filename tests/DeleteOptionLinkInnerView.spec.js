@@ -70,9 +70,14 @@ test("verify that on clicking the delete from more options innerview delete popu
         const samplelink=new RecommendingSampleLink(page);
      const deletelink=new DeletingSampleLink(page);
     const navigationurl= new NavigationURL(page)
+    const linkoutercard= new LinkOuterCard(page);
     await navigationurl.navigationURL();
+    
      
     await samplelink.recommendingSampleArticleLink(urls.URL52,urls.MIN,"Emulation | Playwright");
+    await linkoutercard.refreshPage() 
+ 
+    await linkoutercard.linkOuterCardClick("Emulation | Playwright")
     await deletelink.deletingSampleLinkFromInnerview();
 
   }catch (error) {
