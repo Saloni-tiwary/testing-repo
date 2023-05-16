@@ -1,4 +1,4 @@
-//import fetch from "node-fetch";
+
 import { config } from 'dotenv';
  config()
 
@@ -6,8 +6,8 @@ import { config } from 'dotenv';
 const scopes = "adaptiveu-api.full_access"
 
 
-
-const responselogin = await fetch('https://auth.adaptiveu.info/o/oauth2/v1/token', {
+const URL='https://auth.adaptiveu.info/o/oauth2/v1/token'
+const responselogin = await fetch(URL, {
   method: 'POST',
   headers: {
     'Content-Type': 'application/x-www-form-urlencoded',
@@ -25,10 +25,10 @@ const responselogin = await fetch('https://auth.adaptiveu.info/o/oauth2/v1/token
 })
 
 var authResponse = await responselogin.json();
-console.log(authResponse);
+
 
 const accessToken = authResponse.access_token
-console.log(accessToken)
+
  return accessToken;
 }
  const authorizedFetch = (() => {
@@ -47,22 +47,9 @@ console.log(accessToken)
    };
 })();
 
-//module.exports = loginhelper
-// const authorizedFetch = async (url, options = {}) => {
-//   const accessToken = await loginhelper();
-//   options.headers = {
-//     ...options.headers,
-//     Authorization: `Bearer ${accessToken}`
-//   };
-//   if (typeof url !== 'string') {
-//     throw new Error('Invalid URL: must be a string');
-//   }
-//   return fetch(url, options);
-// };
 
  module.exports = authorizedFetch
-// //const myAccessToken = accessToken;
-// //return myAccessToken;
+
  
 
   

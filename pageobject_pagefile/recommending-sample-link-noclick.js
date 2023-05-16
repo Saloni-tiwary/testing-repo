@@ -1,7 +1,7 @@
 const { expect } = require("@playwright/test");
 const{LinkBuilder} = require('./linkdetails');
 
-const authorizedFetch=require ('../Config/global-setup2')
+const authorizedFetch=require ('../Config/global-setup-api')
 
 class RecommendSampleLinkWithOutClick{
 

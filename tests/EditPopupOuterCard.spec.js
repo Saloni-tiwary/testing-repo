@@ -327,7 +327,7 @@ test("verify that only 5 tags can be added at max in a link", async({page})=>{
 } 
   
 })
-test.only("verify that a user cannot add duplicate tags",async({page})=>{
+test("verify that a user cannot add duplicate tags",async({page})=>{
   try{
    // test.setTimeout(130000)
     const samplelink=new RecommendingSampleLink(page)

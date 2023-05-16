@@ -17,7 +17,7 @@ const { devices,expect} = require('@playwright/test');
  * @type {import('@playwright/test').PlaywrightTestConfig}
  */
  const config = {
-globalSetup: require.resolve('./Config/global-setup'),
+//globalSetup: require.resolve('./Config/global-setup-ui'),
  
 
    
@@ -35,13 +35,13 @@ globalSetup: require.resolve('./Config/global-setup'),
     timeout: 100000
   },
   /* Run tests in files in parallel */
-  fullyParallel: true,
+  fullyParallel: false,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
   retries: process.env.CI ? 0 : 0,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 4 : undefined,
+  workers: process.env.CI ? 2 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
    

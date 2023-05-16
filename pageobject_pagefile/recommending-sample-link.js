@@ -4,7 +4,7 @@
 
 const{LinkBuilder} = require('./linkdetails')
 
-const authorizedFetch=require ('../Config/global-setup2')
+const authorizedFetch=require ('../Config/global-setup-api')
 
 
 class RecommendingSampleLink{

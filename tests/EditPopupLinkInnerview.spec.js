@@ -26,6 +26,7 @@ test("verify on clicking the edit option edit popup is visible",async({page})=>{
     const editpopupinnerview=new EditPopupLinkInnerview(page);
     const linkinnerviewui=new LinkInnerViewUI(page);
     await samplelink.recommendingSampleArticleLink(urls.URL1,urls.MIN,"Screenshots | Playwright");
+    await linkoutercard.refreshPage()
     await linkoutercard.linkOuterCardClick("Screenshots | Playwright");
     await linkinnerviewui.moreOptionsClick();
     await editpopupinnerview.editOptionClick();
@@ -54,6 +55,7 @@ test("verify on clicking the edit option edit popup is visible",async({page})=>{
     const editpopupinnerview=new EditPopupLinkInnerview(page);
     const linkinnerviewui=new LinkInnerViewUI(page);
     await samplelink.recommendingSampleArticleLink(urls.URL2,urls.MIN,"The Best Close-Up ASMR Videos from OBJECT");
+    await linkoutercard.refreshPage()
     await linkoutercard.linkOuterCardClick("The Best Close-Up ASMR Videos from OBJECT");
     await linkinnerviewui.moreOptionsClick();
     await editpopupinnerview.editOptionClick();
@@ -82,6 +84,7 @@ test("verify that min field is not accepting special characters as input",async(
     const editpopupinnerview=new EditPopupLinkInnerview(page);
     const linkinnerviewui=new LinkInnerViewUI(page);
     await samplelink.recommendingSampleArticleLink(urls.URL3,urls.MIN,"Welcome | Playwright");
+    await linkoutercard.refreshPage()
     await linkoutercard.linkOuterCardClick("Welcome | Playwright");
     await linkinnerviewui.moreOptionsClick();
     await editpopupinnerview.editOptionClick();
@@ -109,7 +112,8 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
     const editpopupinnerview=new EditPopupLinkInnerview(page);
     const linkinnerviewui=new LinkInnerViewUI(page);
     await samplelink.recommendingSampleArticleLink(urls.URL4,urls.MIN,"Playwright Library | Playwright");
-   await linkoutercard.linkOuterCardClick("Playwright Library | Playwright");
+    await linkoutercard.refreshPage()
+    await linkoutercard.linkOuterCardClick("Playwright Library | Playwright");
     await linkinnerviewui.moreOptionsClick();
     await editpopupinnerview.editOptionClick();
     await editpopupinnerview.linkZeroMinFill();
@@ -137,6 +141,7 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
     const editpopupinnerview=new EditPopupLinkInnerview(page);
     const linkinnerviewui=new LinkInnerViewUI(page);
     await samplelink.recommendingSampleArticleLink(urls.URL5,urls.MIN,"APIRequest | Playwright");
+    await linkoutercard.refreshPage()
     await linkoutercard.linkOuterCardClick("APIRequest | Playwright");
     await linkinnerviewui.moreOptionsClick();
     await editpopupinnerview.editOptionClick();
@@ -185,6 +190,7 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
     const editpopupinnerview=new EditPopupLinkInnerview(page);
     const linkinnerviewui=new LinkInnerViewUI(page);
     await samplelink.recommendingSampleArticleLink(urls.URL7,urls.MIN,"APIResponse | Playwright");
+    await linkoutercard.refreshPage()
     await linkoutercard.linkOuterCardClick("APIResponse | Playwright");
     await linkinnerviewui.moreOptionsClick();
     await editpopupinnerview.editOptionClick();
@@ -211,6 +217,7 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
     const editpopupinnerview=new EditPopupLinkInnerview(page);
     const linkinnerviewui=new LinkInnerViewUI(page);
     await samplelink.recommendingSampleArticleLink(urls.URL8,urls.MIN,"Accessibility | Playwright");
+    await linkoutercard.refreshPage()
     await linkoutercard.linkOuterCardClick("Accessibility | Playwright");
     await linkinnerviewui.moreOptionsClick();
     await editpopupinnerview.editOptionClick();
@@ -240,6 +247,7 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
     const editpopupinnerview=new EditPopupLinkInnerview(page);
     const linkinnerviewui=new LinkInnerViewUI(page);
     await samplelink.recommendingSampleArticleLink(urls.URL9,urls.MIN,"Browser | Playwright");
+    await linkoutercard.refreshPage()
     await linkoutercard.linkOuterCardClick("Browser | Playwright");
     await linkinnerviewui.moreOptionsClick();
     await editpopupinnerview.editOptionClick();
@@ -268,7 +276,9 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
     const editpopupinnerview=new EditPopupLinkInnerview(page);
     
     const linkinnerviewui=new LinkInnerViewUI(page);
+    
     await samplelink.recommendingSampleArticleLink(urls.URL10,urls.MIN,"BrowserContext | Playwright");
+    await linkoutercard.refreshPage()
     await linkoutercard.linkOuterCardClick("BrowserContext | Playwright");
     await linkinnerviewui.moreOptionsClick();
     await editpopupinnerview.editOptionClick();
@@ -295,6 +305,7 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
     const editpopupinnerview=new EditPopupLinkInnerview(page);
     const linkinnerviewui=new LinkInnerViewUI(page);
     await samplelink.recommendingSampleArticleLink(urls.URL11,urls.MIN,"BrowserServer | Playwright");
+    await linkoutercard.refreshPage()
     await linkoutercard.linkOuterCardClick("BrowserServer | Playwright");
     await linkinnerviewui.moreOptionsClick();
     await editpopupinnerview.editOptionClick();
@@ -320,6 +331,7 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
     const editpopupinnerview=new EditPopupLinkInnerview(page);
     const linkinnerviewui=new LinkInnerViewUI(page);
     await samplelink.recommendingSampleArticleLink(urls.URL12,urls.MIN,"BrowserType | Playwright");
+    await linkoutercard.refreshPage()
     await linkoutercard.linkOuterCardClick("BrowserType | Playwright");
     await linkinnerviewui.moreOptionsClick();
     await editpopupinnerview.editOptionClick();
@@ -345,6 +357,7 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
     const editpopupinnerview=new EditPopupLinkInnerview(page);
     const linkinnerviewui=new LinkInnerViewUI(page);
     await samplelink.recommendingSampleArticleLink(urls.URL13,urls.MIN,"CDPSession | Playwright");
+    await linkoutercard.refreshPage()
     await linkoutercard.linkOuterCardClick("CDPSession | Playwright");
     await linkinnerviewui.moreOptionsClick();
     await editpopupinnerview.editOptionClick();
@@ -373,7 +386,8 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
     const editpopupinnerview=new EditPopupLinkInnerview(page);
     const linkinnerviewui=new LinkInnerViewUI(page);
     await samplelink.recommendingSampleArticleLink(urls.URL14,urls.MIN,"ConsoleMessage | Playwright");
-   await linkoutercard.linkOuterCardClick("ConsoleMessage | Playwright");
+    await linkoutercard.refreshPage()
+    await linkoutercard.linkOuterCardClick("ConsoleMessage | Playwright");
     await linkinnerviewui.moreOptionsClick();
     await editpopupinnerview.editOptionClick();
     await editpopupinnerview.linkTitleMaxCharLimitBreach();
@@ -400,6 +414,7 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
     const editpopupinnerview=new EditPopupLinkInnerview(page);
     const linkinnerviewui=new LinkInnerViewUI(page);
     await samplelink.recommendingSampleArticleLink(urls.URL15,urls.MIN,"Coverage | Playwright");
+    await linkoutercard.refreshPage()
     await linkoutercard.linkOuterCardClick("Coverage | Playwright");
     await linkinnerviewui.moreOptionsClick();
     await editpopupinnerview.editOptionClick();
@@ -427,7 +442,9 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
     const linkoutercard= new LinkOuterCard(page);
     const editpopupinnerview=new EditPopupLinkInnerview(page);
     const linkinnerviewui=new LinkInnerViewUI(page);
+    
     await samplelink.recommendingSampleArticleLink(urls.URL16,urls.MIN,"Dialog | Playwright");
+    await linkoutercard.refreshPage()
     await linkoutercard.linkOuterCardClick("Dialog | Playwright");
     await linkinnerviewui.moreOptionsClick();
     await editpopupinnerview.editOptionClick();
@@ -456,6 +473,7 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
     const linkinnerviewui=new LinkInnerViewUI(page);
     await samplelink.recommendingSampleArticleLink(urls.URL17,urls.MIN,"Download | Playwright");
     await linkoutercard.linkOuterCardClick("Download | Playwright");
+    await linkoutercard.refreshPage()
     await linkinnerviewui.moreOptionsClick();
     await editpopupinnerview.editOptionClick();
     await editpopupinnerview.linkURLonlyNumbersInput();
@@ -482,6 +500,7 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
     const editpopupinnerview=new EditPopupLinkInnerview(page);
     const linkinnerviewui=new LinkInnerViewUI(page);
     await samplelink.recommendingSampleArticleLink(urls.URL18,urls.MIN,"ElementHandle | Playwright");
+    await linkoutercard.refreshPage()
     await linkoutercard.linkOuterCardClick("ElementHandle | Playwright");
     await linkinnerviewui.moreOptionsVisible()
     await linkinnerviewui.moreOptionsClick();
@@ -511,6 +530,7 @@ test("verify that min field is not accepting 0/null value",async({page})=>{
     const editpopupinnerview=new EditPopupLinkInnerview(page);
     const linkinnerviewui=new LinkInnerViewUI(page);
     await samplelink.recommendingSampleArticleLink(urls.URL19,urls.MIN,"FileChooser | Playwright");
+    await linkoutercard.refreshPage()
     await linkoutercard.linkOuterCardClick("FileChooser | Playwright");
     await linkinnerviewui.moreOptionsClick();
     await editpopupinnerview.editOptionClick();

@@ -27,8 +27,9 @@ class  LinkOuterCard{
     }
     async refreshPage(){
     await this.MyLearningTab.click();
-    await this.page.waitForTimeout(1000);
+    await this.page.waitForTimeout(1800);
      await this.HomePageTab.click();
+     //await this.page.waitForTimeout(1800);
     }
 
     async linkOuterCardHover(linkTitle){
@@ -60,25 +61,29 @@ class  LinkOuterCard{
     //await this.LinkOuterCard.nth(0).click()
     
     const cardbody=await this.CardBody;
-    await this.CardBody.nth(3).waitFor({state:"attached"})
+    await this.CardBody.nth(3).waitFor()
      
     const count= await cardbody.count();
     for(let i=0;i<count;i++){
+        if(i >= 20) { // check if i is greater than 10
+            i=0
+        }
         var text1=linkTitle
         if(await this.CardBody.nth(i).textContent()===text1){
             await this.CardBody.nth(i).click();
             await this.LinkSource.waitFor();
+            await expect(this.LinkSource).toBeVisible()
              
             break;
             }
             
-    if(i >= 20) { // check if i is greater than 10
-        i=0
-        //  await this.MyLearningTab.click();
-        //  await this.HomePageTab.click();
-       break;
+    // if(i >= 20) { // check if i is greater than 10
+    //     i=0
+    //     //  await this.MyLearningTab.click();
+    //     //  await this.HomePageTab.click();
+    //    break;
         
-    }
+    // }
     
 }
 
@@ -86,10 +91,13 @@ class  LinkOuterCard{
 }
     async link_More_and_Edit_OptionsClick(linkTitle){
         const cardbody=await this.CardBody;
-       await this.CardBody.nth(3).waitFor({state:"attached"})
+       await this.CardBody.nth(3).waitFor()
          
     const count= await cardbody.count();
     for(let i=0;i<count;i++){
+        if(i >= 20) {
+            i = 0;
+          }
         var text2=linkTitle
         if(await this.CardBody.nth(i).textContent()===text2){
             await this.CardBody.nth(i).hover();
@@ -100,15 +108,15 @@ class  LinkOuterCard{
 
     }
     
-   if(i >= 20) { // check if i is greater than 10
-        // await this.MyLearningTab.click();
-        //  await this.HomePageTab.click();
-        i = 0; // set i back to 0
-        break;
+//    if(i >= 20) { // check if i is greater than 10
+//         // await this.MyLearningTab.click();
+//         //  await this.HomePageTab.click();
+//         i = 0; // set i back to 0
+//         break;
     }
 }
         
-    }
+    
     async payItForwardClick(){
         await this.PayItForward.nth(0).click()
     }

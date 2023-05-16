@@ -1,5 +1,5 @@
 const { test,expect } = require("@playwright/test");
-const authorizedFetch=require ('../Config/global-setup2')
+const authorizedFetch=require ('../Config/global-setup-api')
 class DeleteSampleLinkAPI
 {
     constructor(page){
