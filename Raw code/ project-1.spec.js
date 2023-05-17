@@ -121,6 +121,7 @@
 //   for(let i=0;i<3;i++){ 
 //     await expect(page.locator("span[class='challenge-type book']").nth(i)).toBeVisible();
 //   }
+//await page.locator("span[class='challenge-type book']").waitFor()
 // })
 // test("verify on selecting article filter only recommend articles are displayed",async({page})=>{
 //   await page.locator('.filter-dropdown').click();

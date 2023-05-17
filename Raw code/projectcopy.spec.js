@@ -1313,3 +1313,45 @@ const { Agent } = require("http");
 // //         }
 // //       }
 // //     })
+
+//delete code 
+// const cardbody=await this.CardBody;
+    // const count= await cardbody.count();
+    // for(let i=0;i<count;i++){
+    //     var text=linkTitle
+    //     if(await this.CardBody.nth(i).textContent()===text){
+    //         await this.CardBody.nth(i).hover();
+    //         await this.MoreOptionsDropdown.nth(i).click();
+    //         await this.DeleteOptionLinkOuterCard.nth(i).click();
+    //         await this.DeleteLinkConfirmation.waitFor();
+    //         await this.DeleteLinkConfirmation.click({delay:2000});
+    //         await expect(this.DeleteContainer).not.toBeVisible();
+    //         break;
+    //     }
+    // }
+
+    // login code
+    // await expect(this.UnivNameVisible).toBeVisible()
+    // const header=await this.CloseHeader.isVisible()
+    // console.log(header);
+    // if(header===true){
+    //     await this.CloseHeader.click()
+    // }
+    // await this.Recommendbutton.click();
+    // await this.EnterURL.fill(Url);
+    // await this.page.keyboard.press('Enter');
+    // await this.LearningMin.fill(Min);
+    // await this.RecommendingSaveButton.click();
+    // await this.page.waitForLoadState("networkidle");
+//     const cardbody=await this.CardBody;
+//     const count= await cardbody.count();
+//     for(let i=0;i<count;i++){
+//         var text=linkname
+//         if(await this.CardBody.nth(i).textContent()===text){
+//             console.log("recommended sample link and not clicked ");
+//           break;
+//         }
+    
+
+
+// }

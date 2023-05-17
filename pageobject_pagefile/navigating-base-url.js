@@ -15,10 +15,7 @@ const { test,expect } = require("@playwright/test");
 
 async navigationURL(){
      await this.page.goto('https://my.staging.adaptiveu.app/');
-    //await expect(this.UniversityName).toContainText("AnywhereWorks");
-    //await this.CardBody.nth(3).waitFor({state:"visible"})
-    //await this.UniversityName.waitFor()
-     
+    
      
 }
 }
