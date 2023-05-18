@@ -4,5 +4,5 @@
 /playwright/.cache/
 .env
 /Raw code/
-/test-examples/
 node_modules/
+/playwright-report/
