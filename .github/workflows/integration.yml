@@ -1,174 +1,64 @@
-# name: Playwright Tests
-# on:
-#   #push:
-#     #branches: [ main, master ]
-#   #pull_request:
-#     #branches: [ main, master ]
-# jobs:
-#   test:
-#     timeout-minutes: 60
-#     runs-on: ubuntu-latest
-#     steps:
-#     - uses: actions/checkout@v3
-#     - uses: actions/setup-node@v3
-#       with:
-#         node-version: 16
-#     - name: Install dependencies
-#       run: npm ci 
-     
-#     - name: Install Playwright Browsers
-#       run: npx playwright install --with-deps
+name: Test Workflow
 
-#     - name: Run Takeaways Formatting options test
-#       env:
-#         CLIENT_ID: ${{ secrets.CLIENT_ID }}
-#         CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-#         PASSWORD: ${{ secrets.PASSWORD }}
-#         USERNAME: ${{ secrets.USERNAME }}
-#       continue-on-error: true
-#       run: npm run takeawayformatting 
+on: 
+  workflow_dispatch:
+    inputs:
+      testenv:
+        description: "staging or live"
+        required: false
+        default: "staging"
+        type: choice
+        options:
+          - staging
+          - live
+      spec_files_path:
+        description: "Enter path to spec file(s)"
+        required: false
+        default: "./tests/**/*.spec.js" # Change the path to match your testing framework. 
+  
 
-
-#     - name: Run Playwright content filter test 
-#       env:
-#         CLIENT_ID: ${{ secrets.CLIENT_ID }}
-#         CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-#         PASSWORD: ${{ secrets.PASSWORD }}
-#         USERNAME: ${{ secrets.USERNAME }}
-#       continue-on-error: true
-#       run: npm run content
-
-#     - name: Run edit innerview
-#       env:
-#         CLIENT_ID: ${{ secrets.CLIENT_ID }}
-#         CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-#         PASSWORD: ${{ secrets.PASSWORD }}
-#         USERNAME: ${{ secrets.USERNAME }}
-#       continue-on-error: true
-#       run: npm run editinnerview
-
-#     - name: Run playwright Delete link outercard test
-#       env:
-#         CLIENT_ID: ${{ secrets.CLIENT_ID }}
-#         CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-#         PASSWORD: ${{ secrets.PASSWORD }}
-#         USERNAME: ${{ secrets.USERNAME }} 
-#       continue-on-error: true
-#       run: npm run delete
-
-#     - name: Run Delete link innerview test 
-#       env:
-#         CLIENT_ID: ${{ secrets.CLIENT_ID }}
-#         CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-#         PASSWORD: ${{ secrets.PASSWORD }}
-#         USERNAME: ${{ secrets.USERNAME }}
-#       continue-on-error: true
-#       run: npm run deleteinnerview
-      
-
-#     - name: Run edit popup Outercard
-#       env:
-#         CLIENT_ID: ${{ secrets.CLIENT_ID }}
-#         CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-#         PASSWORD: ${{ secrets.PASSWORD }}
-#         USERNAME: ${{ secrets.USERNAME }}
-#       continue-on-error: true
-#       run: npm run editoutercard
-
-#     - name: Run home page UI test
-#       env:
-#         CLIENT_ID: ${{ secrets.CLIENT_ID }}
-#         CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-#         PASSWORD: ${{ secrets.PASSWORD }}
-#         USERNAME: ${{ secrets.USERNAME }}
-#       continue-on-error: true
-#       run: npm run homepage
-
-
-#     - name: Run Link innerview test
-#       env:
-#         CLIENT_ID: ${{ secrets.CLIENT_ID }}
-#         CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-#         PASSWORD: ${{ secrets.PASSWORD }}
-#         USERNAME: ${{ secrets.USERNAME }}
-#       continue-on-error: true
-#       run: npm run linkinnerview
-
-
-#     - name: Run Link outercard Tests
-#       env:
-#         CLIENT_ID: ${{ secrets.CLIENT_ID }}
-#         CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-#         PASSWORD: ${{ secrets.PASSWORD }}
-#         USERNAME: ${{ secrets.USERNAME }}
-#       continue-on-error: true
-#       run: npm run linkoutercard
-
-
-#     - name: Run PayItforward outercard tests
-#       env:
-#         CLIENT_ID: ${{ secrets.CLIENT_ID }}
-#         CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-#         PASSWORD: ${{ secrets.PASSWORD }}
-#         USERNAME: ${{ secrets.USERNAME }}
-#       continue-on-error: true
-#       run: npm run payourtercard
-
-
-#     - name: Run pay it forward Innerview tests
-#       env:
-#         CLIENT_ID: ${{ secrets.CLIENT_ID }}
-#         CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-#         PASSWORD: ${{ secrets.PASSWORD }}
-#         USERNAME: ${{ secrets.USERNAME }} 
-#       continue-on-error: true
-#       run: npm run payinnerview
-
-
-#     - name: recommend link
-      
-#       env:
-#         CLIENT_ID: ${{ secrets.CLIENT_ID }}
-#         CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-#         PASSWORD: ${{ secrets.PASSWORD }}
-#         USERNAME: ${{ secrets.USERNAME }}
-#       continue-on-error: true
-#       run: npm run editinnerview
-#       #continue-on-error: true
-#       #run: node tests/access.js
-
-
-#     - name: Run Recommend link innerview test
-#       env:
-#         CLIENT_ID: ${{ secrets.CLIENT_ID }}
-#         CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-#         PASSWORD: ${{ secrets.PASSWORD }}
-#         USERNAME: ${{ secrets.USERNAME }}
-#       continue-on-error: true
-#       run: npm run recommendinnerview
-
-
-     
-
-#     - name: Run Takeaways and remove progress test
-#       env:
-#         CLIENT_ID: ${{ secrets.CLIENT_ID }}
-#         CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-#         PASSWORD: ${{ secrets.PASSWORD }}
-#         USERNAME: ${{ secrets.USERNAME }}
-#       continue-on-error: true
-#       run: npm run takeawayremoveprogress
+jobs:
+  test:
+    runs-on: ubuntu-latest
     
-#     - uses: actions/upload-artifact@v3
-#       if: always()
-#       with:
-#         name: playwright-report
-#         path: playwright-report/
-#         retention-days: 30
-         
-#     #"recommendhomepage": "tests/RecommendLinkHomePage.spec.js",
-#    # "recommendinnerview": "tests/RecommendLinkInnerView.spec.js",
-#    # "takeawayformatting": "tests/TakawayFormattingOption.spec.js",
-#    # "takeawayremoveprogress": "tests/TakawayFormattingOption.spec.js"
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
- 
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '19'
+
+      - name: Install dependencies
+        run: |
+          npm config set registry https://npm.pkg.github.com/adaptavant
+          echo //npm.pkg.github.com/:_authToken=${{secrets.PACKAGES_TOKEN}}  >> ~/.npmrc
+          npm install
+        
+
+      - name: Install Playwright Browsers
+        run: |
+           npm config set registry https://npm.pkg.github.com/adaptavant
+           echo //npm.pkg.github.com/:_authToken=${{secrets.PACKAGES_TOKEN}}  >> ~/.npmrc
+           npx playwright install --with-deps
+      
+      - name: Set environment variables
+        run: echo "GOOGLE_SECRETS_PROJECT_NUMBER=279278280251" >> $GITHUB_ENV
+      - name: Step in job1
+        run: echo $GOOGLE_SECRETS_PROJECT_NUMBER
+  
+      - name: authenticate with Google Cloud Platform (GCP)
+        uses: 'google-github-actions/auth@v0'
+        with:
+         credentials_json: '${{ secrets.ADAPTIVECOURSE_SA_KEY }}'
+
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v0'  
+    
+     
+      - name: Run Test
+  
+        run: |
+          export GOOGLE_SECRETS_PROJECT_NUMBER=$GOOGLE_SECRETS_PROJECT_NUMBER
+          npx playwright test ${{ github.event.inputs.spec_files_path }}
