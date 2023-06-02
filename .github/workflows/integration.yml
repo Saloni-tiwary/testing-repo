@@ -1,6 +1,6 @@
 name: Test Workflow
 
-on: 
+on:
   workflow_dispatch:
     inputs:
       testenv:
@@ -11,16 +11,16 @@ on:
         options:
           - staging
           - live
-      spec_files_path:
-        description: "Enter path to spec file(s)"
+      sanity_spec_files_path:
+        description: "Enter path to sanity spec file(s)"
         required: false
-        default: "./tests/**/*.spec.js" # Change the path to match your testing framework. 
-  
+        default: "./tests/sanity/**/*.spec.js" # Change the path to match your sanity test files.
 
 jobs:
-  test:
+  regression-test:
     runs-on: ubuntu-latest
-    
+    if: ${{ github.event.inputs.testenv == 'regression' }}
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -55,10 +55,52 @@ jobs:
 
       - name: 'Set up Cloud SDK'
         uses: 'google-github-actions/setup-gcloud@v0'  
-    
-     
-      - name: Run Test
-  
+
+      - name: Run Regression Test
         run: |
           export GOOGLE_SECRETS_PROJECT_NUMBER=$GOOGLE_SECRETS_PROJECT_NUMBER
           npx playwright test ${{ github.event.inputs.spec_files_path }}
+
+  sanity-test:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.testenv == 'sanity' }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '19'
+
+      - name: Install dependencies
+        run: |
+          npm config set registry https://npm.pkg.github.com/adaptavant
+          echo //npm.pkg.github.com/:_authToken=${{secrets.PACKAGES_TOKEN}}  >> ~/.npmrc
+          npm install
+        
+
+      - name: Install Playwright Browsers
+        run: |
+           npm config set registry https://npm.pkg.github.com/adaptavant
+           echo //npm.pkg.github.com/:_authToken=${{secrets.PACKAGES_TOKEN}}  >> ~/.npmrc
+           npx playwright install --with-deps
+      
+      - name: Set environment variables
+        run: echo "GOOGLE_SECRETS_PROJECT_NUMBER=279278280251" >> $GITHUB_ENV
+      - name: Step in job1
+        run: echo $GOOGLE_SECRETS_PROJECT_NUMBER
+  
+      - name: authenticate with Google Cloud Platform (GCP)
+        uses: 'google-github-actions/auth@v0'
+        with:
+         credentials_json: '${{ secrets.ADAPTIVECOURSE_SA_KEY }}'
+
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v0'  
+
+      - name: Run Sanity Test
+        run: |
+          export GOOGLE_SECRETS_PROJECT_NUMBER=$GOOGLE_SECRETS_PROJECT_NUMBER
+          npx playwright test ${{ github.event.inputs.sanity_spec_files_path }}
