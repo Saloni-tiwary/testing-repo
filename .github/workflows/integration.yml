@@ -11,10 +11,14 @@ on:
         options:
           - staging
           - live
+      spec_files_path:
+        description: "Enter path to regression spec file(s)"
+        required: false
+        default: "./tests/**/*.spec.js" # Change the path to match your regression test files.
       sanity_spec_files_path:
         description: "Enter path to sanity spec file(s)"
         required: false
-        default: "./tests/sanity/**/*.spec.js" # Change the path to match your sanity test files.
+        default: "./tests/**/*.spec.js" # Change the path to match your sanity test files.
 
 jobs:
   regression-test:
