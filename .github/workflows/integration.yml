@@ -15,6 +15,11 @@ jobs:
         node-version: 18
     - name: Install dependencies
       run: npm install
+    - name: Install Allure Commandline
+      run: |
+          curl -o allure-2.14.0.tgz -Ls https://github.com/allure-framework/allure2/releases/download/2.14.0/allure-2.14.0.tgz
+          tar -zxvf allure-2.14.0.tgz -C $HOME
+          export PATH="$HOME/allure-2.14.0/bin:$PATH"
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright tests
