@@ -5,7 +5,7 @@
   "main": "login.spec.js",
   "scripts": {
     "content": "npx playwright test tests/ContentFilter.spec.js",
-    "raw": "npx playwright test tests/raw.spec.js"
+    "raw": "npx playwright test tests/raw.spec.js",
     "delete": "npx playwright test tests/DeleteLinkOuterCard.spec.js",
     "deleteinnerview": "npx playwright test tests/DeleteOptionLinkInnerView.spec.js",
     "editinnerview": "npx playwright test tests/EditPopupLinkInnerview.spec.js",
