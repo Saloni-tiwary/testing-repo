@@ -19,7 +19,7 @@ jobs:
       run: npx playwright install --with-deps
     - name: Run Playwright tests
       run: |
-        npx playwright test
+        npm run raw
         allure generate $ALLURE_RESULTS_DIR --clean -o allure-report
 
     - name: Upload Allure Report
