@@ -2,7 +2,7 @@ const { test, expect, request } = require("@playwright/test");
 const { Agent } = require("http");
 
 test("verify that link outer card more options are selectable", async ({
-  page,
+  page})=>{
 
    await page.goto("https://my.staging.adaptiveu.app/");
    await page.locator("#email").type("shakti.choudhary@anywhere.co");
