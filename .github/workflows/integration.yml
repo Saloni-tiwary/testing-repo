@@ -25,6 +25,13 @@ jobs:
     - name: Run Playwright tests
       run: |
         npm run raw --reporter=line,allure-playwright
+        
+    - name: Install Allure Commandline
+      run: npm install -g allure-commandline
+
+    - name: Generate Allure Report
+      run: |
+        export ALLURE_RESULTS_DIR=allure-results
         allure generate $ALLURE_RESULTS_DIR --clean -o allure-report
 
     - name: Upload Allure Report
