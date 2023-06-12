@@ -40,11 +40,13 @@ jobs:
         name: allure-report
         path: allure-report
     - name: Show Allure Report
-      run : |
-       run_id=$(echo "${{ github.event.workflow_run.id }}")
-       artifact_url="https://api.github.com/repos/${{ github.repository }}/actions/runs/${run_id}/artifacts"
-       artifact_download_url=$(curl -s -H "Accept: application/vnd.github.v3+json" "$artifact_url" | jq -r '.artifacts[] | select(.name == "allure-report") | .archive_download_url')
-       echo "::set-output name=artifact_url::${artifact_download_url}"
+      id: show_allure_report
+      run: |
+        run_id="${{ github.run_id }}"
+        repo_owner="${{ github.repository_owner }}"
+        repo_name="${{ github.repository }}"
+        artifact_url=$(curl -s -H "Accept: application/vnd.github.v3+json" "https://api.github.com/repos/$repo_owner/$repo_name/actions/runs/$run_id/artifacts" | jq -r '.artifacts[] | select(.name == "allure-report") | .archive_download_url')
+        echo "::set-output name=artifact_url::$artifact_url"
     - name: Open Allure Report
       uses: actions/github-script@v5
       with:
