@@ -40,18 +40,11 @@ jobs:
         name: allure-report
         path: allure-report
     - name: Show Allure Report
-      uses: actions/github-script@v5
-      with:
-        script: |
-          const response = await octokit.actions.listWorkflowRunArtifacts({
-           owner: context.repo.owner,
-           repo: context.repo.repo,
-           run_id: context.runId
-          });
-          const artifact = response.data.artifacts.find(artifact => artifact.name === 'allure-report');
-          if (artifact) {
-            console.log(`::set-output name=artifact_url::${artifact.archive_download_url}`);
-          }
+      run : |
+       run_id=$(echo "${{ github.event.workflow_run.id }}")
+       artifact_url="https://api.github.com/repos/${{ github.repository }}/actions/runs/${run_id}/artifacts"
+       artifact_download_url=$(curl -s -H "Accept: application/vnd.github.v3+json" "$artifact_url" | jq -r '.artifacts[] | select(.name == "allure-report") | .archive_download_url')
+       echo "::set-output name=artifact_url::${artifact_download_url}"
     - name: Open Allure Report
       uses: actions/github-script@v5
       with:
