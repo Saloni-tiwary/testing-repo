@@ -25,7 +25,8 @@ jobs:
     - name: Run Playwright tests
       run: |
         npm run raw --reporter=line,allure-playwright
-        docker run --rm -v ${{ github.workspace }}:/app -w /app avasur/allure-commandline allure generate $ALLURE_RESULTS_DIR --clean -o allure-report
+        docker run --rm -v ${{ github.workspace }}:/app -w /app allureframework/allure2 allure generate $ALLURE_RESULTS_DIR --clean -o allure-report
+
 
     - name: Upload Allure Report
       uses: actions/upload-artifact@v2
