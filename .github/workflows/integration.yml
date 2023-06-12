@@ -15,24 +15,41 @@ jobs:
         node-version: 18
     - name: Install dependencies
       run: npm install
-  
+    - name: Install Allure Commandline
+      run: |
+          curl -o allure-2.14.0.tgz -Ls https://github.com/allure-framework/allure2/releases/download/2.14.0/allure-2.14.0.tgz
+          tar -zxvf allure-2.14.0.tgz -C $HOME
+          export PATH="$HOME/allure-2.14.0/bin:$PATH"
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright tests
       run: |
         npm run raw --reporter=line,allure-playwright
-    - name: Install Allure Commandline
-      run: npm install -g allure-commandline
-
-    - name: Generate Allure Report
-      run: |
-        export ALLURE_RESULTS_DIR=allure-results
         allure generate $ALLURE_RESULTS_DIR --clean -o allure-report
-
 
     - name: Upload Allure Report
       uses: actions/upload-artifact@v2
       with:
         name: allure-report
         path: allure-report
-#test
+    - name: Show Allure Report
+      uses: actions/github-script@v5
+      with:
+        script: |
+          const response = await octokit.actions.listWorkflowRunArtifacts({
+           owner: context.repo.owner,
+           repo: context.repo.repo,
+           run_id: context.runId
+          });
+          const artifact = response.data.artifacts.find(artifact => artifact.name === 'allure-report');
+          if (artifact) {
+            console.log(`::set-output name=artifact_url::${artifact.archive_download_url}`);
+          }
+    - name: Open Allure Report
+      uses: actions/github-script@v5
+      with:
+        script: |
+          const artifactUrl = '${{ steps.show_allure_report.outputs.artifact_url }}';
+          console.log(`Allure Report: ${artifactUrl}`);
+
+    
